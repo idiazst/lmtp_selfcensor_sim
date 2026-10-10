@@ -86,5 +86,9 @@ other chat's automation or packages. The user explicitly authorized coordination
 with chat 01a10e8d-a943-78e1-9887-a198ab1ed2d0 (Push cmbridge ensemble updates)
 on October 10. Read MI-SIMULATION-COORDINATION.md in the workspace root. That chat
 owns repository reorganization and has deferred all imputation source/results to
-this chat. Inform it after canonical results and sources are stable, before
-removing compatibility paths. It may coordinate a final source manifest/commit.
+this chat. The dependency audit is complete and the organization chat has removed obsolete
+cmbridge-tests files and old-path compatibility links. All active dependencies
+are canonical. It owns the fresh all-scenarios launcher (fresh.R/fresh_driver.R
+or replacements), repository README, and publication. Do not edit that separate
+launcher concurrently. This chat owns the active neither run and slide delivery.
+Coordinate after results are ready for any final manifest/commit update.
