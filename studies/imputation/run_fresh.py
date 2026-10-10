@@ -19,6 +19,8 @@ out = args.output.resolve()
 sizes = [int(n) for n in args.sizes.split(',')]
 scenarios = args.scenarios.split(',')
 assert args.workers > 0 and args.replications > 0
+assert sizes and len(sizes) == len(set(sizes))
+assert scenarios and len(scenarios) == len(set(scenarios))
 assert set(sizes) <= {1000, 4000}
 assert set(scenarios) <= {'mar_only', 'shadow_only', 'both', 'neither'}
 if out.exists():
@@ -26,8 +28,10 @@ if out.exists():
 source = out / 'source'
 source.mkdir(parents=True)
 validated = repo / 'studies/imputation/neither'
-for name in ['dgp.R', 'study.R', 'original-helpers.R', 'bridge_run.R', 'validate.R', 'summarize.R']:
+for name in ['dgp.R', 'study.R', 'original-helpers.R', 'bridge_run.R']:
     shutil.copy2(validated / name, source / name)
+for name in ['validate.R', 'summarize.R']:
+    shutil.copy2(Path(__file__).with_name(name), source / name)
 shutil.copy2(repo / 'scripts/setup.R', source / 'runtime-setup.R')
 shutil.copy2(Path(__file__).with_name('fresh_driver.R'), source / 'fresh_driver.R')
 settings = {'sizes': sizes, 'scenarios': scenarios, 'replications': args.replications,
