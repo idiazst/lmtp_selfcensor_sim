@@ -1,0 +1,26 @@
+{
+  "selection": "Exact package archives used for the user-verified ensemble-stability-v6 results and full-ensemble-study-v2; latest-number upgrades are excluded.",
+  "date": "2026-10-06",
+  "packages": [
+    {
+      "package": "cmbridge",
+      "version": "0.3.0.9020",
+      "archive": "cmbridge_0.3.0.9020.tar.gz",
+      "sha256": "1c901b304576fd2b8cbaa5f879a446cac205355daba1cf284163cce2f683e514",
+      "path": "dependencies/cmbridge_0.3.0.9020.tar.gz"
+    },
+    {
+      "package": "lmtp",
+      "version": "1.6.0.9021",
+      "archive": "lmtp_1.6.0.9021.tar.gz",
+      "sha256": "3f1c46f4b255c6a9617193814aeff15b9f53db61a75a60e3ed63b04ecd99cf62",
+      "path": "dependencies/lmtp_1.6.0.9021.tar.gz"
+    }
+  ],
+  "cmbridge_commit": "4ad2f90870b4c3282dbaddc67dc2a0d61a7ec9f5",
+  "lmtp_branch": "idiazst/lmtp@self-censoring",
+  "mice": "3.19.0",
+  "note": "These archives reproduce the saved studies. Package organization did not change these frozen numerical sources.",
+  "lmtp_commit": "ca219910f8823dcfbadd1c4707ac980c7a638171",
+  "lmtp_R_sources_match_saved_archive": true
+}

@@ -1,0 +1,5 @@
+Completed datasets: 1200 of 1200
+Successful comparisons: 2354
+Datasets with reported errors: 23
+Remaining datasets: 0
+All planned datasets processed. Successful fits, failures, and warnings are retained.

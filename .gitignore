@@ -1,0 +1,13 @@
+.runtime/
+results/**/jobs/
+results/**/running.lock/
+results/**/source/
+results/**/*.log
+results/**/*.pid
+*.Rcheck/
+Rplots.pdf
+.DS_Store
+/*.tar.gz
+results/longitudinal/penalty_and_weight_selections.csv
+results/longitudinal/nested-penalty-trial-failures.csv
+results/longitudinal/ensemble_weights.csv

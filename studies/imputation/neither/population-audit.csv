@@ -1,0 +1,5 @@
+"scenario","truth","missing_fraction","mar_holds","shadow_holds","mar_response_contrast","shadow_response_contrast","mi_population_limit","bridge_population_limit","mi_bias","bridge_bias","min_bridge","max_bridge"
+"mar_only",0.75,0.35,TRUE,FALSE,0,0.2,0.75,0.612666666666667,0,-0.137333333333333,1.08333333333333,2.22857142857143
+"shadow_only",0.75,0.35,FALSE,TRUE,0.4,0,0.614058355437666,0.75,-0.135941644562334,2.22044604925031e-16,1.11111111111111,2.5
+"both",0.75,0.35,TRUE,TRUE,0,0,0.75,0.75,0,0,1.42857142857143,1.66666666666667
+"neither",0.75,0.35,FALSE,FALSE,0.3,0.15,0.663743991454513,0.663743991454513,-0.0862560085454869,-0.0862560085454869,1.45985401459854,1.6260162601626

@@ -1,0 +1,7 @@
+mechanism,n,planned,datasets_timed,mean_seconds,median_seconds,remaining_datasets,estimated_remaining_worker_hours
+binary_longitudinal,500,200,200,3746.83889,3458.242,0,0
+binary_longitudinal,1000,200,200,3482.19617,3141.39,0,0
+binary_longitudinal,4000,200,200,3008.238495,2712.924,0,0
+discrete_dose,500,200,200,4597.62463,4959.9865,0,0
+discrete_dose,1000,200,200,4382.67704,4924.147,0,0
+discrete_dose,4000,200,200,3500.79812,4010.653,0,0

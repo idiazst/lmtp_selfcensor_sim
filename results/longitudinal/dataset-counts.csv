@@ -1,0 +1,7 @@
+mechanism,n,completed,successful,failed
+binary_longitudinal,1000,200,197,3
+binary_longitudinal,4000,200,199,1
+binary_longitudinal,500,200,191,9
+discrete_dose,1000,200,199,1
+discrete_dose,4000,200,199,1
+discrete_dose,500,200,192,8

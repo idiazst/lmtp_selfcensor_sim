@@ -1,0 +1,5 @@
+"scenario","n","replicate","difference_tmle_minus_sdr"
+"neither",1000,1,-0.00308038693609591
+"neither",1000,2,-0.000270558567101897
+"neither",4000,1,5.17504614485631e-05
+"neither",4000,2,9.0351480840134e-05
