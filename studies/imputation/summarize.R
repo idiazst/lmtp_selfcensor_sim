@@ -124,7 +124,8 @@ for (n in sort(unique(r$n))) for (scenario in scenarios) {
   targets <- switch(scenario, mar_only = .6126666667, shadow_only = .6140583554, neither = .663743991454513, both = .75)
   if (any(targets != .75)) abline(h = targets, lty = 3, col = "#777777")
 }
-mtext(paste(status, basename(root), "results; dashed: truth; dotted: invalid-assumption target"), outer = TRUE)
+mtext(paste(status, "estimates; dashed: truth; dotted: population value"),
+  outer = TRUE, cex = if (length(scenarios) == 1L) .6 else 1)
 dev.off()
 png(file.path(root, "coverage.png"), width = 550 * length(scenarios), height = 750, res = 150, type = graphics_type)
 par(mfrow = c(1, length(scenarios)), mar = c(4, 4, 3, 1), oma = c(0, 0, 2, 0))
@@ -140,6 +141,7 @@ for (scenario in scenarios) {
   }
   legend("bottomright", labels, col = colors, pch = 15:18, lty = 1, bty = "n", cex = .8)
 }
-mtext(paste(status, basename(root), "coverage; bars: Monte Carlo uncertainty"), outer = TRUE)
+mtext(paste(status, "coverage; bars: Monte Carlo uncertainty"),
+  outer = TRUE, cex = if (length(scenarios) == 1L) .65 else 1)
 dev.off()
 print(summary)
