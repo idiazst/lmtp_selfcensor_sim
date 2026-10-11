@@ -29,6 +29,11 @@ use held-out predictions. Its adjoint loading uses exact DGP treatment ratios,
 so it is an isolated nuisance diagnostic rather than another full-estimator
 coverage study.
 
+The [RKHS loss check](results/longitudinal/rkhs-loss-check/REPORT.md) evaluates
+the true DGP functions and saved fits on the exact population support, then
+replays the actual validation scores. It verifies that truth minimizes the
+population loss and documents finite-sample selection after PSD projection.
+
 `studies/imputation/` contains the latest MI + standard lmtp TMLE/SDR versus
 bridge TMLE/SDR comparison. It uses n = 1000, 4000, 200 replications per
 scenario, 50 imputations and target 0.75. All four scenarios are complete:

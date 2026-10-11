@@ -1,0 +1,3 @@
+PASS: true functions attain the nonnegative population minimum for full and approximate kernels.
+PASS: original validation Grams reproduced; data hashes agree with the saved datasets.
+PASS: only losses and weights were evaluated; original fitted objects and packages are unchanged.

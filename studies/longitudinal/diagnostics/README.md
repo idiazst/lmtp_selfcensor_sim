@@ -47,3 +47,16 @@ The last two commands inspect saved fits without refitting. They record
 training support, penalty-CV tables, warnings and checkpoint checksums, verify
 the complete out-of-sample prediction rows, and add the interpretation to the
 report. Their source hashes are separate from the frozen fitting fingerprint.
+
+To check the RKHS loss at the true functions without refitting:
+
+```sh
+Rscript studies/longitudinal/diagnostics/check_rkhs_loss.R
+Rscript studies/longitudinal/diagnostics/report_rkhs_loss.R
+```
+
+This computes exact population losses, replays the original CV criterion,
+and evaluates the diagnostic candidate set augmented with the true function.
+The [loss report](../../../results/longitudinal/rkhs-loss-check/REPORT.md)
+distinguishes the population minimum from the empirical U-statistic and PSD
+criteria. No changes to packages or original fitted objects are made.
