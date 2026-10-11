@@ -1,9 +1,5 @@
-# Corrected-estimator validation
+# Four-scenario validation
 
-Validated 1200 saved datasets and 2400 successful pooled MI analyses.
+All 1,200 previous corrected dataset checkpoints match their pre-extension SHA256 hashes. The original 24 summary rows reproduce their previous values. The 400 new datasets passed independent validation in [the extension validation](neither/main/VALIDATION.md). The combined report contains 1,600 datasets, 6,400 returned method estimates, and 200 replications in each of the 32 method/scenario/sample-size cells. MSE and all performance metrics use the causal target 0.75.
 
-Saved bridge objects and observed data are identical to their originals. Input and imputation hashes match. Both MI arms have 50 completed-data fits. Each first fit is a standard lmtp object with the expected estimator name, original folds, and completed outcome.
-
-Maximum imputation reconstruction error: 0; maximum independent pooling variance error: 4.34e-19; maximum EIF reconstruction error: 8.88e-16; minimum saturated support cell: 7.
-
-Mean MI Monte Carlo SE / total SE: 8.4%; maximum: 10.9%.
+Independent delivery checks reproduced all means, coverage proportions, and MSE values from the 6,400 replicate rows, verified all 1,600 checkpoint hashes, and confirmed 160,000 completed-data lmtp calls with no failed calls or support assertions.

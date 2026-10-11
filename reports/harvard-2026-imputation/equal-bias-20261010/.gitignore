@@ -1,0 +1,5 @@
+*
+!.gitignore
+!build_slides.py
+!publish_slides.py
+!README.md

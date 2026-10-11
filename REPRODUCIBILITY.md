@@ -29,5 +29,8 @@ The fresh launcher now freezes these generic postprocessing entry points.
 
 Current code and results contain only the latest longitudinal and imputation
 studies. Older implementations/results were removed from the active repository
-trees. Git histories are retained. The active fourth-scenario MI extension uses
-unchanged frozen sources and remains owned by its separate simulation chat.
+trees. Git histories are retained. The completed fourth-scenario MI extension used
+unchanged frozen sources. The final aggregate has 1,600 hash-verified datasets
+and 6,400 returned estimates; all original summary values are preserved.
+GitHub validation passed for cmbridge, the lmtp self-censoring branch, and the
+simulation source/design checks.

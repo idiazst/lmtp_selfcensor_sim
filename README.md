@@ -23,11 +23,12 @@ one-step bridge correction. [Plan](studies/longitudinal/PLAN.md),
 
 `studies/imputation/` contains the latest MI + standard lmtp TMLE/SDR versus
 bridge TMLE/SDR comparison. It uses n = 1000, 4000, 200 replications per
-scenario, 50 imputations and target 0.75. The first three scenarios are
-complete; the extension where neither identification assumption holds is
-being computed separately under `studies/imputation/neither/` and
-`results/imputation/neither/`. Its results are merged only after validation.
-[Current results](results/imputation/REPORT.md).
+scenario, 50 imputations and target 0.75. All four scenarios are complete:
+MAR only, shadow only, both assumptions, and neither assumption. The validated
+aggregate contains 1,600 datasets and 6,400 returned method estimates, with
+160,000 completed-data lmtp calls. Original results are unchanged.
+[Completed results](results/imputation/REPORT.md),
+[validation](results/imputation/VALIDATION.md).
 
 ## Reproduce
 

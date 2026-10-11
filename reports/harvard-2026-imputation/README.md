@@ -1,17 +1,14 @@
 # Harvard MI comparison slide update
 
-These two helpers were migrated from the original slide preparation folder
-before its authorized cleanup. The actual talk is the source of truth. Always
-read its current slides.tex and preserve user edits and the longitudinal frames.
+The completed four-scenario update was delivered October 10, 2026. The current
+builder, publisher, and validation notes are in
+[equal-bias-20261010](equal-bias-20261010/README.md).
+Only these latest helpers are retained; the earlier three-scenario helpers have
+been removed.
 
-IMPORTANT: build_slides.py currently retains the earlier three-scenario layout
-and count checks. Adapt it to four scenarios/32 summary rows/1,600 datasets,
-the equal-bias neither DGP, and the current talk structure before using it.
-Do not publish anything while the study is incomplete.
+The actual talk is the source of truth. The publisher checks the current source
+and PDF hashes, keeps private backups, and preserves edits outside the three
+existing MI blocks. It refuses incomplete results. Build artifacts, talk copies,
+rendered images, delivery receipts and backups are ignored by Git.
 
-Detailed completion instructions:
-../../results/imputation/neither/NEXT_STEPS.md
-
-The publisher retains backups, a source-concurrency guard, and PDF checks.
-Final output stays in the actual 2026 Harvard talk folder. Old private drafts
-and the old baseline talk copy are not required for this update.
+The fitting sources, pinned packages and saved checkpoints remain unchanged.

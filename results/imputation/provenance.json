@@ -1,0 +1,8 @@
+{
+  "original_result_manifest": "/Users/ivan/Projects/cmbridge-work/lmtp_selfcensor_sim/results/imputation/neither/original-results-sha256.json",
+  "original_fingerprint": "eaed8231ae789f7e5431d47dd97cd85ece31802793e654951f876e5cc5022d4f",
+  "extension_fingerprint": "163b4b859c5a1afb16071755677197237882581a99ddbd811964763ff31d41c4",
+  "old_datasets": 1200,
+  "new_datasets": 400,
+  "original_estimates_unchanged": true
+}
