@@ -21,6 +21,14 @@ with missingness at both follow-ups. The approved study uses n = 500, 1000,
 one-step bridge correction. [Plan](studies/longitudinal/PLAN.md),
 [completed results](results/longitudinal/REPORT.md).
 
+The [selected-seed bridge/adjoint diagnostic](studies/longitudinal/diagnostics/README.md)
+uses the numerical-dose datasets with the largest and smallest absolute
+n=4,000 SDR errors, then refits only those ensembles at n=4,000, 10,000 and
+50,000. [Plots and equation checks](results/longitudinal/bridge-adjoint-seed-check/REPORT.md)
+use held-out predictions. Its adjoint loading uses exact DGP treatment ratios,
+so it is an isolated nuisance diagnostic rather than another full-estimator
+coverage study.
+
 `studies/imputation/` contains the latest MI + standard lmtp TMLE/SDR versus
 bridge TMLE/SDR comparison. It uses n = 1000, 4000, 200 replications per
 scenario, 50 imputations and target 0.75. All four scenarios are complete:

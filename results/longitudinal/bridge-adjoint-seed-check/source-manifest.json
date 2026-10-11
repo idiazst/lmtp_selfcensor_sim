@@ -1,0 +1,9 @@
+{
+  "scripts/setup.R": "456deddb011a9189166be0166022f56589a4e0a5949ccd4548087e79196f17b4",
+  "dependencies/package-pins.json": "dcbacce4d924c8c414534914c3f11598dca0e1004698fe6d31781d4960138426",
+  "studies/longitudinal/dgp.R": "e1ec40f0be5d15e8b0c7ab911e270d503f9782dfe227556d3e460c312a9641aa",
+  "studies/longitudinal/study.R": "7397cecf78c53fa75b773fc5cbbf4951e5105854297f6797adf9f754eb5f2af2",
+  "studies/longitudinal/diagnostics/bridge_adjoint_setup.R": "6d54b5408048c02d27f60d2b8ff5824c05cd0b8c5a04b3dd4a3fc8b4f95352d7",
+  "studies/longitudinal/diagnostics/run_bridge_adjoint.R": "2c43eabea5fba9467d1a9344bee1fea27088f774d2857eee5e4405add3438b5f",
+  "studies/longitudinal/diagnostics/plot_bridge_adjoint.R": "603a097e6e8d1ec83c26a033d91d0eca8e3429d4c8691d4c4d9c54cc996a5eef"
+}

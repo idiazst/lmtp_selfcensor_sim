@@ -1,0 +1,7 @@
+selected,seed,replicate,n
+largest_bias,5203041,41,4000
+largest_bias,5203041,41,10000
+largest_bias,5203041,41,50000
+smallest_bias,5203167,167,4000
+smallest_bias,5203167,167,10000
+smallest_bias,5203167,167,50000

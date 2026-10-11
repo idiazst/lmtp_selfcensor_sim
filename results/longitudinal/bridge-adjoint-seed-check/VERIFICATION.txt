@@ -1,0 +1,5 @@
+PASS: 36 saved bridge/adjoint pairs, six datasets, no outer-fold overlap.
+PASS: source fingerprints unchanged; each seed/size has one shared data draw.
+PASS: every adjoint row and every observed bridge row is predicted once out of sample.
+PASS: finite predictions; positive CV grids; retained candidates have interior selections.
+These are integrity checks. The nonzero defining-equation errors are reported separately.
