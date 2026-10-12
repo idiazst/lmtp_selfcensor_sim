@@ -1,0 +1,19 @@
+{
+  "studies/longitudinal/dgp.R": "e1ec40f0be5d15e8b0c7ab911e270d503f9782dfe227556d3e460c312a9641aa",
+  "studies/longitudinal/study.R": "7397cecf78c53fa75b773fc5cbbf4951e5105854297f6797adf9f754eb5f2af2",
+  "studies/longitudinal/diagnostics/bridge_adjoint_setup.R": "6d54b5408048c02d27f60d2b8ff5824c05cd0b8c5a04b3dd4a3fc8b4f95352d7",
+  "studies/longitudinal/diagnostics/adaptive_setup.R": "03397b65a4df43ccdbd7cd33b9e021215b79b608354baf56e2b2ac89c6550c52",
+  "studies/longitudinal/diagnostics/run_adaptive_selection.R": "d3b42616b1ab91ac3d55c6aa691db07c4699269e485170873ac82152edc39256",
+  "../cmbridge/R/adaptive_selection.R": "6dd05014e7bfe15708e98ecc3f9906d6cf51df15a3be5acc208bb835827b4cab",
+  "../cmbridge/R/basis.R": "b35a067691e72672aa3c3d3820b03df687d3a73500d92de94938dbf33694bc2d",
+  "../cmbridge/R/cmbridge-package.R": "00e985ef26566ed14a88635c8eead375210bd26fb7d6f2d413a105b634e6e82f",
+  "../cmbridge/R/ensemble.R": "581cedb78bc9e9bca6ff3828be00bb949532bf40c8cc1d44b3ad3131526e793c",
+  "../cmbridge/R/fit.R": "13ef46d7e7c9314be47de0e5e4395f7bb1e1459c9896c13b55bc3ade64edf43c",
+  "../cmbridge/R/landweber.R": "571f512d95b584ce3f7f7187bbbd7477af7ca7489cf2be2af65e5fecbc51384f",
+  "../cmbridge/R/linked_moment.R": "6dbda5713be7d6090eb18d73e4f07cf3b2ed545f7171ee141416fdd9da7e2eda",
+  "../cmbridge/R/pmmr.R": "7702ea5760f0a9bdb6e563fc928b6dd409bb4bcd0bfca5553ad7b32eb1ce0939",
+  "../cmbridge/R/saturated_l1.R": "715b555b22b08f12d8aa502e747b7531ffc65b81c55f7b1d31b3acd7c7f4d5d3",
+  "../cmbridge/R/selection.R": "45bd542e836fc95c4e93b608c5b1659b6c74cbb7c8f4ca3d159db745caa9ad0c",
+  "../cmbridge/R/sieve_md.R": "dccb355c0e1db221d61fc7d6916918f5ba8feacc422df8e356f96c7fbd6cc8e0",
+  "../cmbridge/R/utils.R": "3c81057c881cdb1cc7b43bdc719c3932a58b31bb449272b3e8217ca928b69040"
+}
