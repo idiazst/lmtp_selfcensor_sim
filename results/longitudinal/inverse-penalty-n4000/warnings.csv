@@ -1,0 +1,55 @@
+selected,seed,n,time,fold,selection,function_name,message
+largest_bias,5203041,4000,2,1,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,1,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,1,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,2,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,2,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,2,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,3,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,3,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,2,3,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,1,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,1,gcv,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,1,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,1,lcurve,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,1,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,1,quasiopt,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,2,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,2,gcv,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,2,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,2,lcurve,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,2,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,2,quasiopt,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,3,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,3,gcv,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,3,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,3,lcurve,adjoint,all interior knots match left boundary knot
+largest_bias,5203041,4000,3,3,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+largest_bias,5203041,4000,3,3,quasiopt,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,2,1,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,1,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,1,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,2,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,2,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,2,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,3,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,3,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,2,3,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,1,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,1,gcv,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,1,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,1,lcurve,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,1,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,1,quasiopt,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,2,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,2,gcv,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,2,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,2,lcurve,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,2,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,2,quasiopt,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,3,gcv,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,3,gcv,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,3,lcurve,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,3,lcurve,adjoint,all interior knots match left boundary knot
+smallest_bias,5203167,4000,3,3,quasiopt,adjoint,shoving 'interior' knots matching boundary knots to inside
+smallest_bias,5203167,4000,3,3,quasiopt,adjoint,all interior knots match left boundary knot
