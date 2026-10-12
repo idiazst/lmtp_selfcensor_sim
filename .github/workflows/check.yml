@@ -1,7 +1,7 @@
 name: Simulation source and design checks
 on:
   push:
-    branches: [main]
+    branches: [main, psd-numerical-n4000]
     paths: ['studies/**', 'scripts/**', 'dependencies/**', '.github/workflows/check.yml']
   pull_request:
   workflow_dispatch:
