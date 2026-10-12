@@ -48,6 +48,8 @@ for (i in indices) {
     answer <- tryCatch(withCallingHandlers({
       result <- run_dataset(z$mechanism, z$n, z$replicate, z$seed, store_scores = TRUE,
         nuisance_callback = callback)
+      # Retain returned estimates even if a later diagnostics operation fails.
+      saveRDS(result, paste0(path, ".fitted"), compress = "gzip")
       g <- make_mechanism("discrete_dose"); pt <- study_task(result$population, g)$task
       audit <- psd_audit(references, task_reference, result$data, result$population, pt, g)
       c(result, audit)
@@ -63,6 +65,7 @@ for (i in indices) {
     }
     temporary <- paste0(path, ".tmp"); saveRDS(answer, temporary, compress = "gzip")
     stopifnot(file.rename(temporary, path))
+    if (is.null(answer$outer_error)) unlink(paste0(path, ".fitted"))
     if (mode == "psd" && is.null(answer$outer_error)) {
       canonical_references <- references; canonical_data <- answer$data
     }

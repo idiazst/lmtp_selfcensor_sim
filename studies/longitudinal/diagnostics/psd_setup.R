@@ -48,7 +48,7 @@ psd_audit <- function(references, task, d, p, pt, g) {
         tuning <- list(final = lapply(model$candidates, `[[`, "penalty_cv"),
           folds = model$fold_penalty_cv, boundaries = model$fold_penalty_boundary)
         audits[[length(audits) + 1L]] <<- data.table(fold = fold, horizon = s,
-          kind = kind, key = key, training_n = model$n, active = paste(model$active_candidates, collapse = ";"),
+          kind = kind, fit_key = key, training_n = model$n, active = paste(model$active_candidates, collapse = ";"),
           candidate_hash = digest::digest(cp, algo = "sha256"),
           cv_prediction_hash = digest::digest(model$cv_predictions, algo = "sha256"),
           raw_gram_hash = digest::digest(model$raw_gram, algo = "sha256"),
@@ -60,10 +60,10 @@ psd_audit <- function(references, task, d, p, pt, g) {
           raw_cv_loss = model$raw_cv_loss, selected_cv_loss = model$cv_loss,
           solver_gap = model$solver$kkt_gap)
         weights[[length(weights) + 1L]] <<- data.table(fold = fold, horizon = s,
-          kind = kind, key = key, training_n = model$n, candidate = names(model$weights),
+          kind = kind, fit_key = key, training_n = model$n, candidate = names(model$weights),
           weight = as.numeric(model$weights))
         for (failure in model$candidate_failures) failures[[length(failures) + 1L]] <<-
-          data.table(fold = fold, horizon = s, kind = kind, key = key,
+          data.table(fold = fold, horizon = s, kind = kind, fit_key = key,
             candidate = failure$candidate, scope = failure$scope, message = failure$message)
       }
       audit_model(fitted$beta_fits[[s]], "bridge", "outer", task$id[task$folds[[fold]]$training_set])

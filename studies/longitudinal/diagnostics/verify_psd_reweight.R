@@ -39,3 +39,17 @@ stopifnot(identical(model$fit_provenance, "shared candidates, globally reweighte
 fwrite(data.table(check = c(names(differences), "verified_cache_entries"),
   value = c(differences, count)), ".runtime/psd-reweight-verification.csv")
 cat("Shared-candidate reweighting and exact response-cache reuse verified.\n")
+
+# Exercise the complete recorder on estimated outer nuisances before any long run.
+psd_project <- TRUE; control <- study_control(3L); control$.nested_split_function <- nested
+outer <- lmtp:::bridge_nuisance_fit(original, prepared$encoded, task, fold,
+  args$measurement, args$health, cm_library(bridge = TRUE), cm_library(bridge = FALSE),
+  trt_library, TRUE, control)
+outer$response_nuisance_cache <- new.env(parent = emptyenv())
+p <- enumerate_data(g); pt <- study_task(p, g)$task
+recorded <- psd_audit(list(outer), task, d, p, pt, g)
+stopifnot(nrow(recorded$audit) == 4L, nrow(recorded$recovery) == 4L,
+  all(recorded$audit$fit_key == "outer"), nrow(recorded$points) > 0L,
+  all(is.finite(recorded$recovery$equation_rmse)))
+fwrite(recorded$recovery, ".runtime/psd-recorder-verification.csv")
+cat("Complete nuisance recorder, recovery equations and held-out points verified.\n")

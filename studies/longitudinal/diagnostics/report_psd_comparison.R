@@ -71,7 +71,7 @@ fwrite(paired_summary, file.path(out, "paired-summary.csv"))
 
 paired_data <- merge(data_checks[mode == "psd"], data_checks[mode == "raw"], by = "replicate")
 stopifnot(all(paired_data$data_hash.x == paired_data$data_hash.y), all(paired_data$folds_hash.x == paired_data$folds_hash.y))
-audit_keys <- c("replicate", "fold", "horizon", "kind", "key")
+audit_keys <- c("replicate", "fold", "horizon", "kind", "fit_key")
 paired_audit <- merge(audit[mode == "psd"], audit[mode == "raw"], by = audit_keys,
   suffixes = c("_psd", "_raw"), all = TRUE)
 hash_fields <- c("candidate_hash", "cv_prediction_hash", "raw_gram_hash", "tuning_hash", "fold_hash")
@@ -88,7 +88,7 @@ recovery_summary <- recovery_by_dataset[, .(returned = .N, mean_equation_rmse = 
   mean_equation_max = mean(equation_max), mean_reference_function_rmse = mean(reference_function_rmse)),
   by = .(mode, horizon, kind)]
 fwrite(recovery_by_dataset, file.path(out, "recovery-by-dataset.csv")); fwrite(recovery_summary, file.path(out, "recovery-summary.csv"))
-weight_summary <- nuisance_weights[key == "outer", .(fits = .N, mean_weight = mean(weight),
+weight_summary <- nuisance_weights[fit_key == "outer", .(fits = .N, mean_weight = mean(weight),
   positive_fraction = mean(weight > 1e-8)), by = .(mode, horizon, kind, candidate)]
 fwrite(weight_summary, file.path(out, "weight-summary.csv"))
 
