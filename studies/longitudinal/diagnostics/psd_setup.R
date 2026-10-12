@@ -1,7 +1,8 @@
 # Validate the original frozen dependencies before loading this isolated study.
 source("scripts/setup.R")
-.libPaths(c(Sys.getenv("PSD_LIBRARY", ".runtime/psd-library"), .libPaths()))
-stopifnot(as.character(packageVersion("cmbridge")) == "0.3.0.9028",
+.libPaths(c(Sys.getenv("PSD_LIBRARY", ".runtime/psd-balanced-library"),
+            ".runtime/psd-library", .libPaths()))
+stopifnot(as.character(packageVersion("cmbridge")) == "0.3.0.9029",
           as.character(packageVersion("lmtp")) == "1.6.0.9022")
 # Reuse the completed study verbatim except its bootstrap/version assertions.
 for (expression in as.list(parse("studies/longitudinal/study.R"))[-1L]) {

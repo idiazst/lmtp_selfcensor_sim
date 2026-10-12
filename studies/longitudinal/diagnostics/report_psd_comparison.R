@@ -80,6 +80,9 @@ for (field in hash_fields) paired_audit[, (paste0(field, "_equal")) :=
   get(paste0(field, "_psd")) == get(paste0(field, "_raw"))]
 if (any(paired_audit$matched)) stopifnot(all(vapply(hash_fields, function(field)
   all(paired_audit[matched == TRUE][[paste0(field, "_equal")]]), TRUE)))
+matched <- paired_audit[matched == TRUE]
+if (nrow(matched)) stopifnot(all(matched$raw_cv_loss_raw <= matched$raw_cv_loss_psd +
+  1e-8 * pmax(1, abs(matched$raw_cv_loss_raw), abs(matched$raw_cv_loss_psd))))
 fwrite(paired_audit, file.path(out, "paired-candidate-checks.csv"))
 recovery_by_dataset <- recovery[, .(equation_rmse = sqrt(mean(equation_rmse^2)),
   equation_max = max(equation_max), reference_function_rmse = sqrt(mean(function_rmse_to_reference^2))),
@@ -192,7 +195,7 @@ outer_errors <- sum(nzchar(runtimes$outer_error))
 lines <- c(lines, "", "## Verification, failures and runtime", "",
   sprintf("%d paired datasets have identical data and shared split hashes. %d matched ensemble fits have identical candidate predictions, CV predictions, penalty histories, fold labels and raw Grams. %d ensemble records have no counterpart (for example after a failed estimator).", nrow(paired_data), sum(paired_audit$matched), sum(!paired_audit$matched)),
   sprintf("Outer failures: %d; returned-estimator errors: %d; recorded nuisance candidate failures: %d. All attempts are retained. Failed ensembles or estimators are not replaced.", outer_errors, nrow(errors), nrow(nuisance_failures)),
-  sprintf("Measured fitting wall span: %.2f hours. Total fitting time summed across workers: %.2f hours. Median dataset/version times: PSD %.1f s; no PSD %.1f s. The main supervisor used eight workers; the first dataset had a separate preflight process. Reuse avoids repeated identical candidate fits, so these times are not a standalone optimizer benchmark.",
+  sprintf("Measured fitting wall span: %.2f hours. Total fitting time summed across workers: %.2f hours. Median dataset/version times: PSD %.1f s; no PSD %.1f s. The supervisor used eight workers. Reuse avoids repeated identical candidate fits, so these times are not a standalone optimizer benchmark.",
     (max(runtimes$finished_epoch) - min(runtimes$started_epoch))/3600, sum(runtimes$seconds)/3600,
     median(runtimes[mode == "psd"]$seconds), median(runtimes[mode == "raw"]$seconds)), "",
   "[All estimates and confidence intervals](replicates.csv), [summary](summary.csv), [paired results](paired-summary.csv), [EIF component means](results.csv), [population diagnostics](diagnostics.csv), [recovery](recovery-summary.csv), [weights](weight-summary.csv), [candidate identity checks](paired-candidate-checks.csv), [failed estimators](errors.csv), [candidate failures](nuisance_failures.csv), [runtimes and checkpoint hashes](runtimes.csv), [fitting source hashes](source-manifest.json).",

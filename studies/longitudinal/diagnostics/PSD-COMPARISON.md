@@ -30,7 +30,7 @@ nonunique, so defining-equation errors are the primary adjoint recovery criterio
 Truth is used only for evaluation, not fitting or penalty selection. No known-function
 estimator simulation, zero-penalty simulation or Gaussian mean update is included.
 
-Run from the simulation repository using the isolated `.runtime/psd-library`:
+Run from the simulation repository using the isolated `.runtime/psd-balanced-library`:
 
 ```sh
 PSD_PREPARE_ONLY=true Rscript studies/longitudinal/diagnostics/run_psd_comparison.R
@@ -43,8 +43,14 @@ and use their actual denominators; do not replace or selectively retry them.
 The canonical output is `results/longitudinal/psd-numerical-n4000-v2`.
 The final report includes both follow-ups, paired changes, recovery equations,
 EIF means, weights and scientific graphs. Fitting versions are cmbridge
-0.3.0.9028 and lmtp 1.6.0.9022 in the separate comparison library; the original
+0.3.0.9029 and lmtp 1.6.0.9022 in the separate comparison library; the original
 completed-study dependencies remain unchanged. The fresh/reweighted bridge
 check and exact response-cache signature check are in `verify_psd_reweight.R`.
 Reused fits save computation; raw versus PSD worker times are not a direct
 benchmark of the weight optimizer alone.
+
+The raw optimizer balances each simplex face separately so an enormous unused
+candidate cannot erase meaningful curvature among other candidates. This is a
+numerical correction to the same raw objective; the PSD optimizer is unchanged.
+Each raw ensemble must score no worse than PSD weights on its identical raw Gram.
+Prior recorder and unbalanced-optimizer attempts remain under ignored .runtime.
