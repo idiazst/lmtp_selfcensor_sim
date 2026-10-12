@@ -105,30 +105,3 @@ output directory so an existing fitting fingerprint is not overwritten.
 The completed [comparison report](../../../results/longitudinal/ensemble-statistic-check/REPORT.md)
 contains the held-out plots, exact population equation errors and all ensemble
 weights. This diagnostic leaves the original completed studies and pins intact.
-# Robins and Syrgkanis selection diagnostic
-
-The `robins-syrgkanis-n4000` branch compares the documented adaptations in
-cmbridge's `robins-syrgkanis-selection` branch. It uses numerical-dose seeds
-5203041 and 5203167, n=4,000, both follow-ups and the original three outer folds.
-Only bridge and adjoint candidates and ensembles are fitted. No new causal
-parameter estimates or CI coverage are produced.
-
-Install cmbridge commit `7a180142bdb6f8a2d7b2c8892e535206a0e49727` in
-`.runtime/adaptive-library`, separately from the completed study's pinned
-`.runtime/library`. For a local checkout of that branch:
-
-```sh
-mkdir -p .runtime/adaptive-library
-R CMD INSTALL --library=.runtime/adaptive-library ../cmbridge
-ADAPTIVE_PREPARE_ONLY=true Rscript studies/longitudinal/diagnostics/run_adaptive_selection.R
-ADAPTIVE_PREPARED=true ADAPTIVE_WORKERS=1 OMP_NUM_THREADS=1 Rscript studies/longitudinal/diagnostics/run_adaptive_selection.R
-OMP_NUM_THREADS=1 Rscript studies/longitudinal/diagnostics/report_adaptive_selection.R
-```
-
-The measured run used six independent processes with `ADAPTIVE_TASKS` set to
-disjoint subsets of the 24 design rows. Independent processes avoid the local
-OpenMP/fork shared-memory failures; one process also runs the complete design.
-Results are in `results/longitudinal/adaptive-selection-n4000`. Failed
-discrepancy constraints remain failures, while their individual candidate
-models are retained for evaluation. See cmbridge's `ADAPTIVE-SELECTION.md`
-for the definitions and limitations of the adaptations.
