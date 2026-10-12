@@ -1,0 +1,217 @@
+mechanism,selected,seed,n,time,fold,statistic,warning
+binary_longitudinal,smallest_bias,5103128,10000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,10000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,10000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,10000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,10000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,10000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,10000,3,3,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,4000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,4000,3,3,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,smallest_bias,5103128,50000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,smallest_bias,5103128,50000,3,3,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,10000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,10000,3,3,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,4000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,4000,3,3,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,1,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,1,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,2,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,2,v,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,3,u,all interior knots match left boundary knot
+binary_longitudinal,largest_bias,5103159,50000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+binary_longitudinal,largest_bias,5103159,50000,3,3,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,1,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,1,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,2,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,2,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,3,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,10000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,10000,3,3,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,1,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,1,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,2,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,2,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,3,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,4000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,4000,3,3,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,1,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,1,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,2,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,2,v,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,3,u,all interior knots match left boundary knot
+discrete_dose,largest_bias,5203041,50000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,largest_bias,5203041,50000,3,3,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,1,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,1,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,2,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,2,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,3,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,10000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,10000,3,3,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,1,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,1,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,2,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,2,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,3,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,4000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,4000,3,3,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,2,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,2,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,2,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,2,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,2,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,2,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,1,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,1,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,3,1,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,1,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,3,2,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,2,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,3,2,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,2,v,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,3,3,u,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,3,u,all interior knots match left boundary knot
+discrete_dose,smallest_bias,5203167,50000,3,3,v,shoving 'interior' knots matching boundary knots to inside
+discrete_dose,smallest_bias,5203167,50000,3,3,v,all interior knots match left boundary knot

@@ -60,3 +60,48 @@ and evaluates the diagnostic candidate set augmented with the true function.
 The [loss report](../../../results/longitudinal/rkhs-loss-check/REPORT.md)
 distinguishes the population minimum from the empirical U-statistic and PSD
 criteria. No changes to packages or original fitted objects are made.
+
+## U/V ensemble comparison
+
+The opt-in scorer is implemented in cmbridge 0.3.0.9022, published commit
+`8d8203061fcb421a070b9ec50874e51d7409ea0b`. Keep the completed
+study's `.runtime/library` intact; install that cmbridge version into the
+separate `.runtime/statistic-library` before running this diagnostic.
+
+For example, after the repository's usual pinned dependency installation:
+
+```r
+dir.create(".runtime/statistic-library", recursive = TRUE, showWarnings = FALSE)
+remotes::install_github(
+  "idiazst/cmbridge@8d8203061fcb421a070b9ec50874e51d7409ea0b",
+  lib = ".runtime/statistic-library", upgrade = "never")
+```
+
+```sh
+DIAGNOSTIC_WORKERS=6 Rscript studies/longitudinal/diagnostics/run_statistic_comparison.R
+Rscript studies/longitudinal/diagnostics/compare_statistic_fits.R
+Rscript studies/longitudinal/diagnostics/report_statistic_comparison.R
+```
+
+This extends the selected-seed test to the binary and numerical-dose DGPs,
+using the largest and smallest absolute realized n=4,000 final-SDR errors for
+each DGP, and n=4,000, 10,000 and 50,000 at both follow-ups. At n=4,000 the
+original outer and learner assignments are reused. Fresh U/V fits use their
+statistic for candidate penalty CV as well as stacking. The saved numerical
+U fits are reused with explicit provenance and checkpoint hashes.
+
+A separate comparison keeps the U-tuned candidate predictions and penalties
+fixed, changing only the weighting criterion: projected U, globally minimized
+raw U, and V. Exact population losses, defining-equation errors, held-out y=x
+plots, weights, penalty histories and failures distinguish selection changes
+from changes in the candidate fits. The same isolated adjoint loading as the
+preceding diagnostic is used; no full causal-estimator or coverage simulation
+is run. True functions are used for evaluation, never penalty selection.
+
+Default output: `results/longitudinal/ensemble-statistic-check/`. Override
+`STATISTIC_MECHANISMS`, `STATISTIC_TIMES`, or `STATISTIC_OUTPUT` only in a new
+output directory so an existing fitting fingerprint is not overwritten.
+
+The completed [comparison report](../../../results/longitudinal/ensemble-statistic-check/REPORT.md)
+contains the held-out plots, exact population equation errors and all ensemble
+weights. This diagnostic leaves the original completed studies and pins intact.

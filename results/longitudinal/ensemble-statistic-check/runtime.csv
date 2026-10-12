@@ -1,0 +1,2 @@
+start,end,workers,wall_seconds,fresh_pairs,reused_pairs,summed_pair_elapsed_seconds,outer_errors
+2026-10-11 19:44:30 EDT,2026-10-11 20:11:18 EDT,6,1608,108,36,6372,0

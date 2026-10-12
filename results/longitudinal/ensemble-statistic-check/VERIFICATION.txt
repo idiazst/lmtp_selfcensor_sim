@@ -1,0 +1,8 @@
+COMPLETE
+Expected checkpoints: 144; saved: 144; failed outer fits: 0
+Candidate failures: 0
+Max CV replay error: 2.602e-18
+Max true population loss: 4.380e-31
+All fitted bridge predictions >= 1; no adjoint bounds imposed.
+DGP truth only evaluates losses/predictions and supplies the isolated adjoint loading.
+No treatment/outcome regressions, new parameter estimates or coverage study.

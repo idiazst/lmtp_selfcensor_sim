@@ -1,0 +1,24 @@
+{
+  "study": {
+    "scripts/setup.R": "456deddb011a9189166be0166022f56589a4e0a5949ccd4548087e79196f17b4",
+    "dependencies/package-pins.json": "dcbacce4d924c8c414534914c3f11598dca0e1004698fe6d31781d4960138426",
+    "studies/longitudinal/dgp.R": "e1ec40f0be5d15e8b0c7ab911e270d503f9782dfe227556d3e460c312a9641aa",
+    "studies/longitudinal/study.R": "7397cecf78c53fa75b773fc5cbbf4951e5105854297f6797adf9f754eb5f2af2",
+    "studies/longitudinal/diagnostics/bridge_adjoint_setup.R": "6d54b5408048c02d27f60d2b8ff5824c05cd0b8c5a04b3dd4a3fc8b4f95352d7",
+    "studies/longitudinal/diagnostics/statistic_setup.R": "a30aee11cbb3e794d9a07aa2f54dbe635be53a2b31d3f679559af25675025ec0",
+    "studies/longitudinal/diagnostics/run_statistic_comparison.R": "8ab5fabed90947eae0078c4a1b180fce33fcbda58de65790c4feea9ca6e39a4e"
+  },
+  "package": {
+    "../cmbridge/R/basis.R": "b35a067691e72672aa3c3d3820b03df687d3a73500d92de94938dbf33694bc2d",
+    "../cmbridge/R/cmbridge-package.R": "00e985ef26566ed14a88635c8eead375210bd26fb7d6f2d413a105b634e6e82f",
+    "../cmbridge/R/ensemble.R": "f954ed601077daba813790b497319d00f1b7289339a9080054e1ae6a97f09924",
+    "../cmbridge/R/fit.R": "c47a0ae0008cccf35d2f087cb496bea970f5e5e52af7f813c299c28feade9696",
+    "../cmbridge/R/landweber.R": "571f512d95b584ce3f7f7187bbbd7477af7ca7489cf2be2af65e5fecbc51384f",
+    "../cmbridge/R/linked_moment.R": "6dbda5713be7d6090eb18d73e4f07cf3b2ed545f7171ee141416fdd9da7e2eda",
+    "../cmbridge/R/pmmr.R": "7702ea5760f0a9bdb6e563fc928b6dd409bb4bcd0bfca5553ad7b32eb1ce0939",
+    "../cmbridge/R/saturated_l1.R": "715b555b22b08f12d8aa502e747b7531ffc65b81c55f7b1d31b3acd7c7f4d5d3",
+    "../cmbridge/R/selection.R": "45bd542e836fc95c4e93b608c5b1659b6c74cbb7c8f4ca3d159db745caa9ad0c",
+    "../cmbridge/R/sieve_md.R": "dccb355c0e1db221d61fc7d6916918f5ba8feacc422df8e356f96c7fbd6cc8e0",
+    "../cmbridge/R/utils.R": "3c81057c881cdb1cc7b43bdc719c3932a58b31bb449272b3e8217ca928b69040"
+  }
+}
