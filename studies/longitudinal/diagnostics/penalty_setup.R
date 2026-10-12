@@ -1,6 +1,6 @@
 source("scripts/setup.R")
 .libPaths(c(".runtime/inverse-penalty-library", .libPaths()))
-stopifnot(as.character(packageVersion("cmbridge")) == "0.3.0.9026")
+stopifnot(as.character(packageVersion("cmbridge")) == "0.3.0.9027")
 for (expression in as.list(parse("studies/longitudinal/diagnostics/bridge_adjoint_setup.R"))[-1L])
   eval(expression, envir = .GlobalEnv)
 penalty_output <- Sys.getenv("PENALTY_OUTPUT", "results/longitudinal/inverse-penalty-n4000")

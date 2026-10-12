@@ -1,0 +1,13 @@
+time,function_name,candidate,basis,parameters,rank,function_eta_max_error,equation_rmse,equation_max_error,seed,fold
+2,bridge,landweber,additive inverse-expit,10,4,5.40054404913737e-14,,,,
+2,adjoint,landweber,additive spline,25,6,,0.00323913375628201,0.00487445231148072,,
+2,adjoint,sieve_md,joint categories,17,8,,0,0,,
+3,bridge,landweber,additive inverse-expit,18,9,4.909189606036e-15,,,,
+3,adjoint,landweber,additive spline,67,13,,0.484664061381733,2.04831670088566,,
+3,adjoint,sieve_md,joint categories,529,272,,1.72366557078895e-15,1.61225095691972e-14,,
+3,adjoint,pmmr,actual Nystrom features,25,25,,0.360600478184792,1.92083219784601,5203041,1
+3,adjoint,pmmr,actual Nystrom features,29,29,,0.272691879017044,1.83829725214718,5203041,2
+3,adjoint,pmmr,actual Nystrom features,32,32,,0.254000644677541,1.99279346680059,5203041,3
+3,adjoint,pmmr,actual Nystrom features,33,33,,0.135126707406699,0.871381650216909,5203167,1
+3,adjoint,pmmr,actual Nystrom features,28,28,,0.246607826941596,2.3960558063426,5203167,2
+3,adjoint,pmmr,actual Nystrom features,29,29,,0.290876871064327,2.11387877046397,5203167,3

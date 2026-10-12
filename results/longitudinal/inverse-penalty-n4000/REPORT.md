@@ -88,6 +88,12 @@ Every new rule increases bridge function and defining-equation error in both sav
 
 The native bridge sieve has 163–183 observed target categories at t=3, plus fixed main effects. Its conditioning basis has 18 columns but only nine independent directions in all six final outer fits. Nine moment directions cannot distinguish all target-cell values. The penalty chooses among solutions of this restricted empirical equation and cannot add missing conditioning information. This limitation of the finite basis is distinct from nonuniqueness of the full conditional equation in the DGP; it does not invalidate the DGP assumptions. Dimensions are in operators.csv.
 
+An exact population class check confirms that the Landweber bridge class contains the reference bridge: projecting its inverse-expit predictor onto the additive basis leaves error below 6e-14. Its exclusion by the new rules is therefore a parameter-choice failure, not bridge class misspecification.
+
+For the loading used here, the additive adjoint Landweber class cannot solve the full population conditional equations. Even its best population projection has equation RMSE 0.48466 at t=3 (maximum conditional error 2.04832). This checks whether any member is a solution, so nonuniqueness of the reference does not explain that error. The saturated adjoint sieve class solves the equations within 2e-14. The library contains a correct class, but this individual Landweber candidate is misspecified. Candidate classes remain fixed in this penalty comparison. See [exact class checks](function-class-check.csv).
+
+The actual PMMR adjoint feature spaces also lack a population solution at t=3. Their minimum possible equation RMSE ranges from 0.13513 to 0.36060 across the six final outer fits. All feature columns are independent in the population range check, and the residuals are stable when the numerical rank tolerance is tightened. These are lower bounds for those fixed feature spaces, independent of ridge selection. Expanding the feature class would be needed to remove that approximation error.
+
 GCV excludes sieve in some fits and Landweber in every bridge/adjoint fit because no admissible interior choice is found. L-curve and quasi-optimality also exclude every bridge Landweber candidate. The existing ensemble handling sets failed candidates' weights to zero. These are successful mixtures of surviving candidates, rather than successful fits of all three learners. There are no outer ensemble failures.
 
 The plots show that reducing some penalties increases scatter and extreme estimates rather than automatically restoring recovery. The new rules use the native training equation; original penalty CV used the richer held-out RKHS score. Complete paths are retained to inspect this difference.
@@ -108,8 +114,8 @@ Maximum raw ensemble Gram replay error is 0.000e+00. Original outer exclusions a
 
 [Golub, Heath and Wahba (1979)](https://doi.org/10.1080/00401706.1979.10489751), [Hansen and O'Leary (1993)](https://doi.org/10.1137/0914086), [Hansen's Regularization Tools](https://www2.imm.dtu.dk/~pcha/Regutools/RTv4manual.pdf), and [Bauer and Reiss](https://arxiv.org/abs/0710.1045).
 
-Package branch: inverse-penalty-selection (0.3.0.9026). Simulation branch: inverse-penalty-n4000. [Implementation details](https://github.com/idiazst/cmbridge/blob/inverse-penalty-selection/INVERSE-PENALTY-SELECTION.md). Earlier adapters and results remain recoverable in Git history. Frozen full-study dependencies and results are unchanged.
+Package branch: inverse-penalty-selection (0.3.0.9027). Simulation branch: inverse-penalty-n4000. [Implementation details](https://github.com/idiazst/cmbridge/blob/inverse-penalty-selection/INVERSE-PENALTY-SELECTION.md). Earlier adapters and results remain recoverable in Git history. Frozen full-study dependencies and results are unchanged.
 
-Measured fitting time: 5.29 minutes on 6 local workers, 2026-10-12 13:43:36.433487 to 2026-10-12 13:48:54, for 36 fit pairs (72 ensembles). All fit processes finished.
+Measured fitting time: 5.26 minutes on 6 local workers, 2026-10-12 14:09:05.255164 to 2026-10-12 14:14:21, for 36 fit pairs (72 ensembles). All fit processes finished.
 
-Local unit tests passed 462 assertions. Package check had no errors or warnings, with the pre-existing prediction-closure binding NOTE. [Package commit](https://github.com/idiazst/cmbridge/commit/2bb1275a096d20964fec6b0465ec33132325beec) passed [package and recovery validation](https://github.com/idiazst/cmbridge/actions/runs/38258139671).
+Local unit tests passed 468 assertions. Package check had no errors or warnings, with the pre-existing prediction-closure binding NOTE. [Package commit](https://github.com/idiazst/cmbridge/commit/4d2c35668e6d09068f9242bef740ddbda1324c5f) passed [package and recovery validation](https://github.com/idiazst/cmbridge/actions/runs/38261040377).

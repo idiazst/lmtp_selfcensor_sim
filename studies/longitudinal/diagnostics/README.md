@@ -114,8 +114,8 @@ bridge/adjoint candidates. It retains the original RKHS U + PSD ensemble selecto
 saved numerical-dose seeds 5203041/5203167, both follow-ups and three original
 outer/learner folds. Failed parameter paths and failed candidates are retained.
 
-Install cmbridge commit `2bb1275a096d20964fec6b0465ec33132325beec` (version
-0.3.0.9026) into `.runtime/inverse-penalty-library`, after installing the frozen
+Install cmbridge commit `4d2c35668e6d09068f9242bef740ddbda1324c5f` (version
+0.3.0.9027) into `.runtime/inverse-penalty-library`, after installing the frozen
 study dependencies. The full study's library stays separate. From the repository
 root run `run_penalty_selection.R` with a disjoint `PENALTY_TASKS` list for each
 independent worker, then `report_penalty_selection.R`. `PENALTY_PREPARE_ONLY=true`
@@ -124,3 +124,8 @@ All scripts are in this directory; default outputs are
 `results/longitudinal/inverse-penalty-n4000`. The shared source fingerprint must
 match all checkpoints. Do not combine previous preflight attempts with final
 results. This diagnostic computes no new SDR/TMLE estimates or coverage.
+
+`check_penalty_classes.R` verifies bridge class membership and whether any
+member of the frozen adjoint classes can satisfy the exact population equation.
+It is an evaluation-only range check; it does not select penalties or provide
+known-function fits to the simulation. The reporting script runs this audit.

@@ -1,0 +1,13 @@
+{
+  "comparison": "0.3.0.9026 versus 0.3.0.9027 full reruns",
+  "identical_outputs": {
+    "metrics.csv": true,
+    "weights.csv": true,
+    "equations.csv": true,
+    "failures.csv": true,
+    "checks.csv": true,
+    "operators.csv": true,
+    "penalties.csv": true,
+    "boundaries.csv": true
+  }
+}

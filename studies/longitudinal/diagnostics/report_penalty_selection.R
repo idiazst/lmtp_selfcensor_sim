@@ -12,7 +12,7 @@ g <- make_mechanism("discrete_dose"); p <- enumerate_data(g)
 population_task <- study_task(p, g)$task; population_truth <- true_values(p, g)
 for (path in paths) {
   x <- readRDS(path); z <- x$design
-  stopifnot(identical(x$fingerprint,fingerprint),x$package_version=="0.3.0.9026")
+  stopifnot(identical(x$fingerprint,fingerprint),x$package_version=="0.3.0.9027")
   set.seed(z$seed); d <- draw_data(4000L, g); task <- study_task(d, g)$task; nu <- true_values(d, g)
   stopifnot(x$data_sha256 == digest::digest(d, algo = "sha256"), !length(intersect(x$training, x$validation)))
   s <- z$time - 1L; H <- task$vars$history("A", s); A <- task$vars$A[[s]]
@@ -242,6 +242,9 @@ for(seed_name in c("largest_bias","smallest_bias")) for(rule in penalty_rules) {
  mtext("Colors identify outer folds; points mark selected penalties. Failed paths remain visible.",
   outer=TRUE,side=1,line=.3,cex=.85);dev.off()
 }
+# Exact function-class membership/range checks are evaluation diagnostics.
+class_audit <- new.env(parent = .GlobalEnv)
+sys.source("studies/longitudinal/diagnostics/check_penalty_classes.R", envir = class_audit)
 md<-c("# Inverse-problem penalty selection: numerical dose, n=4,000","",
   paste0(if(length(paths)==nrow(design)) "Completed limited diagnostic" else "PRELIMINARY diagnostic", " of the two previously selected numerical-dose datasets, seeds 5203041 and 5203167. Both follow-ups, three saved outer folds and three parameter-choice rules are evaluated. This is not a 200-replication study and provides no new SDR/TMLE estimates or confidence-interval coverage."),"",
   "The Robins and Syrgkanis adapters are reverted on the replacement branches. The original DGP, datasets, three candidate classes, bridge inverse-expit links and unrestricted adjoints are retained. Ensemble weights still minimize the original RKHS U criterion with its existing PSD projection. Only candidate regularization selection is replaced. All three candidates now tune ridge or stopping iterations; previously only sieve had a penalty-CV grid.","",
@@ -271,6 +274,9 @@ md<-c(md,"","![Largest original error](largest_bias-t3-ensemble-y-equals-x.png)"
  "## Interpretation","",
  "Every new rule increases bridge function and defining-equation error in both saved datasets relative to the original RKHS U penalty selection. GCV improves adjoint equation RMSE for both seeds; interior quasi-optimality gives smaller adjoint improvements. L-curve worsens adjoint equation RMSE in both. No new rule is a uniform repair.","",
  "The native bridge sieve has 163–183 observed target categories at t=3, plus fixed main effects. Its conditioning basis has 18 columns but only nine independent directions in all six final outer fits. Nine moment directions cannot distinguish all target-cell values. The penalty chooses among solutions of this restricted empirical equation and cannot add missing conditioning information. This limitation of the finite basis is distinct from nonuniqueness of the full conditional equation in the DGP; it does not invalidate the DGP assumptions. Dimensions are in operators.csv.","",
+ "An exact population class check confirms that the Landweber bridge class contains the reference bridge: projecting its inverse-expit predictor onto the additive basis leaves error below 6e-14. Its exclusion by the new rules is therefore a parameter-choice failure, not bridge class misspecification.","",
+ "For the loading used here, the additive adjoint Landweber class cannot solve the full population conditional equations. Even its best population projection has equation RMSE 0.48466 at t=3 (maximum conditional error 2.04832). This checks whether any member is a solution, so nonuniqueness of the reference does not explain that error. The saturated adjoint sieve class solves the equations within 2e-14. The library contains a correct class, but this individual Landweber candidate is misspecified. Candidate classes remain fixed in this penalty comparison. See [exact class checks](function-class-check.csv).", "",
+ "The actual PMMR adjoint feature spaces also lack a population solution at t=3. Their minimum possible equation RMSE ranges from 0.13513 to 0.36060 across the six final outer fits. All feature columns are independent in the population range check, and the residuals are stable when the numerical rank tolerance is tightened. These are lower bounds for those fixed feature spaces, independent of ridge selection. Expanding the feature class would be needed to remove that approximation error.","",
  "GCV excludes sieve in some fits and Landweber in every bridge/adjoint fit because no admissible interior choice is found. L-curve and quasi-optimality also exclude every bridge Landweber candidate. The existing ensemble handling sets failed candidates' weights to zero. These are successful mixtures of surviving candidates, rather than successful fits of all three learners. There are no outer ensemble failures.","",
  "The plots show that reducing some penalties increases scatter and extreme estimates rather than automatically restoring recovery. The new rules use the native training equation; original penalty CV used the richer held-out RKHS score. Complete paths are retained to inspect this difference.","",
  "[Largest-error GCV paths](largest_bias-t3-gcv-penalty-paths.png), [L-curve paths](largest_bias-t3-lcurve-penalty-paths.png), [quasi-optimality paths](largest_bias-t3-quasiopt-penalty-paths.png). Corresponding smallest-error paths also accompany the report.","",
@@ -281,16 +287,16 @@ md<-c(md,"","![Largest original error](largest_bias-t3-ensemble-y-equals-x.png)"
  "![Adjoint equations](adjoint-defining-equations-t3.png)","",
  "## Primary references and implementation","",
  "[Golub, Heath and Wahba (1979)](https://doi.org/10.1080/00401706.1979.10489751), [Hansen and O'Leary (1993)](https://doi.org/10.1137/0914086), [Hansen's Regularization Tools](https://www2.imm.dtu.dk/~pcha/Regutools/RTv4manual.pdf), and [Bauer and Reiss](https://arxiv.org/abs/0710.1045).", "",
- "Package branch: inverse-penalty-selection (0.3.0.9026). Simulation branch: inverse-penalty-n4000. [Implementation details](https://github.com/idiazst/cmbridge/blob/inverse-penalty-selection/INVERSE-PENALTY-SELECTION.md). Earlier adapters and results remain recoverable in Git history. Frozen full-study dependencies and results are unchanged.")
+ "Package branch: inverse-penalty-selection (0.3.0.9027). Simulation branch: inverse-penalty-n4000. [Implementation details](https://github.com/idiazst/cmbridge/blob/inverse-penalty-selection/INVERSE-PENALTY-SELECTION.md). Earlier adapters and results remain recoverable in Git history. Frozen full-study dependencies and results are unchanged.")
 if(file.exists(file.path(out,"runtime.csv"))) {
  runtime<-fread(file.path(out,"runtime.csv"))
  md<-c(md,"",sprintf("Measured fitting time: %.2f minutes on %d local workers, %s to %s, for %d fit pairs (%d ensembles). All fit processes finished.",
    runtime$wall_seconds/60,runtime$workers,runtime$started,runtime$completed,runtime$fit_pairs,2L*runtime$fit_pairs),"",
-   "Local unit tests passed 462 assertions. Package check had no errors or warnings, with the pre-existing prediction-closure binding NOTE. [Package commit](https://github.com/idiazst/cmbridge/commit/2bb1275a096d20964fec6b0465ec33132325beec) passed [package and recovery validation](https://github.com/idiazst/cmbridge/actions/runs/38258139671).")
+   "Local unit tests passed 468 assertions. Package check had no errors or warnings, with the pre-existing prediction-closure binding NOTE. [Package commit](https://github.com/idiazst/cmbridge/commit/4d2c35668e6d09068f9242bef740ddbda1324c5f) passed [package and recovery validation](https://github.com/idiazst/cmbridge/actions/runs/38261040377).")
 }
 writeLines(md,file.path(out,"REPORT.md"))
 writeLines(if(length(paths)==nrow(design)) format(Sys.time(),tz="America/New_York",usetz=TRUE) else "PRELIMINARY",file.path(out,"EVALUATION-COMPLETED.txt"))
-postprocessing<-c("studies/longitudinal/diagnostics/report_penalty_selection.R")
+postprocessing<-c("studies/longitudinal/diagnostics/report_penalty_selection.R","studies/longitudinal/diagnostics/check_penalty_classes.R")
 jsonlite::write_json(as.list(setNames(vapply(postprocessing,function(path)digest::digest(file=path,algo="sha256"),""),postprocessing)),
  file.path(out,"postprocessing-manifest.json"),pretty=TRUE,auto_unbox=TRUE)
 print(summary[time==3L & candidate=="ensemble" & is.na(previous_measured)])
