@@ -1,4 +1,18 @@
-# PSD versus no PSD: run in progress
+# PSD versus no PSD: stopped; preliminary results available
+
+**Stopped at the user's request on October 13:** 48 paired datasets are complete.
+All resumed workers and temporary sleep prevention have stopped. The other
+52 datasets will not be resumed. All saved pairs are retained, with unchanged
+fitting-source hashes. The earlier overnight interruption has no recorded
+process error and its cause is unknown. A brief resume attempt was stopped
+when the user instructed us not to resume; it added no completed datasets.
+
+[Preliminary report, tables and plots](REPORT.md) use exactly the 48 completed
+pairs. Coverage is unchanged by removing PSD: 45/48 (93.8%) at t=2 and
+44/48 (91.7%) at t=3, for both SDR and TMLE. No final estimator failed in
+these pairs. The 28,512 matched ensemble records have identical candidates,
+penalties, splits and raw Grams; raw optimality checks pass. These are
+preliminary results, not all 100 datasets.
 
 Started October 12, 2026 at 16:31 EDT on eight local workers. The plan is
 100 paired numerical-dose datasets, each n = 4,000, with seeds 5203001–5203100.
@@ -6,7 +20,7 @@ Both SDR and logistic TMLE use the one-step bridge correction. The only
 statistical change between versions is the ensemble Gram's PSD projection.
 Candidate penalties use the original positive training-only U-statistic CV.
 
-No final coverage or bias results are available at launch. Based on measured
+No final coverage or bias results were available at launch. Based on measured
 previous dataset times, the estimate is about 7–8 hours from this restart,
 subject to slower datasets and failures. The local supervisor writes
 REPORT.md, tables and scientific graphs after all 200 checkpoints exist.

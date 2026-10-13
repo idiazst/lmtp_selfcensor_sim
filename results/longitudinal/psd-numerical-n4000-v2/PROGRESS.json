@@ -1,0 +1,14 @@
+{
+  "updated": "2026-10-13T19:45:58.179891-04:00",
+  "paired_datasets": 48,
+  "dataset_version_checkpoints": 96,
+  "planned_datasets": 100,
+  "workers": 8,
+  "active_datasets": [],
+  "remaining_in_queue": 43,
+  "process_failures": [
+    55
+  ],
+  "status": "STOPPED_AT_USER_REQUEST",
+  "remaining_uncompleted": 52
+}

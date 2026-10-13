@@ -1,0 +1,117 @@
+fold,horizon,kind,fit_key,candidate,scope,message,replicate,mode
+3,1,bridge,response/e651264bdcc7aa99fd7c3b7eac59d0f6,sieve_md,validation fold 2,Nonfinite validation predictions.,1,psd
+3,2,bridge,response/4dc107f6c2976ab1c17924277a57b7af,sieve_md,validation fold 2,Nonfinite validation predictions.,1,psd
+3,1,bridge,response/e651264bdcc7aa99fd7c3b7eac59d0f6,sieve_md,validation fold 2,Nonfinite validation predictions.,1,raw
+3,2,bridge,response/4dc107f6c2976ab1c17924277a57b7af,sieve_md,validation fold 2,Nonfinite validation predictions.,1,raw
+3,2,bridge,response/c2c4f9109534f02a804c139f2db8300f,sieve_md,validation fold 2,Nonfinite validation predictions.,2,psd
+3,2,bridge,response/c2c4f9109534f02a804c139f2db8300f,sieve_md,validation fold 2,Nonfinite validation predictions.,2,raw
+1,1,bridge,response/f9ab4088fddf4d1e82d53062777c81f8,sieve_md,validation fold 1,Nonfinite validation moment score.,3,psd
+1,1,bridge,response/f9ab4088fddf4d1e82d53062777c81f8,sieve_md,validation fold 1,Nonfinite validation moment score.,3,raw
+2,1,bridge,response/009ec9a8018e663bdbf8028742fc2895,sieve_md,validation fold 1,Nonfinite validation moment score.,4,psd
+3,2,bridge,response/8c9859dc7f9bc12e41e544a7a9a290d9,sieve_md,validation fold 2,Nonfinite validation moment score.,4,psd
+2,1,bridge,response/009ec9a8018e663bdbf8028742fc2895,sieve_md,validation fold 1,Nonfinite validation moment score.,4,raw
+3,2,bridge,response/8c9859dc7f9bc12e41e544a7a9a290d9,sieve_md,validation fold 2,Nonfinite validation moment score.,4,raw
+1,2,bridge,response/93839cc989dd7c219c335439af11ce4e,sieve_md,validation fold 2,Nonfinite validation predictions.,6,psd
+3,2,bridge,response/77e0e4a3bda136169a4fd209f79b2ca8,sieve_md,validation fold 2,Nonfinite validation predictions.,6,psd
+1,2,bridge,response/93839cc989dd7c219c335439af11ce4e,sieve_md,validation fold 2,Nonfinite validation predictions.,6,raw
+3,2,bridge,response/77e0e4a3bda136169a4fd209f79b2ca8,sieve_md,validation fold 2,Nonfinite validation predictions.,6,raw
+1,2,bridge,response/eb828b5182dc8477c6d410202144738d,sieve_md,validation fold 1,Nonfinite validation moment score.,7,psd
+1,2,bridge,response/eb828b5182dc8477c6d410202144738d,sieve_md,validation fold 1,Nonfinite validation moment score.,7,raw
+1,1,bridge,response/598e7f114f9d66b47c0681fdd5a7fe93,sieve_md,validation fold 1,Nonfinite validation moment score.,9,psd
+1,1,bridge,response/598e7f114f9d66b47c0681fdd5a7fe93,sieve_md,validation fold 1,Nonfinite validation moment score.,9,raw
+1,2,bridge,response/07c35edaea373c681898f200b1579eca,sieve_md,validation fold 2,Nonfinite validation moment score.,10,psd
+3,2,bridge,response/e183d931654356a247507bd0843b8cf4,sieve_md,validation fold 1,Nonfinite validation moment score.,10,psd
+1,2,bridge,response/07c35edaea373c681898f200b1579eca,sieve_md,validation fold 2,Nonfinite validation moment score.,10,raw
+3,2,bridge,response/e183d931654356a247507bd0843b8cf4,sieve_md,validation fold 1,Nonfinite validation moment score.,10,raw
+2,2,bridge,response/083ddd3a27a136b0dfc91f3dfa0600bf,sieve_md,validation fold 1,Nonfinite validation moment score.,11,psd
+2,2,bridge,response/083ddd3a27a136b0dfc91f3dfa0600bf,sieve_md,validation fold 1,Nonfinite validation moment score.,11,raw
+2,1,bridge,response/197ad9127c337275353ae04a9fa87361,sieve_md,validation fold 1,Nonfinite validation predictions.,12,psd
+2,1,bridge,response/197ad9127c337275353ae04a9fa87361,sieve_md,validation fold 1,Nonfinite validation predictions.,12,raw
+1,1,bridge,response/3596371bbd4aa1ec67baaf0ed24abe5a,sieve_md,validation fold 2,Nonfinite validation predictions.,14,psd
+2,2,bridge,response/46bf942917ed573c172b09e2758b1f35,sieve_md,validation fold 1,Nonfinite validation moment score.,14,psd
+1,1,bridge,response/3596371bbd4aa1ec67baaf0ed24abe5a,sieve_md,validation fold 2,Nonfinite validation predictions.,14,raw
+2,2,bridge,response/46bf942917ed573c172b09e2758b1f35,sieve_md,validation fold 1,Nonfinite validation moment score.,14,raw
+1,2,bridge,response/37610bbc49a640b973babdea8509f14b,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,15,psd
+1,2,bridge,response/6fc32f749d65a16ce0b944078f5ad90e,sieve_md,validation fold 2,Nonfinite validation moment score.,15,psd
+3,2,bridge,response/760bd06a56469b669a3d3f41837099df,sieve_md,validation fold 2,Nonfinite validation predictions.,15,psd
+1,2,bridge,response/37610bbc49a640b973babdea8509f14b,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,15,raw
+1,2,bridge,response/6fc32f749d65a16ce0b944078f5ad90e,sieve_md,validation fold 2,Nonfinite validation moment score.,15,raw
+3,2,bridge,response/760bd06a56469b669a3d3f41837099df,sieve_md,validation fold 2,Nonfinite validation predictions.,15,raw
+3,1,bridge,response/c61fadf866874dd63aa8d46262e11f25,sieve_md,validation fold 2,Nonfinite validation predictions.,16,psd
+3,1,bridge,response/c61fadf866874dd63aa8d46262e11f25,sieve_md,validation fold 2,Nonfinite validation predictions.,16,raw
+1,2,bridge,response/27e4f0c68992ae0240c169a71f6bc011,sieve_md,validation fold 2,Nonfinite validation predictions.,17,psd
+1,2,bridge,response/e9161af8b5de2841f7cb3b45ff4e4787,sieve_md,validation fold 2,Nonfinite validation predictions.,17,psd
+2,2,bridge,response/dde79846ecc779e3f94d76d65cc6038f,sieve_md,validation fold 2,Nonfinite validation predictions.,17,psd
+1,2,bridge,response/27e4f0c68992ae0240c169a71f6bc011,sieve_md,validation fold 2,Nonfinite validation predictions.,17,raw
+1,2,bridge,response/e9161af8b5de2841f7cb3b45ff4e4787,sieve_md,validation fold 2,Nonfinite validation predictions.,17,raw
+2,2,bridge,response/dde79846ecc779e3f94d76d65cc6038f,sieve_md,validation fold 2,Nonfinite validation predictions.,17,raw
+1,2,bridge,response/1f159d868ba08b7c186c6afc90f77c2c,sieve_md,validation fold 1,Nonfinite validation moment score.,20,psd
+2,2,bridge,response/bda3414293b7b5134ca210bcdc2ea3f1,sieve_md,validation fold 1,Nonfinite validation predictions.,20,psd
+1,2,bridge,response/1f159d868ba08b7c186c6afc90f77c2c,sieve_md,validation fold 1,Nonfinite validation moment score.,20,raw
+2,2,bridge,response/bda3414293b7b5134ca210bcdc2ea3f1,sieve_md,validation fold 1,Nonfinite validation predictions.,20,raw
+1,2,bridge,response/344fc9f76eff62a5d581aec4b0bd944e,sieve_md,validation fold 2,Nonfinite validation moment score.,21,psd
+2,1,bridge,response/a0b7b0ff7a86f16df772720dd383415e,sieve_md,validation fold 1,Nonfinite validation moment score.,21,psd
+3,1,bridge,response/e9ab89aa2a9456667752bc24753e0087,sieve_md,validation fold 1,Nonfinite validation moment score.,21,psd
+1,2,bridge,response/344fc9f76eff62a5d581aec4b0bd944e,sieve_md,validation fold 2,Nonfinite validation moment score.,21,raw
+2,1,bridge,response/a0b7b0ff7a86f16df772720dd383415e,sieve_md,validation fold 1,Nonfinite validation moment score.,21,raw
+3,1,bridge,response/e9ab89aa2a9456667752bc24753e0087,sieve_md,validation fold 1,Nonfinite validation moment score.,21,raw
+1,2,bridge,response/818ada11f9eaaffc0841b527bafc29dc,sieve_md,validation fold 2,Nonfinite validation predictions.,22,psd
+2,1,bridge,response/aef80d176bfda00c87a088c5daec6f83,sieve_md,final training refit,Linked quadratic sieve did not pass its coefficient-gradient check.,22,psd
+2,1,bridge,response/bc02645af19427966866b40e4156b654,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,22,psd
+1,2,bridge,response/818ada11f9eaaffc0841b527bafc29dc,sieve_md,validation fold 2,Nonfinite validation predictions.,22,raw
+2,1,bridge,response/aef80d176bfda00c87a088c5daec6f83,sieve_md,final training refit,Linked quadratic sieve did not pass its coefficient-gradient check.,22,raw
+2,1,bridge,response/bc02645af19427966866b40e4156b654,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,22,raw
+3,1,bridge,response/361fa3dc5ad09f9b6b33ca9bf104eb7c,sieve_md,validation fold 1,Nonfinite validation predictions.,23,psd
+3,1,bridge,response/361fa3dc5ad09f9b6b33ca9bf104eb7c,sieve_md,validation fold 1,Nonfinite validation predictions.,23,raw
+1,1,bridge,response/197dc63c1b23b317338129ae2f31b50a,sieve_md,validation fold 2,Nonfinite validation moment score.,24,psd
+2,1,bridge,response/9863f94fcc11f3eb5af069e4cab17867,sieve_md,validation fold 1,Nonfinite validation moment score.,24,psd
+1,1,bridge,response/197dc63c1b23b317338129ae2f31b50a,sieve_md,validation fold 2,Nonfinite validation moment score.,24,raw
+2,1,bridge,response/9863f94fcc11f3eb5af069e4cab17867,sieve_md,validation fold 1,Nonfinite validation moment score.,24,raw
+3,1,bridge,response/a4cd5b4ace8f802e50a34c0786ab803f,sieve_md,validation fold 1,Nonfinite validation predictions.,25,psd
+3,1,bridge,response/a4cd5b4ace8f802e50a34c0786ab803f,sieve_md,validation fold 1,Nonfinite validation predictions.,25,raw
+3,2,bridge,response/eaefe1a9c1bdda40b5bd3b03e3611141,sieve_md,validation fold 2,Nonfinite validation moment score.,26,psd
+3,2,bridge,response/eaefe1a9c1bdda40b5bd3b03e3611141,sieve_md,validation fold 2,Nonfinite validation moment score.,26,raw
+1,1,bridge,response/3507ed2ae60abe78fc6e98772114176c,sieve_md,validation fold 1,Nonfinite validation predictions.,30,psd
+2,2,bridge,response/c16aaf161450be820f3e5fe4a63a7410,sieve_md,validation fold 1,Nonfinite validation moment score.,30,psd
+1,1,bridge,response/3507ed2ae60abe78fc6e98772114176c,sieve_md,validation fold 1,Nonfinite validation predictions.,30,raw
+2,2,bridge,response/c16aaf161450be820f3e5fe4a63a7410,sieve_md,validation fold 1,Nonfinite validation moment score.,30,raw
+2,1,bridge,response/f3a3139080d54e114fe14e165d364837,sieve_md,validation fold 1,Nonfinite validation predictions.,32,psd
+2,1,bridge,response/f3a3139080d54e114fe14e165d364837,sieve_md,validation fold 1,Nonfinite validation predictions.,32,raw
+1,2,bridge,response/5e437cbafc26be11ca6766e497b83dc7,sieve_md,validation fold 2,Nonfinite validation moment score.,33,psd
+1,2,bridge,response/ee15e80f81fca086b509ef5067027937,sieve_md,validation fold 1,Nonfinite validation moment score.,33,psd
+1,2,bridge,response/5e437cbafc26be11ca6766e497b83dc7,sieve_md,validation fold 2,Nonfinite validation moment score.,33,raw
+1,2,bridge,response/ee15e80f81fca086b509ef5067027937,sieve_md,validation fold 1,Nonfinite validation moment score.,33,raw
+1,1,bridge,response/ac3479456ecd6e4a5227f88666683907,sieve_md,validation fold 2,Nonfinite validation predictions.,34,psd
+1,1,bridge,response/ac3479456ecd6e4a5227f88666683907,sieve_md,validation fold 2,Nonfinite validation predictions.,34,raw
+2,1,bridge,response/5a15de80a6295eff55eae6a74b3d676a,sieve_md,validation fold 2,Nonfinite validation predictions.,35,psd
+2,2,bridge,response/94cbbff31c80684fb1484eb986ae0659,sieve_md,validation fold 1,Nonfinite validation predictions.,35,psd
+3,2,bridge,response/dbb704c6bc9bdc46530d26e29833fa25,sieve_md,validation fold 2,Nonfinite validation moment score.,35,psd
+2,1,bridge,response/5a15de80a6295eff55eae6a74b3d676a,sieve_md,validation fold 2,Nonfinite validation predictions.,35,raw
+2,2,bridge,response/94cbbff31c80684fb1484eb986ae0659,sieve_md,validation fold 1,Nonfinite validation predictions.,35,raw
+3,2,bridge,response/dbb704c6bc9bdc46530d26e29833fa25,sieve_md,validation fold 2,Nonfinite validation moment score.,35,raw
+1,2,bridge,response/3de138a6f1d8508514efbf49578e8e77,sieve_md,validation fold 2,Nonfinite validation predictions.,37,psd
+1,2,bridge,response/3de138a6f1d8508514efbf49578e8e77,sieve_md,validation fold 2,Nonfinite validation predictions.,37,raw
+1,1,bridge,response/abf2443541d151cdd8e83eb6bb3d7791,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,38,psd
+2,2,bridge,response/f3c475896c75c1fb77c941c7d76d64ca,sieve_md,validation fold 1,Nonfinite validation predictions.,38,psd
+1,1,bridge,response/abf2443541d151cdd8e83eb6bb3d7791,sieve_md,validation fold 1,Linked quadratic sieve did not pass its coefficient-gradient check.,38,raw
+2,2,bridge,response/f3c475896c75c1fb77c941c7d76d64ca,sieve_md,validation fold 1,Nonfinite validation predictions.,38,raw
+1,2,bridge,response/948f8447a8a12db6f46f07078a3eb866,sieve_md,validation fold 2,Nonfinite validation moment score.,39,psd
+1,2,bridge,response/948f8447a8a12db6f46f07078a3eb866,sieve_md,validation fold 2,Nonfinite validation moment score.,39,raw
+1,1,bridge,response/70c8695c84f0d7d5a3c48f391b23886c,sieve_md,validation fold 2,Nonfinite validation predictions.,40,psd
+1,1,bridge,response/70c8695c84f0d7d5a3c48f391b23886c,sieve_md,validation fold 2,Nonfinite validation predictions.,40,raw
+1,1,bridge,response/584067e48344f2857d10e2274750b5e8,sieve_md,validation fold 2,Linked quadratic sieve did not pass its coefficient-gradient check.,41,psd
+1,1,bridge,response/b7666e435f381973582e6c80114f02bc,sieve_md,final training refit,Linked quadratic sieve did not pass its coefficient-gradient check.,41,psd
+1,1,bridge,response/584067e48344f2857d10e2274750b5e8,sieve_md,validation fold 2,Linked quadratic sieve did not pass its coefficient-gradient check.,41,raw
+1,1,bridge,response/b7666e435f381973582e6c80114f02bc,sieve_md,final training refit,Linked quadratic sieve did not pass its coefficient-gradient check.,41,raw
+1,2,bridge,response/0272ff93b2a0afc49efb6b3e211b88c0,sieve_md,validation fold 1,Nonfinite validation moment score.,42,psd
+1,2,bridge,response/0272ff93b2a0afc49efb6b3e211b88c0,sieve_md,validation fold 1,Nonfinite validation moment score.,42,raw
+2,1,bridge,response/76b9ddf47ac51feea19713ce03143f6e,sieve_md,validation fold 1,Nonfinite validation predictions.,46,psd
+2,1,bridge,response/76b9ddf47ac51feea19713ce03143f6e,sieve_md,validation fold 1,Nonfinite validation predictions.,46,raw
+1,1,bridge,response/2d5118eeecf3b3c98fa3e9f1bb28467b,sieve_md,validation fold 1,Nonfinite validation moment score.,47,psd
+1,1,bridge,response/e63d13c20d00fc472d5643da1ed2edeb,sieve_md,validation fold 2,Nonfinite validation moment score.,47,psd
+1,2,bridge,response/accee8a453cf5a4ef43bab57b654c3a8,sieve_md,validation fold 1,Nonfinite validation predictions.,47,psd
+2,2,bridge,response/6bdcf18bc6183d4ba9c6ae0cce794c1f,sieve_md,validation fold 2,Nonfinite validation moment score.,47,psd
+1,1,bridge,response/2d5118eeecf3b3c98fa3e9f1bb28467b,sieve_md,validation fold 1,Nonfinite validation moment score.,47,raw
+1,1,bridge,response/e63d13c20d00fc472d5643da1ed2edeb,sieve_md,validation fold 2,Nonfinite validation moment score.,47,raw
+1,2,bridge,response/accee8a453cf5a4ef43bab57b654c3a8,sieve_md,validation fold 1,Nonfinite validation predictions.,47,raw
+2,2,bridge,response/6bdcf18bc6183d4ba9c6ae0cce794c1f,sieve_md,validation fold 2,Nonfinite validation moment score.,47,raw

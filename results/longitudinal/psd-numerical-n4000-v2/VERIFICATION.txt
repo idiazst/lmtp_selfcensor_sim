@@ -1,0 +1,3 @@
+PRELIMINARY
+Dataset/version checkpoints: 96 / 200; outer failures: 0; estimator errors: 0
+Paired data/splits verified: 48; identical matched candidate records: 28512
