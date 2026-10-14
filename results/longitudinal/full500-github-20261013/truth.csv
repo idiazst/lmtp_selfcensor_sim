@@ -1,0 +1,5 @@
+mechanism,horizon,truth
+binary_longitudinal,1,0.900308733204978
+binary_longitudinal,2,0.649747477398564
+discrete_dose,1,0.851702239960893
+discrete_dose,2,0.633624046382004

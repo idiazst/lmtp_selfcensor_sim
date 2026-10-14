@@ -1,0 +1,31 @@
+{
+  "study": "full500-20261013",
+  "datasets_planned": 4000,
+  "replications_per_setting": 500,
+  "sizes": [
+    500,
+    1000,
+    4000,
+    10000
+  ],
+  "source_commit": "7035f2a0f74ff1662da521f54d67eb8404546f84",
+  "projection": "PSD",
+  "statistic": "U",
+  "cohorts": [
+    {
+      "first": 1,
+      "last": 250,
+      "run_id": 38488063211,
+      "url": "https://github.com/idiazst/lmtp_selfcensor_sim/actions/runs/38488063211"
+    },
+    {
+      "first": 251,
+      "last": 500,
+      "run_id": 38488067067,
+      "url": "https://github.com/idiazst/lmtp_selfcensor_sim/actions/runs/38488067067"
+    }
+  ],
+  "max_runners_per_cohort": 10,
+  "R_processes_per_runner": 2,
+  "note": "Launched; no new simulation results have returned at this launch record."
+}
