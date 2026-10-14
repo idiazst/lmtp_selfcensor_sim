@@ -1,0 +1,177 @@
+name: Full longitudinal study - 500 replications
+run-name: Full500 ${{ inputs.study_id }} - replications ${{ inputs.first }}-${{ inputs.last }}
+on:
+  workflow_dispatch:
+    inputs:
+      study_id:
+        description: Immutable study label shared by both cohorts
+        required: true
+        default: full500-20261013
+      first:
+        description: First replication (maximum 250 per workflow)
+        required: true
+        default: '1'
+      last:
+        description: Last replication
+        required: true
+        default: '250'
+      parallel:
+        description: Maximum concurrent runners in this cohort
+        required: true
+        default: '10'
+permissions:
+  contents: read
+  actions: read
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  R_LIBS_USER: ${{ github.workspace }}/.runtime/library
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies
+            scripts
+            studies
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache@v4
+        with:
+          path: .runtime/library
+          key: full500-linux-r452-${{ hashFiles('dependencies/*', 'studies/longitudinal/github-500/install.R') }}
+      - name: Install and verify original full-study archives
+        run: Rscript studies/longitudinal/github-500/install.R
+      - name: Validate all sources and freeze the 4,000-dataset design
+        run: |
+          python3 -m py_compile studies/longitudinal/github-500/*.py
+          python3 studies/longitudinal/github-500/test_worker.py
+          Rscript -e 'invisible(lapply(list.files("studies", "[.]R$", recursive=TRUE, full.names=TRUE), parse))'
+          Rscript studies/longitudinal/github-500/prepare.R
+      - name: Build cohort matrix
+        id: matrix
+        env:
+          FIRST: ${{ inputs.first }}
+          LAST: ${{ inputs.last }}
+          PARALLEL: ${{ inputs.parallel }}
+          STUDY_ID: ${{ inputs.study_id }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          first, last, parallel = int(os.environ['FIRST']), int(os.environ['LAST']), int(os.environ['PARALLEL'])
+          assert 1 <= first <= last <= 500 and last-first+1 <= 250
+          assert 1 <= parallel <= 20
+          assert re.fullmatch(r'[a-zA-Z0-9_-]{1,50}', os.environ['STUDY_ID'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write('matrix='+json.dumps({'replicate': list(range(first,last+1))})+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.study_id }}-design-${{ inputs.first }}-${{ inputs.last }}
+          path: work/metadata/
+          retention-days: 90
+  fit:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.parallel) }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies
+            scripts
+            studies
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .runtime/library
+          key: full500-linux-r452-${{ hashFiles('dependencies/*', 'studies/longitudinal/github-500/install.R') }}
+      - name: Verify dependencies
+        run: Rscript studies/longitudinal/github-500/install.R
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.study_id }}-design-${{ inputs.first }}-${{ inputs.last }}
+          path: work/metadata
+      - name: Recover immutable checkpoints when rerunning an interrupted shard
+        if: github.run_attempt > 1
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STUDY_ID: ${{ inputs.study_id }}
+          REPLICATE: ${{ matrix.replicate }}
+        run: python3 studies/longitudinal/github-500/artifacts.py --study "$STUDY_ID" --replicate "$REPLICATE" --target work/shard
+      - name: Fit two datasets at a time; save every result and failure
+        env:
+          FULL_REPLICATE: ${{ matrix.replicate }}
+          FULL_OUTPUT: work/shard
+          FULL_WORKERS: '2'
+          FULL_MAX_SECONDS: '17100'
+        run: python3 studies/longitudinal/github-500/worker.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.study_id }}-r${{ matrix.replicate }}-attempt${{ github.run_attempt }}
+          path: work/shard/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+  report:
+    needs: [prepare, fit]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies
+            scripts
+            studies
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .runtime/library
+          key: full500-linux-r452-${{ hashFiles('dependencies/*', 'studies/longitudinal/github-500/install.R') }}
+      - run: Rscript studies/longitudinal/github-500/install.R
+      - name: Read completed checkpoint artifacts from both cohorts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STUDY_ID: ${{ inputs.study_id }}
+        run: python3 studies/longitudinal/github-500/artifacts.py --study "$STUDY_ID" --target work/report
+      - name: Verify and summarize all returned datasets without replacing failures
+        env:
+          SIM_OUTPUT: work/report
+        run: Rscript studies/longitudinal/github-500/report.R
+      - name: Put actual completion counts in the run summary
+        run: cat work/report/STATUS.txt >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ inputs.study_id }}-report-${{ inputs.first }}-${{ inputs.last }}-attempt${{ github.run_attempt }}
+          path: |
+            work/report/*.md
+            work/report/*.csv
+            work/report/*.csv.gz
+            work/report/*.json
+            work/report/*.txt
+            work/report/*.rds
+            work/report/figures/
+          retention-days: 90
+          if-no-files-found: error

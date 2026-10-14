@@ -15,6 +15,13 @@ The package is named **lmtp**, rather than a separate wrapper package.
 
 ## Studies
 
+The [new GitHub rerun](studies/longitudinal/github-500/PLAN.md) uses 500
+replications at n = 500, 1,000, 4,000 and 10,000 for both longitudinal mechanisms:
+4,000 freshly fitted datasets. It retains the original full-study package builds,
+PSD projection, positive penalty CV, SDR and logistic TMLE. The completed
+200-replication study below remains the historical comparison until the new
+planned counts finish.
+
 `studies/longitudinal/` contains binary treatment and numerical dose 0–3,
 with missingness at both follow-ups. The approved study uses n = 500, 1000,
 4000, with 200 replications per setting, and SDR and logistic TMLE with the
