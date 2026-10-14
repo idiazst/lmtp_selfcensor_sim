@@ -1,0 +1,1 @@
+Verified 760 of 4,000 checkpoint hashes, source fingerprints, seed/configuration mappings and returned results. All checkpoints retained, including errors.

@@ -1,0 +1,13 @@
+{
+  "verified_at": "2026-10-14T10:04:11.331808-04:00",
+  "completed_datasets": 760,
+  "planned_datasets": 4000,
+  "completed_replications_per_setting": 95,
+  "completed_shards": 95,
+  "active_runners": 20,
+  "datasets_with_estimator_failures": 5,
+  "successful_datasets": 755,
+  "mean_completed_shard_hours": 2.6632251461988306,
+  "estimated_remaining_hours_at20_runners": 53.93030921052632,
+  "note": "Snapshot from uploaded, verified checkpoints. Runs remain active; incomplete jobs can contain additional results not uploaded yet."
+}

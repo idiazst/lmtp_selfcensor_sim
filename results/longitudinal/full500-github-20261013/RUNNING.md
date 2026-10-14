@@ -2,6 +2,23 @@
 
 Launched on GitHub on October 13, 2026, at approximately 20:05 EDT.
 
+**October 14 morning update:** 760 of 4,000 datasets (19%) are checkpointed,
+covering 95 replications in each mechanism/sample-size setting. Twenty GitHub
+runners are active. No completed runner job has failed. Five datasets had
+recorded estimator failures, all at n=500 or n=1,000; they are retained and
+counted. Checkpoint hashes, seed mappings and frozen-source fingerprints pass.
+
+[Preliminary report, tables and scientific graphs](early-summary/REPORT.md)
+use exactly these 760 datasets. At n=10,000, final-outcome coverage among
+returned estimators is 94.7% (SDR) and 95.8% (TMLE) for binary treatment,
+and 88.4% for both numerical-dose estimators. These are 95-replication
+preliminary results, not the planned 500-replication conclusions.
+
+Measured mean completed-batch time is 2.66 hours. Approximately 50–60 hours
+remain at the current 20-runner pace, subject to longer fits and runner availability.
+The [progress snapshot](PROGRESS-SNAPSHOT.json) records its denominator and timing.
+
+
 | Setting | Sample sizes | Replications per sample size |
 | --- | --- | --- |
 | Binary treatment | 500; 1,000; 4,000; 10,000 | 500 |
