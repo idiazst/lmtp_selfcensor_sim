@@ -1,0 +1,73 @@
+name: Updated full-study report
+on:
+  workflow_run:
+    workflows: ['Full longitudinal study - 500 replications']
+    branches: [full-study-500-github]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: Completed full-study run containing its report artifact
+        required: true
+permissions:
+  contents: read
+  actions: read
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  R_LIBS_USER: ${{ github.workspace }}/.runtime/library
+jobs:
+  update-report:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            dependencies
+            scripts
+            studies
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .runtime/library
+          key: full500-linux-r452-${{ hashFiles('dependencies/*', 'studies/longitudinal/github-500/install.R') }}
+      - run: Rscript studies/longitudinal/github-500/install.R
+      - name: Read the verified report artifact without downloading or fitting datasets again
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ inputs.source_run || github.event.workflow_run.id }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess
+          run = int(os.environ['SOURCE_RUN'])
+          repo = os.environ['GITHUB_REPOSITORY']
+          response = subprocess.run(['gh','api','--paginate','--slurp',f'repos/{repo}/actions/runs/{run}/artifacts?per_page=100'],capture_output=True,check=True)
+          pages = json.loads(response.stdout)
+          found = [a for p in pages for a in p['artifacts'] if a['name'].startswith('full500-20261013-report-') and not a['expired']]
+          if not found: raise SystemExit('No verified report artifact available; no results will be invented.')
+          artifact = max(found,key=lambda a:a['id'])
+          subprocess.run(['gh','run','download',str(run),'--repo',repo,'--name',artifact['name'],'--dir','work/report'],check=True)
+          PY
+      - name: Add scaled errors, variance assessment and scientific figures
+        env:
+          SIM_OUTPUT: work/report
+        run: Rscript studies/longitudinal/github-500/bias_variance.R
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full500-bias-variance-${{ inputs.source_run || github.event.workflow_run.id }}-${{ github.run_attempt }}
+          path: |
+            work/report/BIAS-VARIANCE.md
+            work/report/bias-variance-assessment.csv
+            work/report/bias-variance-provenance.json
+            work/report/summary.csv
+            work/report/figures/scaled-bias-mse.png
+            work/report/figures/bias-variance-coverage.png
+          retention-days: 90
+          if-no-files-found: error

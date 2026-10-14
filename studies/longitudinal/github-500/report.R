@@ -89,6 +89,8 @@ lines <- c(lines, table(components[order(horizon, mechanism, n, estimator), .(
   "[All estimates and intervals](replicates.csv), [summary and simulation uncertainty](summary.csv), [coverage including failed fits](coverage-including-failures.csv), [EIF components](eif-component-means.csv), [source hashes](source-manifest.json), [checkpoint hashes](checkpoint-manifest.json), and [artifact provenance](artifact-provenance.json).", "",
   "The numerical results, including any unexpected bias or undercoverage, will be reported as observed. This rerun changes replication counts, sample sizes and computing platform; it does not change the fitting criteria to obtain a desired result.")
 writeLines(lines, file.path(outdir, "REPORT.md"))
+source("studies/longitudinal/github-500/bias_variance.R")
+augment_bias_variance_report(outdir)
 # Preserve complete tables in the artifacts while avoiding duplicate large CSVs.
 status <- system2("python3", c("scripts/compress_tables.py", shQuote(outdir)))
 stopifnot(status == 0L)

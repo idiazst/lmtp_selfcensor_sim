@@ -1,0 +1,8 @@
+{
+  "estimates_sha256": "656cfac05b74bca6da1f8e6fc73c22b0e897d88fa1aee87e415742ecf1b44d62",
+  "analysis_source_sha256": "44087ad8f3a2649b5fea883174b874740110512b3bfba194b1b21bc97cc4729f",
+  "bootstrap_seed": 708614,
+  "bootstrap_draws": 2000,
+  "completed_checkpoints": 760,
+  "fitting_changes": false
+}
