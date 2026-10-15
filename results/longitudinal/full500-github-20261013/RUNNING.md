@@ -2,22 +2,27 @@
 
 Launched on GitHub on October 13, 2026, at approximately 20:05 EDT.
 
-**October 14 morning update:** 760 of 4,000 datasets (19%) are checkpointed,
-covering 95 replications in each mechanism/sample-size setting. Twenty GitHub
-runners are active. No completed runner job has failed. Five datasets had
-recorded estimator failures, all at n=500 or n=1,000; they are retained and
-counted. Checkpoint hashes, seed mappings and frozen-source fingerprints pass.
+**October 14, 20:57 EDT update:** 1,408 of 4,000 datasets (35.2%) are
+checkpointed, covering 176 replications in each mechanism/sample-size setting.
+Twenty GitHub runners are active; no completed runner job has failed. Fifteen
+datasets have recorded estimator failures: binary n=500 (6), binary n=1,000 (1),
+numerical n=500 (4), numerical n=1,000 (3), and numerical n=4,000 (1). These
+failures remain counted and are not replaced. Checkpoint hashes, seed mappings,
+frozen-source fingerprints and independently recomputed table statistics pass.
+All previously reported estimates and confidence intervals are unchanged.
 
 [Preliminary report, tables and scientific graphs](early-summary/REPORT.md)
-use exactly these 760 datasets. At n=10,000, final-outcome coverage among
-returned estimators is 94.7% (SDR) and 95.8% (TMLE) for binary treatment,
-and 88.4% for both numerical-dose estimators. These are 95-replication
-preliminary results, not the planned 500-replication conclusions.
+now use all 1,408 checkpoints, with 170–176 returned estimators per setting.
+At n=10,000, final-outcome coverage is 95.5% (SDR) and 96.0% (TMLE) for
+binary treatment, and 90.3% (SDR) and 90.9% (TMLE) for numerical dose.
+Tables include square root n times bias, n times MSE, simulation uncertainty,
+EIF component means, estimated/empirical variance ratios, and diagnostic
+coverage calculations. These are preliminary results, not the planned
+500-replication conclusions.
 
-Measured mean completed-batch time is 2.66 hours. Approximately 50–60 hours
+Measured mean completed-batch time is 2.64 hours. Approximately 40–45 hours
 remain at the current 20-runner pace, subject to longer fits and runner availability.
 The [progress snapshot](PROGRESS-SNAPSHOT.json) records its denominator and timing.
-
 
 | Setting | Sample sizes | Replications per sample size |
 | --- | --- | --- |
@@ -25,8 +30,8 @@ The [progress snapshot](PROGRESS-SNAPSHOT.json) records its denominator and timi
 | Numerical dose 0–3 | 500; 1,000; 4,000; 10,000 | 500 |
 
 There are **4,000 planned datasets**, with SDR and logistic TMLE on each
-dataset and both follow-up outcomes reported. This launch record contains
-no new estimates or coverage results.
+dataset and both follow-up outcomes reported. The linked preliminary tables use only completed, verified checkpoints;
+pending datasets do not contribute estimates or coverage.
 
 The original positive penalty CV, U-statistic with PSD projection, candidate
 libraries, one-step bridge/adjoint correction and shared training-only splits

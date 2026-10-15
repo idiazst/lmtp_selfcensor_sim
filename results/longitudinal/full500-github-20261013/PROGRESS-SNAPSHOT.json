@@ -1,13 +1,13 @@
 {
-  "verified_at": "2026-10-14T10:04:11.331808-04:00",
-  "completed_datasets": 760,
+  "verified_at": "2026-10-14T20:57:08.708515-04:00",
+  "completed_datasets": 1408,
   "planned_datasets": 4000,
-  "completed_replications_per_setting": 95,
-  "completed_shards": 95,
+  "completed_replications_per_setting": 176,
+  "completed_shards": 176,
   "active_runners": 20,
-  "datasets_with_estimator_failures": 5,
-  "successful_datasets": 755,
-  "mean_completed_shard_hours": 2.6632251461988306,
-  "estimated_remaining_hours_at20_runners": 53.93030921052632,
-  "note": "Snapshot from uploaded, verified checkpoints. Runs remain active; incomplete jobs can contain additional results not uploaded yet."
+  "datasets_with_estimator_failures": 15,
+  "successful_datasets": 1393,
+  "mean_completed_shard_hours": 2.6351688762626275,
+  "estimated_remaining_hours_at20_runners": 42.68973579545457,
+  "note": "Snapshot from 176 uploaded, verified checkpoint artifacts. Runs remain active; unfinished runner jobs may contain additional results not uploaded yet. Failed fits are retained; returned-estimator counts range from 170 to 176 per setting."
 }

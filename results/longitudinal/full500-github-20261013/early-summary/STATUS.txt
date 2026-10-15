@@ -1,5 +1,5 @@
-Completed datasets: 760 of 4000
-Successful comparisons: 1510
-Datasets with reported errors: 5
-Remaining datasets: 3240
+Completed datasets: 1408 of 4000
+Successful comparisons: 2786
+Datasets with reported errors: 15
+Remaining datasets: 2592
 Coverage and bias conclusions require the planned replication counts; partial outputs are preliminary.

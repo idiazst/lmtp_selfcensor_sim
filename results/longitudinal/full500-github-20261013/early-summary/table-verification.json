@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-10-15T00:56:28.807252+00:00",
+  "completed_datasets": 1408,
+  "planned_datasets": 4000,
+  "datasets_per_setting": 176,
+  "successful_datasets": 1393,
+  "datasets_with_estimator_failures": 15,
+  "returned_outcome_estimates": 5572,
+  "summary_groups": 32,
+  "previously_reported_estimates_unchanged": 3020,
+  "checks": [
+    "Checkpoint SHA256 and frozen source hashes",
+    "Counts and failure denominators",
+    "Independent bias, sqrt(n) bias, n*MSE, empirical variance and variance ratios",
+    "Independent actual, bias-centered and interval-width diagnostic coverage",
+    "MSE decomposition",
+    "EIF component sum equals estimation error",
+    "All previously reported estimates and intervals unchanged"
+  ],
+  "fitting_changes": false
+}
