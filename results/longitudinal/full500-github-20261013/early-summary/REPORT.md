@@ -8,6 +8,10 @@ Binary treatment and numerical dose 0–3 each use n = 500, 1,000, 4,000 and 10,
 
 The numerical package sources are the original frozen full-study archives: cmbridge 0.3.0.9020 and lmtp 1.6.0.9021. Hashes are verified before use. Seeds for the original sample sizes and first 200 replications retain their original mapping; all fits in this rerun are computed afresh on GitHub. References are used only for evaluation, never fitting or penalty selection.
 
+## Newer t=3 Monte Carlo variance diagnosis
+
+[The requested variance diagnosis](../variance-t3/REPORT.md) uses a newer snapshot: **3,576 checkpoints, 447 datasets per setting**, with failed fits retained and successful-fit denominators stated. It replaces each reported SE by the estimator's SD across Monte Carlo runs, leaving its estimate unchanged, and separately evaluates mean bias. Numerical-dose coverage improves but remains low at n=1,000 and n=4,000; variance estimation alone is insufficient. At n=1,000, Monte Carlo-SD coverage is 85.6%/86.0% for SDR/TMLE and becomes 95.9%/96.4% after subtracting mean bias. Full calculations, individual recomputed intervals, uncertainty, graphs and verification are linked in that diagnosis. **The older general tables below still use the 1,408-checkpoint snapshot.**
+
 ## Estimates and confidence intervals
 
 Coverage below uses returned estimators as its denominator. Failed estimators, pending datasets, and coverage counting failures as producing no interval are also reported. At 500 successful replications, the simulation standard error of 95% coverage is about one percentage point. A partially completed subset may depend on fitting difficulty; it is not a final coverage study.

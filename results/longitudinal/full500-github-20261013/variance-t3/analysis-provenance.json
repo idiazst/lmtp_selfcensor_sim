@@ -1,0 +1,9 @@
+{
+  "analyzed_at": "2026-10-16 13:06:06 UTC",
+  "completed_checkpoints": 3576,
+  "datasets_with_errors": 38,
+  "fitting_fingerprint": "665d387a11b272ec2620df42cccf8e83e7a46369b2ffa488a568d2d9c4b52d92",
+  "fitting_changes": false,
+  "analysis_source_sha256": "10d2f45eb7db666ab68142d73ea6c1a5d8b6272882b74bd91756b5b41a110531",
+  "estimates_sha256": "e8f699da25f344511af84d44b5d9c402685f36350aae243395948f8fe6db2bbc"
+}

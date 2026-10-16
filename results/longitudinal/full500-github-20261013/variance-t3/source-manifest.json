@@ -1,0 +1,10 @@
+{
+  "scripts/setup.R": "456deddb011a9189166be0166022f56589a4e0a5949ccd4548087e79196f17b4",
+  "dependencies/package-pins.json": "dcbacce4d924c8c414534914c3f11598dca0e1004698fe6d31781d4960138426",
+  "studies/longitudinal/dgp.R": "e1ec40f0be5d15e8b0c7ab911e270d503f9782dfe227556d3e460c312a9641aa",
+  "studies/longitudinal/study.R": "7397cecf78c53fa75b773fc5cbbf4951e5105854297f6797adf9f754eb5f2af2",
+  "studies/longitudinal/github-500/config.R": "6b2ab2cfcde1de8de2d3ac4e2eaa090d3dac9a0daa3fbb57c3cc541b47b1b3ff",
+  "studies/longitudinal/github-500/run_one.R": "7b602716db1aa512ab16ed651de55b3bdcb67f2f4f34e097416fd8e1b19ef9d4",
+  "dependencies/cmbridge_0.3.0.9020.tar.gz": "1c901b304576fd2b8cbaa5f879a446cac205355daba1cf284163cce2f683e514",
+  "dependencies/lmtp_1.6.0.9021.tar.gz": "3f1c46f4b255c6a9617193814aeff15b9f53db61a75a60e3ed63b04ecd99cf62"
+}

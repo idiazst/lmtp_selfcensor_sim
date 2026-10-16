@@ -1,0 +1,18 @@
+{
+  "verified_at": "2026-10-16T13:06:37.868496+00:00",
+  "checkpoints": 3576,
+  "datasets_per_setting": 447,
+  "failed_datasets": 38,
+  "groups_verified": 16,
+  "recomputed_intervals_verified": 7076,
+  "previously_published_outcome_estimates_unchanged": 5572,
+  "fitting_changes": false,
+  "checks": [
+    "All checkpoint and frozen source hashes",
+    "Previous point estimates, SEs and intervals unchanged",
+    "Independent sample variance centered at mean estimate, divisor R-1",
+    "Independent original, MC-SD and mean-bias-subtracted MC-SD coverage",
+    "Every recomputed interval endpoint and coverage indicator",
+    "Counts and failure denominators"
+  ]
+}

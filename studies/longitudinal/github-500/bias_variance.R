@@ -39,6 +39,8 @@ augment_bias_variance_report <- function(outdir, bootstrap_draws = 2000L) {
     cb <- interval(boot_centered - boot_actual)
     cw <- interval(boot_width - boot_actual)
     cc <- interval(boot_both - boot_actual)
+    mc_width_coverage_interval <- interval(boot_width)
+    centered_mc_width_coverage_interval <- interval(boot_both)
     cr <- interval(boot_rescaled - boot_actual)
     ccr <- interval(boot_centered_rescaled - boot_actual)
     scaled_bias_interval <- interval(sqrt(n[1L]) * bb)
@@ -60,6 +62,10 @@ augment_bias_variance_report <- function(outdir, bootstrap_draws = 2000L) {
       actual_coverage = mean(actual), remove_mean_bias_coverage = mean(remove_bias),
       empirical_sd_coverage = mean(empirical_width),
       remove_mean_bias_empirical_sd_coverage = mean(remove_bias_empirical_width),
+      empirical_sd_coverage_mc_lower = mc_width_coverage_interval[1L],
+      empirical_sd_coverage_mc_upper = mc_width_coverage_interval[2L],
+      remove_mean_bias_empirical_sd_coverage_mc_lower = centered_mc_width_coverage_interval[1L],
+      remove_mean_bias_empirical_sd_coverage_mc_upper = centered_mc_width_coverage_interval[2L],
       se_rescaling_factor = se_scale, rescaled_own_se_coverage = mean(rescaled_se),
       remove_mean_bias_rescaled_own_se_coverage = mean(remove_bias_rescaled_se),
       remove_bias_change_mc_lower = cb[1L], remove_bias_change_mc_upper = cb[2L],
