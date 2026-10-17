@@ -1,0 +1,245 @@
+beta_correct,ratio_correct,m_correct,estimator,error,warnings,mechanism,n,replicate,seed
+TRUE,TRUE,TRUE,sdr,missing value where TRUE/FALSE needed,"",binary_longitudinal,1000,141,5102141
+TRUE,TRUE,TRUE,tmle,missing value where TRUE/FALSE needed,"",binary_longitudinal,1000,141,5102141
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,306,5102306
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,306,5102306
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,363,5102363
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,363,5102363
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,377,5102377
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,1000,377,5102377
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,4000,460,5103460
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,4000,460,5103460
+TRUE,TRUE,TRUE,sdr,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,51,5101051
+TRUE,TRUE,TRUE,tmle,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,51,5101051
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,68,5101068
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,68,5101068
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,72,5101072
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,72,5101072
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,110,5101110
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,110,5101110
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,186,5101186
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,186,5101186
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,216,5101216
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,216,5101216
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,220,5101220
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,220,5101220
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,221,5101221
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,221,5101221
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,230,5101230
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,230,5101230
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,234,5101234
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,234,5101234
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,254,5101254
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,254,5101254
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,258,5101258
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,258,5101258
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,334,5101334
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,334,5101334
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,380,5101380
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,380,5101380
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,387,5101387
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,387,5101387
+TRUE,TRUE,TRUE,sdr,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,440,5101440
+TRUE,TRUE,TRUE,tmle,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,440,5101440
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,460,5101460
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",binary_longitudinal,500,460,5101460
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,15,5202015
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,15,5202015
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,74,5202074
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,74,5202074
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,125,5202125
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,125,5202125
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,244,5202244
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,244,5202244
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,281,5202281
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,1000,281,5202281
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,4000,79,5203079
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,4000,79,5203079
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,32,5201032
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,32,5201032
+TRUE,TRUE,TRUE,sdr,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,58,5201058
+TRUE,TRUE,TRUE,tmle,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,58,5201058
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,147,5201147
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,147,5201147
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,150,5201150
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,150,5201150
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,210,5201210
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,210,5201210
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,240,5201240
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,240,5201240
+TRUE,TRUE,TRUE,sdr,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,303,5201303
+TRUE,TRUE,TRUE,tmle,A sequential learner failed inside response construction.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,303,5201303
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,309,5201309
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,309,5201309
+TRUE,TRUE,TRUE,sdr,missing value where TRUE/FALSE needed,"",discrete_dose,500,357,5201357
+TRUE,TRUE,TRUE,tmle,missing value where TRUE/FALSE needed,"",discrete_dose,500,357,5201357
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,371,5201371
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,371,5201371
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,372,5201372
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,372,5201372
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,376,5201376
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,376,5201376
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,396,5201396
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,396,5201396
+TRUE,TRUE,TRUE,sdr,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,447,5201447
+TRUE,TRUE,TRUE,tmle,A SuperLearner candidate failed; this comparison cannot count as a successful fit.,"Error in algorithm SL.saturated_l1_cv 
+  The Algorithm will be removed from the Super Learner (i.e. given weight 0) 
+",discrete_dose,500,447,5201447

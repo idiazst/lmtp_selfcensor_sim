@@ -1,0 +1,3002 @@
+[
+  {
+    "replicate": 1,
+    "artifact_id": 11865054552,
+    "name": "full500-20261013-r1-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 2,
+    "artifact_id": 11866689766,
+    "name": "full500-20261013-r2-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 3,
+    "artifact_id": 11866080323,
+    "name": "full500-20261013-r3-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 4,
+    "artifact_id": 11865473349,
+    "name": "full500-20261013-r4-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 5,
+    "artifact_id": 11867020489,
+    "name": "full500-20261013-r5-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 6,
+    "artifact_id": 11866859261,
+    "name": "full500-20261013-r6-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 7,
+    "artifact_id": 11864469489,
+    "name": "full500-20261013-r7-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 8,
+    "artifact_id": 11866081052,
+    "name": "full500-20261013-r8-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 9,
+    "artifact_id": 11864935317,
+    "name": "full500-20261013-r9-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 10,
+    "artifact_id": 11865706397,
+    "name": "full500-20261013-r10-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 11,
+    "artifact_id": 11871180990,
+    "name": "full500-20261013-r11-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 12,
+    "artifact_id": 11870718871,
+    "name": "full500-20261013-r12-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 13,
+    "artifact_id": 11870965055,
+    "name": "full500-20261013-r13-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 14,
+    "artifact_id": 11869476270,
+    "name": "full500-20261013-r14-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 15,
+    "artifact_id": 11868369903,
+    "name": "full500-20261013-r15-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 16,
+    "artifact_id": 11871296249,
+    "name": "full500-20261013-r16-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 17,
+    "artifact_id": 11869018753,
+    "name": "full500-20261013-r17-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 18,
+    "artifact_id": 11872608849,
+    "name": "full500-20261013-r18-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 19,
+    "artifact_id": 11873975785,
+    "name": "full500-20261013-r19-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 20,
+    "artifact_id": 11871343497,
+    "name": "full500-20261013-r20-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 21,
+    "artifact_id": 11875995930,
+    "name": "full500-20261013-r21-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 22,
+    "artifact_id": 11876715986,
+    "name": "full500-20261013-r22-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 23,
+    "artifact_id": 11872763311,
+    "name": "full500-20261013-r23-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 24,
+    "artifact_id": 11875218100,
+    "name": "full500-20261013-r24-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 25,
+    "artifact_id": 11878328557,
+    "name": "full500-20261013-r25-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 26,
+    "artifact_id": 11879055412,
+    "name": "full500-20261013-r26-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 27,
+    "artifact_id": 11876327042,
+    "name": "full500-20261013-r27-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 28,
+    "artifact_id": 11880835776,
+    "name": "full500-20261013-r28-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 29,
+    "artifact_id": 11881028732,
+    "name": "full500-20261013-r29-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 30,
+    "artifact_id": 11877949679,
+    "name": "full500-20261013-r30-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 31,
+    "artifact_id": 11882825646,
+    "name": "full500-20261013-r31-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 32,
+    "artifact_id": 11879453759,
+    "name": "full500-20261013-r32-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 33,
+    "artifact_id": 11885640721,
+    "name": "full500-20261013-r33-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 34,
+    "artifact_id": 11882154559,
+    "name": "full500-20261013-r34-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 35,
+    "artifact_id": 11885551419,
+    "name": "full500-20261013-r35-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 36,
+    "artifact_id": 11887888241,
+    "name": "full500-20261013-r36-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 37,
+    "artifact_id": 11889003446,
+    "name": "full500-20261013-r37-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 38,
+    "artifact_id": 11889782226,
+    "name": "full500-20261013-r38-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 39,
+    "artifact_id": 11890910710,
+    "name": "full500-20261013-r39-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 40,
+    "artifact_id": 11890692363,
+    "name": "full500-20261013-r40-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 41,
+    "artifact_id": 11891359863,
+    "name": "full500-20261013-r41-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 42,
+    "artifact_id": 11892703146,
+    "name": "full500-20261013-r42-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 43,
+    "artifact_id": 11892490400,
+    "name": "full500-20261013-r43-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 44,
+    "artifact_id": 11897385738,
+    "name": "full500-20261013-r44-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 45,
+    "artifact_id": 11896846962,
+    "name": "full500-20261013-r45-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 46,
+    "artifact_id": 11897253729,
+    "name": "full500-20261013-r46-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 47,
+    "artifact_id": 11898585304,
+    "name": "full500-20261013-r47-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 48,
+    "artifact_id": 11904130377,
+    "name": "full500-20261013-r48-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 49,
+    "artifact_id": 11899832586,
+    "name": "full500-20261013-r49-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 50,
+    "artifact_id": 11900620921,
+    "name": "full500-20261013-r50-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 51,
+    "artifact_id": 11906321804,
+    "name": "full500-20261013-r51-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 52,
+    "artifact_id": 11904364660,
+    "name": "full500-20261013-r52-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 53,
+    "artifact_id": 11903072289,
+    "name": "full500-20261013-r53-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 54,
+    "artifact_id": 11909422456,
+    "name": "full500-20261013-r54-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 55,
+    "artifact_id": 11909219005,
+    "name": "full500-20261013-r55-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 56,
+    "artifact_id": 11908758004,
+    "name": "full500-20261013-r56-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 57,
+    "artifact_id": 11909572877,
+    "name": "full500-20261013-r57-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 58,
+    "artifact_id": 11913153976,
+    "name": "full500-20261013-r58-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 59,
+    "artifact_id": 11911053531,
+    "name": "full500-20261013-r59-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 60,
+    "artifact_id": 11912673850,
+    "name": "full500-20261013-r60-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 61,
+    "artifact_id": 11916639298,
+    "name": "full500-20261013-r61-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 62,
+    "artifact_id": 11918976222,
+    "name": "full500-20261013-r62-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 63,
+    "artifact_id": 11919162030,
+    "name": "full500-20261013-r63-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 64,
+    "artifact_id": 11921777505,
+    "name": "full500-20261013-r64-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 65,
+    "artifact_id": 11919525186,
+    "name": "full500-20261013-r65-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 66,
+    "artifact_id": 11922845285,
+    "name": "full500-20261013-r66-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 67,
+    "artifact_id": 11923665438,
+    "name": "full500-20261013-r67-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 68,
+    "artifact_id": 11919207654,
+    "name": "full500-20261013-r68-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 69,
+    "artifact_id": 11919561144,
+    "name": "full500-20261013-r69-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 70,
+    "artifact_id": 11919627751,
+    "name": "full500-20261013-r70-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 71,
+    "artifact_id": 11927539173,
+    "name": "full500-20261013-r71-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 72,
+    "artifact_id": 11929651850,
+    "name": "full500-20261013-r72-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 73,
+    "artifact_id": 11927600639,
+    "name": "full500-20261013-r73-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 74,
+    "artifact_id": 11927546533,
+    "name": "full500-20261013-r74-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 75,
+    "artifact_id": 11929323801,
+    "name": "full500-20261013-r75-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 76,
+    "artifact_id": 11929113651,
+    "name": "full500-20261013-r76-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 77,
+    "artifact_id": 11926113880,
+    "name": "full500-20261013-r77-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 78,
+    "artifact_id": 11929851899,
+    "name": "full500-20261013-r78-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 79,
+    "artifact_id": 11932522748,
+    "name": "full500-20261013-r79-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 80,
+    "artifact_id": 11929220929,
+    "name": "full500-20261013-r80-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 81,
+    "artifact_id": 11933165449,
+    "name": "full500-20261013-r81-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 82,
+    "artifact_id": 11936576074,
+    "name": "full500-20261013-r82-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 83,
+    "artifact_id": 11931994169,
+    "name": "full500-20261013-r83-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 84,
+    "artifact_id": 11934584926,
+    "name": "full500-20261013-r84-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 85,
+    "artifact_id": 11937745232,
+    "name": "full500-20261013-r85-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 86,
+    "artifact_id": 11937897908,
+    "name": "full500-20261013-r86-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 87,
+    "artifact_id": 11936616319,
+    "name": "full500-20261013-r87-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 88,
+    "artifact_id": 11937728223,
+    "name": "full500-20261013-r88-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 89,
+    "artifact_id": 11938777307,
+    "name": "full500-20261013-r89-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 90,
+    "artifact_id": 11940146303,
+    "name": "full500-20261013-r90-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 91,
+    "artifact_id": 11940056049,
+    "name": "full500-20261013-r91-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 92,
+    "artifact_id": 11939774918,
+    "name": "full500-20261013-r92-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 93,
+    "artifact_id": 11944200048,
+    "name": "full500-20261013-r93-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 94,
+    "artifact_id": 11945055098,
+    "name": "full500-20261013-r94-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 95,
+    "artifact_id": 11943599251,
+    "name": "full500-20261013-r95-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 96,
+    "artifact_id": 11945836820,
+    "name": "full500-20261013-r96-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 97,
+    "artifact_id": 11946646254,
+    "name": "full500-20261013-r97-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 98,
+    "artifact_id": 11945624312,
+    "name": "full500-20261013-r98-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 99,
+    "artifact_id": 11946408552,
+    "name": "full500-20261013-r99-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 100,
+    "artifact_id": 11946767735,
+    "name": "full500-20261013-r100-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 101,
+    "artifact_id": 11947053659,
+    "name": "full500-20261013-r101-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 102,
+    "artifact_id": 11945721842,
+    "name": "full500-20261013-r102-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 103,
+    "artifact_id": 11948361771,
+    "name": "full500-20261013-r103-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 104,
+    "artifact_id": 11950513632,
+    "name": "full500-20261013-r104-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 105,
+    "artifact_id": 11950049564,
+    "name": "full500-20261013-r105-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 106,
+    "artifact_id": 11950891583,
+    "name": "full500-20261013-r106-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 107,
+    "artifact_id": 11952320708,
+    "name": "full500-20261013-r107-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 108,
+    "artifact_id": 11952956230,
+    "name": "full500-20261013-r108-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 109,
+    "artifact_id": 11950809004,
+    "name": "full500-20261013-r109-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 110,
+    "artifact_id": 11950710145,
+    "name": "full500-20261013-r110-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 111,
+    "artifact_id": 11950268643,
+    "name": "full500-20261013-r111-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 112,
+    "artifact_id": 11955306020,
+    "name": "full500-20261013-r112-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 113,
+    "artifact_id": 11954922744,
+    "name": "full500-20261013-r113-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 114,
+    "artifact_id": 11957474179,
+    "name": "full500-20261013-r114-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 115,
+    "artifact_id": 11957812036,
+    "name": "full500-20261013-r115-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 116,
+    "artifact_id": 11958714994,
+    "name": "full500-20261013-r116-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 117,
+    "artifact_id": 11954773611,
+    "name": "full500-20261013-r117-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 118,
+    "artifact_id": 11959750462,
+    "name": "full500-20261013-r118-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 119,
+    "artifact_id": 11955630645,
+    "name": "full500-20261013-r119-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 120,
+    "artifact_id": 11960440085,
+    "name": "full500-20261013-r120-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 121,
+    "artifact_id": 11960704168,
+    "name": "full500-20261013-r121-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 122,
+    "artifact_id": 11963742769,
+    "name": "full500-20261013-r122-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 123,
+    "artifact_id": 11963922916,
+    "name": "full500-20261013-r123-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 124,
+    "artifact_id": 11961304456,
+    "name": "full500-20261013-r124-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 125,
+    "artifact_id": 11964792001,
+    "name": "full500-20261013-r125-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 126,
+    "artifact_id": 11967457866,
+    "name": "full500-20261013-r126-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 127,
+    "artifact_id": 11963054299,
+    "name": "full500-20261013-r127-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 128,
+    "artifact_id": 11967775156,
+    "name": "full500-20261013-r128-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 129,
+    "artifact_id": 11969614551,
+    "name": "full500-20261013-r129-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 130,
+    "artifact_id": 11966987306,
+    "name": "full500-20261013-r130-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 131,
+    "artifact_id": 11972246832,
+    "name": "full500-20261013-r131-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 132,
+    "artifact_id": 11973846649,
+    "name": "full500-20261013-r132-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 133,
+    "artifact_id": 11976211098,
+    "name": "full500-20261013-r133-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 134,
+    "artifact_id": 11975852644,
+    "name": "full500-20261013-r134-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 135,
+    "artifact_id": 11973421142,
+    "name": "full500-20261013-r135-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 136,
+    "artifact_id": 11976631971,
+    "name": "full500-20261013-r136-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 137,
+    "artifact_id": 11978816586,
+    "name": "full500-20261013-r137-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 138,
+    "artifact_id": 11974281128,
+    "name": "full500-20261013-r138-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 139,
+    "artifact_id": 11980666653,
+    "name": "full500-20261013-r139-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 140,
+    "artifact_id": 11979092537,
+    "name": "full500-20261013-r140-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 141,
+    "artifact_id": 11986881325,
+    "name": "full500-20261013-r141-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 142,
+    "artifact_id": 11985348460,
+    "name": "full500-20261013-r142-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 143,
+    "artifact_id": 11983161348,
+    "name": "full500-20261013-r143-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 144,
+    "artifact_id": 11987265531,
+    "name": "full500-20261013-r144-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 145,
+    "artifact_id": 11989587185,
+    "name": "full500-20261013-r145-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 146,
+    "artifact_id": 11990443364,
+    "name": "full500-20261013-r146-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 147,
+    "artifact_id": 11990978578,
+    "name": "full500-20261013-r147-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 148,
+    "artifact_id": 11991693612,
+    "name": "full500-20261013-r148-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 149,
+    "artifact_id": 11993675857,
+    "name": "full500-20261013-r149-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 150,
+    "artifact_id": 11990821437,
+    "name": "full500-20261013-r150-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 151,
+    "artifact_id": 11990354546,
+    "name": "full500-20261013-r151-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 152,
+    "artifact_id": 11998463272,
+    "name": "full500-20261013-r152-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 153,
+    "artifact_id": 11998648819,
+    "name": "full500-20261013-r153-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 154,
+    "artifact_id": 12000160582,
+    "name": "full500-20261013-r154-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 155,
+    "artifact_id": 11995074961,
+    "name": "full500-20261013-r155-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 156,
+    "artifact_id": 11997138814,
+    "name": "full500-20261013-r156-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 157,
+    "artifact_id": 11998827122,
+    "name": "full500-20261013-r157-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 158,
+    "artifact_id": 12058885640,
+    "name": "full500-20261013-r158-attempt1",
+    "run_id": 38903833946
+  },
+  {
+    "replicate": 159,
+    "artifact_id": 12000160670,
+    "name": "full500-20261013-r159-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 160,
+    "artifact_id": 12000343016,
+    "name": "full500-20261013-r160-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 161,
+    "artifact_id": 12000419047,
+    "name": "full500-20261013-r161-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 162,
+    "artifact_id": 12005886228,
+    "name": "full500-20261013-r162-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 163,
+    "artifact_id": 12006363294,
+    "name": "full500-20261013-r163-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 164,
+    "artifact_id": 12003468864,
+    "name": "full500-20261013-r164-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 165,
+    "artifact_id": 12008209986,
+    "name": "full500-20261013-r165-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 166,
+    "artifact_id": 12008094351,
+    "name": "full500-20261013-r166-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 167,
+    "artifact_id": 12009132502,
+    "name": "full500-20261013-r167-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 168,
+    "artifact_id": 12005813453,
+    "name": "full500-20261013-r168-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 169,
+    "artifact_id": 12009956551,
+    "name": "full500-20261013-r169-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 170,
+    "artifact_id": 12009555395,
+    "name": "full500-20261013-r170-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 171,
+    "artifact_id": 12007605592,
+    "name": "full500-20261013-r171-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 172,
+    "artifact_id": 12013634021,
+    "name": "full500-20261013-r172-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 173,
+    "artifact_id": 12011359234,
+    "name": "full500-20261013-r173-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 174,
+    "artifact_id": 12014929370,
+    "name": "full500-20261013-r174-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 175,
+    "artifact_id": 12016220700,
+    "name": "full500-20261013-r175-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 176,
+    "artifact_id": 12015736044,
+    "name": "full500-20261013-r176-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 177,
+    "artifact_id": 12015705982,
+    "name": "full500-20261013-r177-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 178,
+    "artifact_id": 12017302203,
+    "name": "full500-20261013-r178-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 179,
+    "artifact_id": 12017034844,
+    "name": "full500-20261013-r179-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 180,
+    "artifact_id": 12015577852,
+    "name": "full500-20261013-r180-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 181,
+    "artifact_id": 12018555277,
+    "name": "full500-20261013-r181-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 182,
+    "artifact_id": 12018691627,
+    "name": "full500-20261013-r182-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 183,
+    "artifact_id": 12020932922,
+    "name": "full500-20261013-r183-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 184,
+    "artifact_id": 12019724247,
+    "name": "full500-20261013-r184-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 185,
+    "artifact_id": 12022631184,
+    "name": "full500-20261013-r185-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 186,
+    "artifact_id": 12020911041,
+    "name": "full500-20261013-r186-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 187,
+    "artifact_id": 12022562708,
+    "name": "full500-20261013-r187-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 188,
+    "artifact_id": 12021236364,
+    "name": "full500-20261013-r188-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 189,
+    "artifact_id": 12023459371,
+    "name": "full500-20261013-r189-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 190,
+    "artifact_id": 12024575375,
+    "name": "full500-20261013-r190-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 191,
+    "artifact_id": 12024229266,
+    "name": "full500-20261013-r191-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 192,
+    "artifact_id": 12022098235,
+    "name": "full500-20261013-r192-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 193,
+    "artifact_id": 12026546694,
+    "name": "full500-20261013-r193-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 194,
+    "artifact_id": 12027028735,
+    "name": "full500-20261013-r194-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 195,
+    "artifact_id": 12026767582,
+    "name": "full500-20261013-r195-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 196,
+    "artifact_id": 12025591955,
+    "name": "full500-20261013-r196-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 197,
+    "artifact_id": 12027869210,
+    "name": "full500-20261013-r197-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 198,
+    "artifact_id": 12028936294,
+    "name": "full500-20261013-r198-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 199,
+    "artifact_id": 12028671261,
+    "name": "full500-20261013-r199-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 200,
+    "artifact_id": 12030364732,
+    "name": "full500-20261013-r200-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 201,
+    "artifact_id": 12028638705,
+    "name": "full500-20261013-r201-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 202,
+    "artifact_id": 12030933816,
+    "name": "full500-20261013-r202-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 203,
+    "artifact_id": 12029182817,
+    "name": "full500-20261013-r203-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 204,
+    "artifact_id": 12030333480,
+    "name": "full500-20261013-r204-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 205,
+    "artifact_id": 12034892104,
+    "name": "full500-20261013-r205-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 206,
+    "artifact_id": 12034208165,
+    "name": "full500-20261013-r206-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 207,
+    "artifact_id": 12034145786,
+    "name": "full500-20261013-r207-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 208,
+    "artifact_id": 12036580645,
+    "name": "full500-20261013-r208-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 209,
+    "artifact_id": 12034462162,
+    "name": "full500-20261013-r209-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 210,
+    "artifact_id": 12034437792,
+    "name": "full500-20261013-r210-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 211,
+    "artifact_id": 12036753171,
+    "name": "full500-20261013-r211-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 212,
+    "artifact_id": 12035306144,
+    "name": "full500-20261013-r212-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 213,
+    "artifact_id": 12038842301,
+    "name": "full500-20261013-r213-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 214,
+    "artifact_id": 12040045981,
+    "name": "full500-20261013-r214-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 215,
+    "artifact_id": 12040606593,
+    "name": "full500-20261013-r215-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 216,
+    "artifact_id": 12039756482,
+    "name": "full500-20261013-r216-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 217,
+    "artifact_id": 12044091561,
+    "name": "full500-20261013-r217-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 218,
+    "artifact_id": 12043387239,
+    "name": "full500-20261013-r218-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 219,
+    "artifact_id": 12042518449,
+    "name": "full500-20261013-r219-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 220,
+    "artifact_id": 12041819568,
+    "name": "full500-20261013-r220-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 221,
+    "artifact_id": 12042299810,
+    "name": "full500-20261013-r221-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 222,
+    "artifact_id": 12043865577,
+    "name": "full500-20261013-r222-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 223,
+    "artifact_id": 12044704234,
+    "name": "full500-20261013-r223-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 224,
+    "artifact_id": 12047374837,
+    "name": "full500-20261013-r224-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 225,
+    "artifact_id": 12048987854,
+    "name": "full500-20261013-r225-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 226,
+    "artifact_id": 12044757088,
+    "name": "full500-20261013-r226-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 227,
+    "artifact_id": 12046384984,
+    "name": "full500-20261013-r227-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 228,
+    "artifact_id": 12048490125,
+    "name": "full500-20261013-r228-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 229,
+    "artifact_id": 12049230761,
+    "name": "full500-20261013-r229-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 230,
+    "artifact_id": 12052763760,
+    "name": "full500-20261013-r230-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 231,
+    "artifact_id": 12048389844,
+    "name": "full500-20261013-r231-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 232,
+    "artifact_id": 12053368174,
+    "name": "full500-20261013-r232-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 233,
+    "artifact_id": 12054813310,
+    "name": "full500-20261013-r233-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 234,
+    "artifact_id": 12055638127,
+    "name": "full500-20261013-r234-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 235,
+    "artifact_id": 12054567885,
+    "name": "full500-20261013-r235-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 236,
+    "artifact_id": 12057493053,
+    "name": "full500-20261013-r236-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 237,
+    "artifact_id": 12055989155,
+    "name": "full500-20261013-r237-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 238,
+    "artifact_id": 12056692094,
+    "name": "full500-20261013-r238-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 239,
+    "artifact_id": 12054759133,
+    "name": "full500-20261013-r239-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 240,
+    "artifact_id": 12061948981,
+    "name": "full500-20261013-r240-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 241,
+    "artifact_id": 12063169448,
+    "name": "full500-20261013-r241-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 242,
+    "artifact_id": 12065220166,
+    "name": "full500-20261013-r242-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 243,
+    "artifact_id": 12067240367,
+    "name": "full500-20261013-r243-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 244,
+    "artifact_id": 12060633030,
+    "name": "full500-20261013-r244-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 245,
+    "artifact_id": 12067325875,
+    "name": "full500-20261013-r245-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 246,
+    "artifact_id": 12064300369,
+    "name": "full500-20261013-r246-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 247,
+    "artifact_id": 12063882086,
+    "name": "full500-20261013-r247-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 248,
+    "artifact_id": 12068641227,
+    "name": "full500-20261013-r248-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 249,
+    "artifact_id": 12070260743,
+    "name": "full500-20261013-r249-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 250,
+    "artifact_id": 12072890173,
+    "name": "full500-20261013-r250-attempt1",
+    "run_id": 38488063211
+  },
+  {
+    "replicate": 251,
+    "artifact_id": 11867552327,
+    "name": "full500-20261013-r251-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 252,
+    "artifact_id": 11867426744,
+    "name": "full500-20261013-r252-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 253,
+    "artifact_id": 11866876807,
+    "name": "full500-20261013-r253-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 254,
+    "artifact_id": 11867621502,
+    "name": "full500-20261013-r254-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 255,
+    "artifact_id": 11867314714,
+    "name": "full500-20261013-r255-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 256,
+    "artifact_id": 11867682436,
+    "name": "full500-20261013-r256-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 257,
+    "artifact_id": 11867901886,
+    "name": "full500-20261013-r257-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 258,
+    "artifact_id": 11864357134,
+    "name": "full500-20261013-r258-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 259,
+    "artifact_id": 11867202428,
+    "name": "full500-20261013-r259-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 260,
+    "artifact_id": 11867950831,
+    "name": "full500-20261013-r260-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 261,
+    "artifact_id": 11869632156,
+    "name": "full500-20261013-r261-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 262,
+    "artifact_id": 11873830568,
+    "name": "full500-20261013-r262-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 263,
+    "artifact_id": 11874105948,
+    "name": "full500-20261013-r263-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 264,
+    "artifact_id": 11874261465,
+    "name": "full500-20261013-r264-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 265,
+    "artifact_id": 11873971113,
+    "name": "full500-20261013-r265-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 266,
+    "artifact_id": 11873453836,
+    "name": "full500-20261013-r266-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 267,
+    "artifact_id": 11873855417,
+    "name": "full500-20261013-r267-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 268,
+    "artifact_id": 11872219386,
+    "name": "full500-20261013-r268-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 269,
+    "artifact_id": 11873449463,
+    "name": "full500-20261013-r269-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 270,
+    "artifact_id": 11873723438,
+    "name": "full500-20261013-r270-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 271,
+    "artifact_id": 11876238317,
+    "name": "full500-20261013-r271-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 272,
+    "artifact_id": 11880541410,
+    "name": "full500-20261013-r272-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 273,
+    "artifact_id": 11881064651,
+    "name": "full500-20261013-r273-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 274,
+    "artifact_id": 11877547773,
+    "name": "full500-20261013-r274-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 275,
+    "artifact_id": 11881628827,
+    "name": "full500-20261013-r275-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 276,
+    "artifact_id": 11881938904,
+    "name": "full500-20261013-r276-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 277,
+    "artifact_id": 11879609353,
+    "name": "full500-20261013-r277-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 278,
+    "artifact_id": 11877424541,
+    "name": "full500-20261013-r278-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 279,
+    "artifact_id": 11879858323,
+    "name": "full500-20261013-r279-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 280,
+    "artifact_id": 11880269355,
+    "name": "full500-20261013-r280-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 281,
+    "artifact_id": 11885888512,
+    "name": "full500-20261013-r281-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 282,
+    "artifact_id": 11885616175,
+    "name": "full500-20261013-r282-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 283,
+    "artifact_id": 11887593937,
+    "name": "full500-20261013-r283-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 284,
+    "artifact_id": 11888709408,
+    "name": "full500-20261013-r284-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 285,
+    "artifact_id": 11890875427,
+    "name": "full500-20261013-r285-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 286,
+    "artifact_id": 11891856671,
+    "name": "full500-20261013-r286-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 287,
+    "artifact_id": 11891063089,
+    "name": "full500-20261013-r287-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 288,
+    "artifact_id": 11892401571,
+    "name": "full500-20261013-r288-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 289,
+    "artifact_id": 11887353669,
+    "name": "full500-20261013-r289-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 290,
+    "artifact_id": 11892599621,
+    "name": "full500-20261013-r290-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 291,
+    "artifact_id": 11893153104,
+    "name": "full500-20261013-r291-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 292,
+    "artifact_id": 11895526787,
+    "name": "full500-20261013-r292-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 293,
+    "artifact_id": 11895601190,
+    "name": "full500-20261013-r293-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 294,
+    "artifact_id": 11898116460,
+    "name": "full500-20261013-r294-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 295,
+    "artifact_id": 11898054201,
+    "name": "full500-20261013-r295-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 296,
+    "artifact_id": 11898717713,
+    "name": "full500-20261013-r296-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 297,
+    "artifact_id": 11903689336,
+    "name": "full500-20261013-r297-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 298,
+    "artifact_id": 11898318063,
+    "name": "full500-20261013-r298-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 299,
+    "artifact_id": 11903135718,
+    "name": "full500-20261013-r299-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 300,
+    "artifact_id": 11902748274,
+    "name": "full500-20261013-r300-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 301,
+    "artifact_id": 11903728146,
+    "name": "full500-20261013-r301-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 302,
+    "artifact_id": 11904887335,
+    "name": "full500-20261013-r302-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 303,
+    "artifact_id": 11904073883,
+    "name": "full500-20261013-r303-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 304,
+    "artifact_id": 11912361923,
+    "name": "full500-20261013-r304-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 305,
+    "artifact_id": 11906356011,
+    "name": "full500-20261013-r305-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 306,
+    "artifact_id": 11912368867,
+    "name": "full500-20261013-r306-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 307,
+    "artifact_id": 11913101117,
+    "name": "full500-20261013-r307-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 308,
+    "artifact_id": 11916901341,
+    "name": "full500-20261013-r308-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 309,
+    "artifact_id": 11917396820,
+    "name": "full500-20261013-r309-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 310,
+    "artifact_id": 11917740118,
+    "name": "full500-20261013-r310-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 311,
+    "artifact_id": 11911359149,
+    "name": "full500-20261013-r311-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 312,
+    "artifact_id": 11916336436,
+    "name": "full500-20261013-r312-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 313,
+    "artifact_id": 11915392607,
+    "name": "full500-20261013-r313-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 314,
+    "artifact_id": 11916966111,
+    "name": "full500-20261013-r314-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 315,
+    "artifact_id": 11923296796,
+    "name": "full500-20261013-r315-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 316,
+    "artifact_id": 11918959172,
+    "name": "full500-20261013-r316-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 317,
+    "artifact_id": 11919730825,
+    "name": "full500-20261013-r317-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 318,
+    "artifact_id": 11921411927,
+    "name": "full500-20261013-r318-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 319,
+    "artifact_id": 11926176472,
+    "name": "full500-20261013-r319-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 320,
+    "artifact_id": 11926962283,
+    "name": "full500-20261013-r320-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 321,
+    "artifact_id": 11927921313,
+    "name": "full500-20261013-r321-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 322,
+    "artifact_id": 11927221653,
+    "name": "full500-20261013-r322-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 323,
+    "artifact_id": 11928555655,
+    "name": "full500-20261013-r323-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 324,
+    "artifact_id": 11928252509,
+    "name": "full500-20261013-r324-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 325,
+    "artifact_id": 11927146167,
+    "name": "full500-20261013-r325-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 326,
+    "artifact_id": 11930167026,
+    "name": "full500-20261013-r326-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 327,
+    "artifact_id": 11931594441,
+    "name": "full500-20261013-r327-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 328,
+    "artifact_id": 11929138147,
+    "name": "full500-20261013-r328-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 329,
+    "artifact_id": 11930369856,
+    "name": "full500-20261013-r329-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 330,
+    "artifact_id": 11936956008,
+    "name": "full500-20261013-r330-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 331,
+    "artifact_id": 11935614956,
+    "name": "full500-20261013-r331-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 332,
+    "artifact_id": 11931854567,
+    "name": "full500-20261013-r332-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 333,
+    "artifact_id": 11934731830,
+    "name": "full500-20261013-r333-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 334,
+    "artifact_id": 11937512360,
+    "name": "full500-20261013-r334-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 335,
+    "artifact_id": 11933886653,
+    "name": "full500-20261013-r335-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 336,
+    "artifact_id": 11936418563,
+    "name": "full500-20261013-r336-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 337,
+    "artifact_id": 11939420175,
+    "name": "full500-20261013-r337-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 338,
+    "artifact_id": 11939199860,
+    "name": "full500-20261013-r338-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 339,
+    "artifact_id": 11940087674,
+    "name": "full500-20261013-r339-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 340,
+    "artifact_id": 11940566708,
+    "name": "full500-20261013-r340-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 341,
+    "artifact_id": 11940227751,
+    "name": "full500-20261013-r341-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 342,
+    "artifact_id": 11943153020,
+    "name": "full500-20261013-r342-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 343,
+    "artifact_id": 11944985669,
+    "name": "full500-20261013-r343-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 344,
+    "artifact_id": 11944970771,
+    "name": "full500-20261013-r344-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 345,
+    "artifact_id": 11943214849,
+    "name": "full500-20261013-r345-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 346,
+    "artifact_id": 11942938466,
+    "name": "full500-20261013-r346-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 347,
+    "artifact_id": 11945893916,
+    "name": "full500-20261013-r347-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 348,
+    "artifact_id": 11945060396,
+    "name": "full500-20261013-r348-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 349,
+    "artifact_id": 11946778935,
+    "name": "full500-20261013-r349-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 350,
+    "artifact_id": 11946899861,
+    "name": "full500-20261013-r350-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 351,
+    "artifact_id": 11945860047,
+    "name": "full500-20261013-r351-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 352,
+    "artifact_id": 11949546011,
+    "name": "full500-20261013-r352-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 353,
+    "artifact_id": 11949697798,
+    "name": "full500-20261013-r353-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 354,
+    "artifact_id": 11950371230,
+    "name": "full500-20261013-r354-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 355,
+    "artifact_id": 11951230823,
+    "name": "full500-20261013-r355-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 356,
+    "artifact_id": 11951045865,
+    "name": "full500-20261013-r356-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 357,
+    "artifact_id": 11951990567,
+    "name": "full500-20261013-r357-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 358,
+    "artifact_id": 11951057806,
+    "name": "full500-20261013-r358-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 359,
+    "artifact_id": 11952634921,
+    "name": "full500-20261013-r359-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 360,
+    "artifact_id": 11954676722,
+    "name": "full500-20261013-r360-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 361,
+    "artifact_id": 11951358357,
+    "name": "full500-20261013-r361-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 362,
+    "artifact_id": 11956508225,
+    "name": "full500-20261013-r362-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 363,
+    "artifact_id": 11956229431,
+    "name": "full500-20261013-r363-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 364,
+    "artifact_id": 11956660699,
+    "name": "full500-20261013-r364-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 365,
+    "artifact_id": 11956479084,
+    "name": "full500-20261013-r365-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 366,
+    "artifact_id": 11957944394,
+    "name": "full500-20261013-r366-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 367,
+    "artifact_id": 11959867988,
+    "name": "full500-20261013-r367-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 368,
+    "artifact_id": 11961025554,
+    "name": "full500-20261013-r368-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 369,
+    "artifact_id": 11960691240,
+    "name": "full500-20261013-r369-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 370,
+    "artifact_id": 11960191398,
+    "name": "full500-20261013-r370-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 371,
+    "artifact_id": 11961666676,
+    "name": "full500-20261013-r371-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 372,
+    "artifact_id": 11961222210,
+    "name": "full500-20261013-r372-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 373,
+    "artifact_id": 11967566046,
+    "name": "full500-20261013-r373-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 374,
+    "artifact_id": 11962516345,
+    "name": "full500-20261013-r374-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 375,
+    "artifact_id": 11966584794,
+    "name": "full500-20261013-r375-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 376,
+    "artifact_id": 11969042168,
+    "name": "full500-20261013-r376-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 377,
+    "artifact_id": 11968134029,
+    "name": "full500-20261013-r377-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 378,
+    "artifact_id": 11970836648,
+    "name": "full500-20261013-r378-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 379,
+    "artifact_id": 11971078396,
+    "name": "full500-20261013-r379-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 380,
+    "artifact_id": 11968474174,
+    "name": "full500-20261013-r380-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 381,
+    "artifact_id": 11968480205,
+    "name": "full500-20261013-r381-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 382,
+    "artifact_id": 11973495406,
+    "name": "full500-20261013-r382-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 383,
+    "artifact_id": 11974408244,
+    "name": "full500-20261013-r383-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 384,
+    "artifact_id": 11979277646,
+    "name": "full500-20261013-r384-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 385,
+    "artifact_id": 11979188856,
+    "name": "full500-20261013-r385-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 386,
+    "artifact_id": 11980044013,
+    "name": "full500-20261013-r386-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 387,
+    "artifact_id": 11976152274,
+    "name": "full500-20261013-r387-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 388,
+    "artifact_id": 11981028903,
+    "name": "full500-20261013-r388-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 389,
+    "artifact_id": 11982956183,
+    "name": "full500-20261013-r389-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 390,
+    "artifact_id": 11981980470,
+    "name": "full500-20261013-r390-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 391,
+    "artifact_id": 11983650124,
+    "name": "full500-20261013-r391-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 392,
+    "artifact_id": 11986050613,
+    "name": "full500-20261013-r392-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 393,
+    "artifact_id": 11981552906,
+    "name": "full500-20261013-r393-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 394,
+    "artifact_id": 11984819211,
+    "name": "full500-20261013-r394-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 395,
+    "artifact_id": 11988104388,
+    "name": "full500-20261013-r395-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 396,
+    "artifact_id": 11990496794,
+    "name": "full500-20261013-r396-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 397,
+    "artifact_id": 11993900307,
+    "name": "full500-20261013-r397-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 398,
+    "artifact_id": 11994736074,
+    "name": "full500-20261013-r398-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 399,
+    "artifact_id": 11994468226,
+    "name": "full500-20261013-r399-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 400,
+    "artifact_id": 11994219037,
+    "name": "full500-20261013-r400-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 401,
+    "artifact_id": 11994769425,
+    "name": "full500-20261013-r401-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 402,
+    "artifact_id": 11995772151,
+    "name": "full500-20261013-r402-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 403,
+    "artifact_id": 11994898286,
+    "name": "full500-20261013-r403-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 404,
+    "artifact_id": 11994878243,
+    "name": "full500-20261013-r404-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 405,
+    "artifact_id": 11995333829,
+    "name": "full500-20261013-r405-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 406,
+    "artifact_id": 12002080476,
+    "name": "full500-20261013-r406-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 407,
+    "artifact_id": 12004375690,
+    "name": "full500-20261013-r407-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 408,
+    "artifact_id": 12002913175,
+    "name": "full500-20261013-r408-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 409,
+    "artifact_id": 12006435332,
+    "name": "full500-20261013-r409-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 410,
+    "artifact_id": 12001136872,
+    "name": "full500-20261013-r410-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 411,
+    "artifact_id": 12001217328,
+    "name": "full500-20261013-r411-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 412,
+    "artifact_id": 12003311256,
+    "name": "full500-20261013-r412-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 413,
+    "artifact_id": 12006091552,
+    "name": "full500-20261013-r413-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 414,
+    "artifact_id": 12006383814,
+    "name": "full500-20261013-r414-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 415,
+    "artifact_id": 12006008623,
+    "name": "full500-20261013-r415-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 416,
+    "artifact_id": 12005954447,
+    "name": "full500-20261013-r416-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 417,
+    "artifact_id": 12007860328,
+    "name": "full500-20261013-r417-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 418,
+    "artifact_id": 12009643060,
+    "name": "full500-20261013-r418-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 419,
+    "artifact_id": 12013525843,
+    "name": "full500-20261013-r419-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 420,
+    "artifact_id": 12014055171,
+    "name": "full500-20261013-r420-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 421,
+    "artifact_id": 12010315782,
+    "name": "full500-20261013-r421-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 422,
+    "artifact_id": 12014757791,
+    "name": "full500-20261013-r422-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 423,
+    "artifact_id": 12015550170,
+    "name": "full500-20261013-r423-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 424,
+    "artifact_id": 12016010865,
+    "name": "full500-20261013-r424-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 425,
+    "artifact_id": 12011904087,
+    "name": "full500-20261013-r425-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 426,
+    "artifact_id": 12015806179,
+    "name": "full500-20261013-r426-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 427,
+    "artifact_id": 12014505535,
+    "name": "full500-20261013-r427-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 428,
+    "artifact_id": 12015351140,
+    "name": "full500-20261013-r428-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 429,
+    "artifact_id": 12018358124,
+    "name": "full500-20261013-r429-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 430,
+    "artifact_id": 12019618476,
+    "name": "full500-20261013-r430-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 431,
+    "artifact_id": 12019469815,
+    "name": "full500-20261013-r431-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 432,
+    "artifact_id": 12020775309,
+    "name": "full500-20261013-r432-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 433,
+    "artifact_id": 12019762420,
+    "name": "full500-20261013-r433-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 434,
+    "artifact_id": 12021493711,
+    "name": "full500-20261013-r434-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 435,
+    "artifact_id": 12022201033,
+    "name": "full500-20261013-r435-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 436,
+    "artifact_id": 12019011335,
+    "name": "full500-20261013-r436-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 437,
+    "artifact_id": 12022237224,
+    "name": "full500-20261013-r437-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 438,
+    "artifact_id": 12020127933,
+    "name": "full500-20261013-r438-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 439,
+    "artifact_id": 12024571405,
+    "name": "full500-20261013-r439-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 440,
+    "artifact_id": 12024623950,
+    "name": "full500-20261013-r440-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 441,
+    "artifact_id": 12025308288,
+    "name": "full500-20261013-r441-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 442,
+    "artifact_id": 12025635749,
+    "name": "full500-20261013-r442-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 443,
+    "artifact_id": 12026831878,
+    "name": "full500-20261013-r443-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 444,
+    "artifact_id": 12027161010,
+    "name": "full500-20261013-r444-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 445,
+    "artifact_id": 12024886241,
+    "name": "full500-20261013-r445-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 446,
+    "artifact_id": 12027742969,
+    "name": "full500-20261013-r446-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 447,
+    "artifact_id": 12025129365,
+    "name": "full500-20261013-r447-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 448,
+    "artifact_id": 12028813231,
+    "name": "full500-20261013-r448-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 449,
+    "artifact_id": 12030757703,
+    "name": "full500-20261013-r449-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 450,
+    "artifact_id": 12031857143,
+    "name": "full500-20261013-r450-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 451,
+    "artifact_id": 12032205532,
+    "name": "full500-20261013-r451-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 452,
+    "artifact_id": 12028217847,
+    "name": "full500-20261013-r452-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 453,
+    "artifact_id": 12033110206,
+    "name": "full500-20261013-r453-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 454,
+    "artifact_id": 12032537990,
+    "name": "full500-20261013-r454-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 455,
+    "artifact_id": 12034301250,
+    "name": "full500-20261013-r455-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 456,
+    "artifact_id": 12034815287,
+    "name": "full500-20261013-r456-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 457,
+    "artifact_id": 12035158607,
+    "name": "full500-20261013-r457-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 458,
+    "artifact_id": 12036650943,
+    "name": "full500-20261013-r458-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 459,
+    "artifact_id": 12036134633,
+    "name": "full500-20261013-r459-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 460,
+    "artifact_id": 12038689362,
+    "name": "full500-20261013-r460-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 461,
+    "artifact_id": 12037517874,
+    "name": "full500-20261013-r461-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 462,
+    "artifact_id": 12040761360,
+    "name": "full500-20261013-r462-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 463,
+    "artifact_id": 12041232616,
+    "name": "full500-20261013-r463-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 464,
+    "artifact_id": 12041817853,
+    "name": "full500-20261013-r464-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 465,
+    "artifact_id": 12043191479,
+    "name": "full500-20261013-r465-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 466,
+    "artifact_id": 12039277786,
+    "name": "full500-20261013-r466-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 467,
+    "artifact_id": 12041698885,
+    "name": "full500-20261013-r467-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 468,
+    "artifact_id": 12040379730,
+    "name": "full500-20261013-r468-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 469,
+    "artifact_id": 12045709685,
+    "name": "full500-20261013-r469-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 470,
+    "artifact_id": 12046931352,
+    "name": "full500-20261013-r470-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 471,
+    "artifact_id": 12047942769,
+    "name": "full500-20261013-r471-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 472,
+    "artifact_id": 12045703789,
+    "name": "full500-20261013-r472-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 473,
+    "artifact_id": 12045929568,
+    "name": "full500-20261013-r473-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 474,
+    "artifact_id": 12048510171,
+    "name": "full500-20261013-r474-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 475,
+    "artifact_id": 12045883918,
+    "name": "full500-20261013-r475-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 476,
+    "artifact_id": 12051331733,
+    "name": "full500-20261013-r476-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 477,
+    "artifact_id": 12047972358,
+    "name": "full500-20261013-r477-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 478,
+    "artifact_id": 12052733962,
+    "name": "full500-20261013-r478-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 479,
+    "artifact_id": 12056666975,
+    "name": "full500-20261013-r479-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 480,
+    "artifact_id": 12055689056,
+    "name": "full500-20261013-r480-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 481,
+    "artifact_id": 12057440767,
+    "name": "full500-20261013-r481-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 482,
+    "artifact_id": 12054137099,
+    "name": "full500-20261013-r482-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 483,
+    "artifact_id": 12056832780,
+    "name": "full500-20261013-r483-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 484,
+    "artifact_id": 12054610346,
+    "name": "full500-20261013-r484-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 485,
+    "artifact_id": 12056592320,
+    "name": "full500-20261013-r485-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 486,
+    "artifact_id": 12056164188,
+    "name": "full500-20261013-r486-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 487,
+    "artifact_id": 12063841849,
+    "name": "full500-20261013-r487-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 488,
+    "artifact_id": 12060270872,
+    "name": "full500-20261013-r488-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 489,
+    "artifact_id": 12064751351,
+    "name": "full500-20261013-r489-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 490,
+    "artifact_id": 12066000357,
+    "name": "full500-20261013-r490-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 491,
+    "artifact_id": 12066161036,
+    "name": "full500-20261013-r491-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 492,
+    "artifact_id": 12063789394,
+    "name": "full500-20261013-r492-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 493,
+    "artifact_id": 12066115927,
+    "name": "full500-20261013-r493-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 494,
+    "artifact_id": 12068645501,
+    "name": "full500-20261013-r494-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 495,
+    "artifact_id": 12068811636,
+    "name": "full500-20261013-r495-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 496,
+    "artifact_id": 12067000606,
+    "name": "full500-20261013-r496-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 497,
+    "artifact_id": 12067207763,
+    "name": "full500-20261013-r497-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 498,
+    "artifact_id": 12073689629,
+    "name": "full500-20261013-r498-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 499,
+    "artifact_id": 12074574947,
+    "name": "full500-20261013-r499-attempt1",
+    "run_id": 38488067067
+  },
+  {
+    "replicate": 500,
+    "artifact_id": 12070953154,
+    "name": "full500-20261013-r500-attempt1",
+    "run_id": 38488067067
+  }
+]

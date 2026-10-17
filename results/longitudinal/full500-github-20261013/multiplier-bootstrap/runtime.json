@@ -1,0 +1,8 @@
+{
+  "started": "2026-10-17 11:55:08 UTC",
+  "finished": "2026-10-17 12:05:57 UTC",
+  "wall_seconds": 648.3912,
+  "datasets": 4000,
+  "workers": 6,
+  "fitting_changes": false
+}

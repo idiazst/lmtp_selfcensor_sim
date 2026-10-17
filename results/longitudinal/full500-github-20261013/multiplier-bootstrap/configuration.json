@@ -1,0 +1,15 @@
+{
+  "draws": 9999,
+  "seed_offset": 1200000000,
+  "exponential_seed_offset": 10000000,
+  "normalization": "sqrt(n/(n-1))/n",
+  "multipliers": ["gaussian", "rademacher", "exponential"],
+  "conditional_quantiles": ["exact Gaussian", "symmetric 95% absolute Rademacher", "equal-tailed exponential"],
+  "core_sha256": "1d637ba78502d483f106015d80b857eb554a107a164ea2cf54a649e136791e57",
+  "fitting_fingerprint": "665d387a11b272ec2620df42cccf8e83e7a46369b2ffa488a568d2d9c4b52d92",
+  "started": "2026-10-17 11:55:08 UTC",
+  "analysis_fingerprint": "a7804918e0ddd980506ad20c190e2fc6f206b3f84f79e43d87e1ac4b2f2aa7fd",
+  "workers": 6,
+  "source_checkpoints": 4000,
+  "fitting_changes": false
+}

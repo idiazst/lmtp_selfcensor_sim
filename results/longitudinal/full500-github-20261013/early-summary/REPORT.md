@@ -1,16 +1,14 @@
 # Observed-history simulation: 500 replications
 
-**PRELIMINARY: 1408 of 4,000 datasets have been processed.**
-
-Checkpoint snapshot collected October 14, 2026, at approximately 20:55 EDT: 176 datasets per mechanism/sample-size setting, with 170–176 returned estimators. Fifteen datasets have recorded estimator failures; they remain counted and are not replaced.
+All 4,000 planned datasets have been processed. Failed estimators and warnings are retained.
 
 Binary treatment and numerical dose 0–3 each use n = 500, 1,000, 4,000 and 10,000, with 500 datasets per setting. Both SDR and logistic TMLE use the one-step bridge/adjoint correction, shared training-only splits and the original positive penalty CV. The U-statistic ensemble Gram is projected to PSD. This is the original correctly specified full-study configuration; no experimental penalty rules, known-function estimators, zero-penalty runs or Gaussian mean updates are included.
 
 The numerical package sources are the original frozen full-study archives: cmbridge 0.3.0.9020 and lmtp 1.6.0.9021. Hashes are verified before use. Seeds for the original sample sizes and first 200 replications retain their original mapping; all fits in this rerun are computed afresh on GitHub. References are used only for evaluation, never fitting or penalty selection.
 
-## Newer t=3 Monte Carlo variance diagnosis
+## Multiplier-bootstrap check on all 500 replications
 
-[The requested variance diagnosis](../variance-t3/REPORT.md) uses a newer snapshot: **3,576 checkpoints, 447 datasets per setting**, with failed fits retained and successful-fit denominators stated. It replaces each reported SE by the estimator's SD across Monte Carlo runs, leaving its estimate unchanged, and separately evaluates mean bias. Numerical-dose coverage improves but remains low at n=1,000 and n=4,000; variance estimation alone is insufficient. At n=1,000, Monte Carlo-SD coverage is 85.6%/86.0% for SDR/TMLE and becomes 95.9%/96.4% after subtracting mean bias. Full calculations, individual recomputed intervals, uncertainty, graphs and verification are linked in that diagnosis. **The older general tables below still use the 1,408-checkpoint snapshot.**
+[The multiplier-bootstrap report](../multiplier-bootstrap/REPORT.md) uses these same 4,000 completed checkpoints, reconstructing the influence functions from saved fitted values, seeds and splits without refitting. Gaussian multipliers exactly reproduce the normal intervals. At t=3, +1/-1 and exponential multipliers do not resolve numerical-dose undercoverage; exponential multipliers improve the binary-treatment example. Both outcome times, all original fit failures and complete interval/reconstruction audits are reported. The earlier [Monte Carlo variance diagnostic](../variance-t3/REPORT.md) used a 447-replication snapshot; the scaled-error and variance tables below now use all 500 replications, including all recorded failures.
 
 ## Estimates and confidence intervals
 
@@ -20,43 +18,43 @@ Coverage below uses returned estimators as its denominator. Failed estimators, p
 
 | Treatment | n | Estimator | Returned | Failed | Pending | Truth | Mean | Bias | RMSE | SD | MeanSE | Coverage | MCinterval |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | SDR | 170 | 6 | 324 | 0.64975 | 0.66364 | 0.01389 | 0.61719 | 0.61886 | 0.23804 | 92.4% | [87.4%, 95.5%] |
-| Binary treatment |   500 | TMLE | 170 | 6 | 324 | 0.64975 | 0.65051 | 0.00077 | 0.21457 | 0.21520 | 0.18870 | 92.9% | [88.1%, 95.9%] |
-| Binary treatment |  1000 | SDR | 175 | 1 | 324 | 0.64975 | 0.66786 | 0.01811 | 0.16460 | 0.16407 | 0.13184 | 95.4% | [91.2%, 97.7%] |
-| Binary treatment |  1000 | TMLE | 175 | 1 | 324 | 0.64975 | 0.66190 | 0.01216 | 0.12844 | 0.12823 | 0.11969 | 94.9% | [90.5%, 97.3%] |
-| Binary treatment |  4000 | SDR | 176 | 0 | 324 | 0.64975 | 0.65040 | 0.00065 | 0.06633 | 0.06651 | 0.05281 | 93.8% | [89.2%, 96.5%] |
-| Binary treatment |  4000 | TMLE | 176 | 0 | 324 | 0.64975 | 0.64898 | -0.00077 | 0.05374 | 0.05389 | 0.05004 | 94.9% | [90.6%, 97.3%] |
-| Binary treatment | 10000 | SDR | 176 | 0 | 324 | 0.64975 | 0.65117 | 0.00142 | 0.05844 | 0.05859 | 0.03318 | 95.5% | [91.3%, 97.7%] |
-| Binary treatment | 10000 | TMLE | 176 | 0 | 324 | 0.64975 | 0.65097 | 0.00122 | 0.03370 | 0.03378 | 0.03111 | 96.0% | [92.0%, 98.1%] |
-| Numerical dose |   500 | SDR | 172 | 4 | 324 | 0.63362 | 0.59517 | -0.03845 | 0.07024 | 0.05895 | 0.05603 | 84.9% | [78.8%, 89.5%] |
-| Numerical dose |   500 | TMLE | 172 | 4 | 324 | 0.63362 | 0.59360 | -0.04002 | 0.07134 | 0.05923 | 0.05635 | 86.0% | [80.1%, 90.4%] |
-| Numerical dose |  1000 | SDR | 173 | 3 | 324 | 0.63362 | 0.60832 | -0.02531 | 0.04582 | 0.03831 | 0.03452 | 85.0% | [78.9%, 89.5%] |
-| Numerical dose |  1000 | TMLE | 173 | 3 | 324 | 0.63362 | 0.60830 | -0.02532 | 0.04532 | 0.03769 | 0.03462 | 85.5% | [79.5%, 90.0%] |
-| Numerical dose |  4000 | SDR | 175 | 1 | 324 | 0.63362 | 0.62409 | -0.00954 | 0.02126 | 0.01905 | 0.02030 | 92.0% | [87.0%, 95.2%] |
-| Numerical dose |  4000 | TMLE | 175 | 1 | 324 | 0.63362 | 0.62328 | -0.01034 | 0.02126 | 0.01862 | 0.02023 | 92.0% | [87.0%, 95.2%] |
-| Numerical dose | 10000 | SDR | 176 | 0 | 324 | 0.63362 | 0.62876 | -0.00486 | 0.01259 | 0.01165 | 0.01103 | 90.3% | [85.1%, 93.9%] |
-| Numerical dose | 10000 | TMLE | 176 | 0 | 324 | 0.63362 | 0.62838 | -0.00524 | 0.01265 | 0.01154 | 0.01101 | 90.9% | [85.7%, 94.3%] |
+| Binary treatment |   500 | SDR | 483 | 17 | 0 | 0.64975 | 0.67464 | 0.02489 | 0.45463 | 0.45442 | 0.23202 | 92.1% | [89.4%, 94.2%] |
+| Binary treatment |   500 | TMLE | 483 | 17 | 0 | 0.64975 | 0.65326 | 0.00351 | 0.19550 | 0.19567 | 0.18886 | 91.7% | [88.9%, 93.9%] |
+| Binary treatment |  1000 | SDR | 496 |  4 | 0 | 0.64975 | 0.66435 | 0.01460 | 0.16152 | 0.16102 | 0.12720 | 94.2% | [91.7%, 95.9%] |
+| Binary treatment |  1000 | TMLE | 496 |  4 | 0 | 0.64975 | 0.65760 | 0.00785 | 0.11963 | 0.11949 | 0.11556 | 93.8% | [91.3%, 95.6%] |
+| Binary treatment |  4000 | SDR | 499 |  1 | 0 | 0.64975 | 0.65146 | 0.00171 | 0.05935 | 0.05938 | 0.04917 | 94.2% | [91.8%, 95.9%] |
+| Binary treatment |  4000 | TMLE | 499 |  1 | 0 | 0.64975 | 0.65032 | 0.00057 | 0.04894 | 0.04898 | 0.04681 | 95.0% | [92.7%, 96.6%] |
+| Binary treatment | 10000 | SDR | 500 |  0 | 0 | 0.64975 | 0.64943 | -0.00032 | 0.04458 | 0.04462 | 0.03037 | 94.4% | [92.0%, 96.1%] |
+| Binary treatment | 10000 | TMLE | 500 |  0 | 0 | 0.64975 | 0.64892 | -0.00083 | 0.03121 | 0.03123 | 0.02918 | 94.8% | [92.5%, 96.4%] |
+| Numerical dose |   500 | SDR | 486 | 14 | 0 | 0.63362 | 0.59720 | -0.03642 | 0.07119 | 0.06124 | 0.05613 | 85.2% | [81.8%, 88.1%] |
+| Numerical dose |   500 | TMLE | 486 | 14 | 0 | 0.63362 | 0.59672 | -0.03690 | 0.07103 | 0.06075 | 0.05695 | 86.0% | [82.6%, 88.8%] |
+| Numerical dose |  1000 | SDR | 495 |  5 | 0 | 0.63362 | 0.60306 | -0.03056 | 0.04869 | 0.03794 | 0.03439 | 81.0% | [77.3%, 84.2%] |
+| Numerical dose |  1000 | TMLE | 495 |  5 | 0 | 0.63362 | 0.60259 | -0.03103 | 0.04935 | 0.03841 | 0.03455 | 81.0% | [77.3%, 84.2%] |
+| Numerical dose |  4000 | SDR | 499 |  1 | 0 | 0.63362 | 0.62307 | -0.01056 | 0.02346 | 0.02097 | 0.02012 | 88.2% | [85.0%, 90.7%] |
+| Numerical dose |  4000 | TMLE | 499 |  1 | 0 | 0.63362 | 0.62227 | -0.01136 | 0.02330 | 0.02036 | 0.02005 | 88.0% | [84.8%, 90.5%] |
+| Numerical dose | 10000 | SDR | 500 |  0 | 0 | 0.63362 | 0.62889 | -0.00474 | 0.01278 | 0.01188 | 0.01101 | 90.4% | [87.5%, 92.7%] |
+| Numerical dose | 10000 | TMLE | 500 |  0 | 0 | 0.63362 | 0.62845 | -0.00517 | 0.01279 | 0.01171 | 0.01099 | 90.6% | [87.7%, 92.9%] |
 
 ### Outcome at time 2
 
 | Treatment | n | Estimator | Returned | Failed | Pending | Truth | Mean | Bias | RMSE | SD | MeanSE | Coverage | MCinterval |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | SDR | 170 | 6 | 324 | 0.90031 | 0.89844 | -0.00187 | 0.03593 | 0.03599 | 0.03552 | 96.5% | [92.5%, 98.4%] |
-| Binary treatment |   500 | TMLE | 170 | 6 | 324 | 0.90031 | 0.89960 | -0.00071 | 0.03633 | 0.03644 | 0.03562 | 94.7% | [90.2%, 97.2%] |
-| Binary treatment |  1000 | SDR | 175 | 1 | 324 | 0.90031 | 0.90171 | 0.00140 | 0.02364 | 0.02367 | 0.02292 | 93.7% | [89.1%, 96.5%] |
-| Binary treatment |  1000 | TMLE | 175 | 1 | 324 | 0.90031 | 0.90096 | 0.00065 | 0.02461 | 0.02467 | 0.02323 | 93.7% | [89.1%, 96.5%] |
-| Binary treatment |  4000 | SDR | 176 | 0 | 324 | 0.90031 | 0.89933 | -0.00098 | 0.01240 | 0.01239 | 0.01105 | 92.0% | [87.1%, 95.2%] |
-| Binary treatment |  4000 | TMLE | 176 | 0 | 324 | 0.90031 | 0.89968 | -0.00062 | 0.01263 | 0.01265 | 0.01110 | 91.5% | [86.4%, 94.8%] |
-| Binary treatment | 10000 | SDR | 176 | 0 | 324 | 0.90031 | 0.89971 | -0.00060 | 0.00696 | 0.00696 | 0.00692 | 92.6% | [87.8%, 95.6%] |
-| Binary treatment | 10000 | TMLE | 176 | 0 | 324 | 0.90031 | 0.89974 | -0.00057 | 0.00698 | 0.00697 | 0.00693 | 93.2% | [88.5%, 96.1%] |
-| Numerical dose |   500 | SDR | 172 | 4 | 324 | 0.85170 | 0.84315 | -0.00856 | 0.04640 | 0.04574 | 0.04341 | 93.6% | [88.9%, 96.4%] |
-| Numerical dose |   500 | TMLE | 172 | 4 | 324 | 0.85170 | 0.84168 | -0.01003 | 0.04829 | 0.04738 | 0.04313 | 89.5% | [84.1%, 93.3%] |
-| Numerical dose |  1000 | SDR | 173 | 3 | 324 | 0.85170 | 0.84937 | -0.00233 | 0.02570 | 0.02567 | 0.02745 | 97.7% | [94.2%, 99.1%] |
-| Numerical dose |  1000 | TMLE | 173 | 3 | 324 | 0.85170 | 0.84859 | -0.00312 | 0.02606 | 0.02595 | 0.02736 | 97.7% | [94.2%, 99.1%] |
-| Numerical dose |  4000 | SDR | 175 | 1 | 324 | 0.85170 | 0.85160 | -0.00010 | 0.01239 | 0.01243 | 0.01246 | 94.9% | [90.5%, 97.3%] |
-| Numerical dose |  4000 | TMLE | 175 | 1 | 324 | 0.85170 | 0.85171 | 0.00001 | 0.01231 | 0.01235 | 0.01243 | 94.9% | [90.5%, 97.3%] |
-| Numerical dose | 10000 | SDR | 176 | 0 | 324 | 0.85170 | 0.85238 | 0.00067 | 0.00726 | 0.00725 | 0.00774 | 94.9% | [90.6%, 97.3%] |
-| Numerical dose | 10000 | TMLE | 176 | 0 | 324 | 0.85170 | 0.85231 | 0.00061 | 0.00726 | 0.00725 | 0.00773 | 95.5% | [91.3%, 97.7%] |
+| Binary treatment |   500 | SDR | 483 | 17 | 0 | 0.90031 | 0.90063 | 0.00032 | 0.03698 | 0.03702 | 0.03534 | 94.2% | [91.7%, 96.0%] |
+| Binary treatment |   500 | TMLE | 483 | 17 | 0 | 0.90031 | 0.89916 | -0.00115 | 0.03778 | 0.03781 | 0.03554 | 93.2% | [90.6%, 95.1%] |
+| Binary treatment |  1000 | SDR | 496 |  4 | 0 | 0.90031 | 0.90106 | 0.00075 | 0.02375 | 0.02376 | 0.02290 | 94.0% | [91.5%, 95.7%] |
+| Binary treatment |  1000 | TMLE | 496 |  4 | 0 | 0.90031 | 0.90099 | 0.00069 | 0.02462 | 0.02464 | 0.02323 | 94.0% | [91.5%, 95.7%] |
+| Binary treatment |  4000 | SDR | 499 |  1 | 0 | 0.90031 | 0.90014 | -0.00016 | 0.01179 | 0.01180 | 0.01099 | 92.0% | [89.3%, 94.1%] |
+| Binary treatment |  4000 | TMLE | 499 |  1 | 0 | 0.90031 | 0.90028 | -0.00003 | 0.01202 | 0.01203 | 0.01104 | 91.6% | [88.8%, 93.7%] |
+| Binary treatment | 10000 | SDR | 500 |  0 | 0 | 0.90031 | 0.90059 | 0.00028 | 0.00709 | 0.00709 | 0.00689 | 93.4% | [90.9%, 95.3%] |
+| Binary treatment | 10000 | TMLE | 500 |  0 | 0 | 0.90031 | 0.90057 | 0.00026 | 0.00713 | 0.00713 | 0.00690 | 94.0% | [91.6%, 95.8%] |
+| Numerical dose |   500 | SDR | 486 | 14 | 0 | 0.85170 | 0.84634 | -0.00536 | 0.04602 | 0.04576 | 0.04289 | 93.6% | [91.1%, 95.5%] |
+| Numerical dose |   500 | TMLE | 486 | 14 | 0 | 0.85170 | 0.84451 | -0.00719 | 0.04767 | 0.04717 | 0.04267 | 90.7% | [87.8%, 93.0%] |
+| Numerical dose |  1000 | SDR | 495 |  5 | 0 | 0.85170 | 0.84932 | -0.00238 | 0.02633 | 0.02625 | 0.02691 | 96.4% | [94.3%, 97.7%] |
+| Numerical dose |  1000 | TMLE | 495 |  5 | 0 | 0.85170 | 0.84879 | -0.00291 | 0.02654 | 0.02641 | 0.02683 | 96.4% | [94.3%, 97.7%] |
+| Numerical dose |  4000 | SDR | 499 |  1 | 0 | 0.85170 | 0.85171 | 0.00001 | 0.01279 | 0.01280 | 0.01241 | 94.2% | [91.8%, 95.9%] |
+| Numerical dose |  4000 | TMLE | 499 |  1 | 0 | 0.85170 | 0.85176 | 0.00006 | 0.01281 | 0.01282 | 0.01239 | 94.2% | [91.8%, 95.9%] |
+| Numerical dose | 10000 | SDR | 500 |  0 | 0 | 0.85170 | 0.85190 | 0.00020 | 0.00787 | 0.00788 | 0.00775 | 93.6% | [91.1%, 95.4%] |
+| Numerical dose | 10000 | TMLE | 500 |  0 | 0 | 0.85170 | 0.85188 | 0.00018 | 0.00789 | 0.00789 | 0.00773 | 93.8% | [91.3%, 95.6%] |
 
 ## Scientific graphs
 
@@ -76,46 +74,46 @@ The mean sequential component is evaluated at the true parameter. Its sum with t
 
 | Treatment | n | Outcome | Estimator | Returned | Sequential | BridgeAdjoint |
 | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | 2 | SDR | 170 | -0.021339 | 0.019469 |
-| Binary treatment |   500 | 2 | TMLE | 170 | -0.020178 | 0.019469 |
-| Binary treatment |  1000 | 2 | SDR | 175 | -0.014718 | 0.016122 |
-| Binary treatment |  1000 | 2 | TMLE | 175 | -0.015471 | 0.016122 |
-| Binary treatment |  4000 | 2 | SDR | 176 | -0.008830 | 0.007850 |
-| Binary treatment |  4000 | 2 | TMLE | 176 | -0.008474 | 0.007850 |
-| Binary treatment | 10000 | 2 | SDR | 176 | -0.007046 | 0.006451 |
-| Binary treatment | 10000 | 2 | TMLE | 176 | -0.007022 | 0.006451 |
-| Numerical dose |   500 | 2 | SDR | 172 | -0.018594 | 0.010037 |
-| Numerical dose |   500 | 2 | TMLE | 172 | -0.020063 | 0.010037 |
-| Numerical dose |  1000 | 2 | SDR | 173 | -0.019238 | 0.016904 |
-| Numerical dose |  1000 | 2 | TMLE | 173 | -0.020020 | 0.016904 |
-| Numerical dose |  4000 | 2 | SDR | 175 | -0.008260 | 0.008155 |
-| Numerical dose |  4000 | 2 | TMLE | 175 | -0.008147 | 0.008155 |
-| Numerical dose | 10000 | 2 | SDR | 176 | -0.006243 | 0.006916 |
-| Numerical dose | 10000 | 2 | TMLE | 176 | -0.006309 | 0.006916 |
-| Binary treatment |   500 | 3 | SDR | 170 | 0.010738 | 0.003151 |
-| Binary treatment |   500 | 3 | TMLE | 170 | -0.002385 | 0.003151 |
-| Binary treatment |  1000 | 3 | SDR | 175 | -0.005154 | 0.023269 |
-| Binary treatment |  1000 | 3 | TMLE | 175 | -0.011113 | 0.023269 |
-| Binary treatment |  4000 | 3 | SDR | 176 | -0.022300 | 0.022955 |
-| Binary treatment |  4000 | 3 | TMLE | 176 | -0.023723 | 0.022955 |
-| Binary treatment | 10000 | 3 | SDR | 176 | -0.020715 | 0.022140 |
-| Binary treatment | 10000 | 3 | TMLE | 176 | -0.020919 | 0.022140 |
-| Numerical dose |   500 | 3 | SDR | 172 | -0.042118 | 0.003669 |
-| Numerical dose |   500 | 3 | TMLE | 172 | -0.043694 | 0.003669 |
-| Numerical dose |  1000 | 3 | SDR | 173 | -0.039497 | 0.014190 |
-| Numerical dose |  1000 | 3 | TMLE | 173 | -0.039512 | 0.014190 |
-| Numerical dose |  4000 | 3 | SDR | 175 | -0.023858 | 0.014320 |
-| Numerical dose |  4000 | 3 | TMLE | 175 | -0.024664 | 0.014320 |
-| Numerical dose | 10000 | 3 | SDR | 176 | -0.019227 | 0.014365 |
-| Numerical dose | 10000 | 3 | TMLE | 176 | -0.019606 | 0.014365 |
+| Binary treatment |   500 | 2 | SDR | 483 | -0.016663 | 0.016980 |
+| Binary treatment |   500 | 2 | TMLE | 483 | -0.018126 | 0.016980 |
+| Binary treatment |  1000 | 2 | SDR | 496 | -0.016614 | 0.017364 |
+| Binary treatment |  1000 | 2 | TMLE | 496 | -0.016679 | 0.017364 |
+| Binary treatment |  4000 | 2 | SDR | 499 | -0.008381 | 0.008217 |
+| Binary treatment |  4000 | 2 | TMLE | 499 | -0.008245 | 0.008217 |
+| Binary treatment | 10000 | 2 | SDR | 500 | -0.006245 | 0.006528 |
+| Binary treatment | 10000 | 2 | TMLE | 500 | -0.006265 | 0.006528 |
+| Numerical dose |   500 | 2 | SDR | 486 | -0.017690 | 0.012326 |
+| Numerical dose |   500 | 2 | TMLE | 486 | -0.019519 | 0.012326 |
+| Numerical dose |  1000 | 2 | SDR | 495 | -0.018007 | 0.015626 |
+| Numerical dose |  1000 | 2 | TMLE | 495 | -0.018534 | 0.015626 |
+| Numerical dose |  4000 | 2 | SDR | 499 | -0.008049 | 0.008054 |
+| Numerical dose |  4000 | 2 | TMLE | 499 | -0.007999 | 0.008054 |
+| Numerical dose | 10000 | 2 | SDR | 500 | -0.006385 | 0.006585 |
+| Numerical dose | 10000 | 2 | TMLE | 500 | -0.006406 | 0.006585 |
+| Binary treatment |   500 | 3 | SDR | 483 | 0.019992 | 0.004898 |
+| Binary treatment |   500 | 3 | TMLE | 483 | -0.001390 | 0.004898 |
+| Binary treatment |  1000 | 3 | SDR | 496 | -0.006627 | 0.021230 |
+| Binary treatment |  1000 | 3 | TMLE | 496 | -0.013376 | 0.021230 |
+| Binary treatment |  4000 | 3 | SDR | 499 | -0.020994 | 0.022705 |
+| Binary treatment |  4000 | 3 | TMLE | 499 | -0.022133 | 0.022705 |
+| Binary treatment | 10000 | 3 | SDR | 500 | -0.019639 | 0.019323 |
+| Binary treatment | 10000 | 3 | TMLE | 500 | -0.020155 | 0.019323 |
+| Numerical dose |   500 | 3 | SDR | 486 | -0.037251 | 0.000832 |
+| Numerical dose |   500 | 3 | TMLE | 486 | -0.037732 | 0.000832 |
+| Numerical dose |  1000 | 3 | SDR | 495 | -0.041202 | 0.010640 |
+| Numerical dose |  1000 | 3 | TMLE | 495 | -0.041670 | 0.010640 |
+| Numerical dose |  4000 | 3 | SDR | 499 | -0.025236 | 0.014680 |
+| Numerical dose |  4000 | 3 | TMLE | 499 | -0.026039 | 0.014680 |
+| Numerical dose | 10000 | 3 | SDR | 500 | -0.019022 | 0.014286 |
+| Numerical dose | 10000 | 3 | TMLE | 500 | -0.019456 | 0.014286 |
 
 ## Conditional equations and failures
 
 The saved population diagnostics evaluate fitted functions over the exact finite DGP support. Adjoint solutions can be nonunique, so distance to a selected reference solution alone is not a consistency criterion. The realized category dictionary depends on observed training combinations; unseen combinations retain the original continuation rule. The enlarged sample sizes do not change those learners.
 
-[Conditional equations and population contributions](population-error-by-outcome-time.csv), [candidate failures](nested-candidate-failures.csv), [failed estimators](errors.csv), [penalties](penalty_and_weight_selections.csv.gz), [ensemble weights](ensemble_weight_summary.csv), and [runtimes](job_log.csv) retain the actual numerical records.
+[Conditional equations and population contributions](population-error-by-outcome-time.csv), [candidate failures](nested-candidate-failures.csv.gz), [failed estimators](errors.csv), [penalties](penalty_and_weight_selections.csv.gz), [ensemble weights](ensemble_weight_summary.csv), and [runtimes](job_log.csv) retain the actual numerical records.
 
-[All estimates and intervals](replicates.csv), [summary and simulation uncertainty](summary.csv), [coverage including failed fits](coverage-including-failures.csv), [EIF components](eif-component-means.csv), [source hashes](source-manifest.json), [checkpoint hashes](checkpoint-manifest.json), [artifact provenance](artifact-provenance.json), and [independent table verification](table-verification.json).
+[All estimates and intervals](replicates.csv), [summary and simulation uncertainty](summary.csv), [coverage including failed fits](coverage-including-failures.csv), [EIF components](eif-component-means.csv), [source hashes](source-manifest.json), [checkpoint hashes](checkpoint-manifest.json), and [artifact provenance](artifact-provenance.json).
 
 The numerical results, including any unexpected bias or undercoverage, will be reported as observed. This rerun changes replication counts, sample sizes and computing platform; it does not change the fitting criteria to obtain a desired result.
 
@@ -131,43 +129,43 @@ The variance-calibration ratio is the average reported SE squared divided by the
 
 | Treatment | n | Estimator | Returned | √n × bias | BiasMCSE | n × MSE | MSEMCSE | n × bias² | n × centered variance | VarianceRatio |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | SDR | 170 | 0.311 | 1.061 | 190.462 | 126.646 | 0.096 | 190.365 | 0.482 |
-| Binary treatment |   500 | TMLE | 170 | 0.017 | 0.369 | 23.020 | 9.811 | 0.000 | 23.020 | 1.521 |
-| Binary treatment |  1000 | SDR | 175 | 0.573 | 0.392 | 27.092 | 4.541 | 0.328 | 26.764 | 1.007 |
-| Binary treatment |  1000 | TMLE | 175 | 0.384 | 0.307 | 16.498 | 3.121 | 0.148 | 16.350 | 1.342 |
-| Binary treatment |  4000 | SDR | 176 | 0.041 | 0.317 | 17.596 | 3.456 | 0.002 | 17.595 | 0.870 |
-| Binary treatment |  4000 | TMLE | 176 | -0.049 | 0.257 | 11.553 | 1.880 | 0.002 | 11.551 | 1.152 |
-| Binary treatment | 10000 | SDR | 176 | 0.142 | 0.442 | 34.154 | 16.760 | 0.020 | 34.134 | 1.011 |
-| Binary treatment | 10000 | TMLE | 176 | 0.122 | 0.255 | 11.358 | 2.422 | 0.015 | 11.343 | 2.396 |
-| Numerical dose |   500 | SDR | 172 | -0.860 | 0.101 | 2.467 | 0.275 | 0.739 | 1.727 | 1.065 |
-| Numerical dose |   500 | TMLE | 172 | -0.895 | 0.101 | 2.545 | 0.327 | 0.801 | 1.744 | 1.044 |
-| Numerical dose |  1000 | SDR | 173 | -0.800 | 0.092 | 2.100 | 0.226 | 0.640 | 1.459 | 0.838 |
-| Numerical dose |  1000 | TMLE | 173 | -0.801 | 0.091 | 2.054 | 0.225 | 0.641 | 1.413 | 0.871 |
-| Numerical dose |  4000 | SDR | 175 | -0.603 | 0.091 | 1.808 | 0.191 | 0.364 | 1.444 | 1.173 |
-| Numerical dose |  4000 | TMLE | 175 | -0.654 | 0.089 | 1.807 | 0.190 | 0.428 | 1.379 | 1.219 |
-| Numerical dose | 10000 | SDR | 176 | -0.486 | 0.088 | 1.586 | 0.159 | 0.236 | 1.350 | 0.904 |
-| Numerical dose | 10000 | TMLE | 176 | -0.524 | 0.087 | 1.599 | 0.162 | 0.275 | 1.325 | 0.917 |
+| Binary treatment |   500 | SDR | 483 | 0.557 | 0.462 | 103.345 | 45.470 | 0.310 | 103.035 | 0.664 |
+| Binary treatment |   500 | TMLE | 483 | 0.078 | 0.199 | 19.110 | 3.680 | 0.006 | 19.103 | 1.926 |
+| Binary treatment |  1000 | SDR | 496 | 0.462 | 0.229 | 26.088 | 3.303 | 0.213 | 25.875 | 0.954 |
+| Binary treatment |  1000 | TMLE | 496 | 0.248 | 0.170 | 14.310 | 1.480 | 0.062 | 14.249 | 1.384 |
+| Binary treatment |  4000 | SDR | 499 | 0.108 | 0.168 | 14.087 | 1.596 | 0.012 | 14.076 | 0.905 |
+| Binary treatment |  4000 | TMLE | 499 | 0.036 | 0.139 | 9.580 | 0.876 | 0.001 | 9.578 | 1.167 |
+| Binary treatment | 10000 | SDR | 500 | -0.032 | 0.200 | 19.872 | 6.087 | 0.001 | 19.871 | 1.082 |
+| Binary treatment | 10000 | TMLE | 500 | -0.083 | 0.140 | 9.743 | 1.077 | 0.007 | 9.736 | 1.865 |
+| Numerical dose |   500 | SDR | 486 | -0.814 | 0.062 | 2.534 | 0.160 | 0.663 | 1.871 | 0.985 |
+| Numerical dose |   500 | TMLE | 486 | -0.825 | 0.062 | 2.522 | 0.170 | 0.681 | 1.841 | 1.015 |
+| Numerical dose |  1000 | SDR | 495 | -0.966 | 0.054 | 2.371 | 0.139 | 0.934 | 1.437 | 0.847 |
+| Numerical dose |  1000 | TMLE | 495 | -0.981 | 0.055 | 2.435 | 0.164 | 0.963 | 1.472 | 0.835 |
+| Numerical dose |  4000 | SDR | 499 | -0.668 | 0.059 | 2.201 | 0.144 | 0.446 | 1.755 | 0.952 |
+| Numerical dose |  4000 | TMLE | 499 | -0.718 | 0.058 | 2.171 | 0.141 | 0.516 | 1.655 | 1.001 |
+| Numerical dose | 10000 | SDR | 500 | -0.474 | 0.053 | 1.633 | 0.099 | 0.224 | 1.409 | 0.867 |
+| Numerical dose | 10000 | TMLE | 500 | -0.517 | 0.052 | 1.637 | 0.100 | 0.267 | 1.370 | 0.887 |
 
 ### Outcome at time 2
 
 | Treatment | n | Estimator | Returned | √n × bias | BiasMCSE | n × MSE | MSEMCSE | n × bias² | n × centered variance | VarianceRatio |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | SDR | 170 | -0.042 | 0.062 | 0.646 | 0.068 | 0.002 | 0.644 | 1.005 |
-| Binary treatment |   500 | TMLE | 170 | -0.016 | 0.062 | 0.660 | 0.073 | 0.000 | 0.660 | 0.986 |
-| Binary treatment |  1000 | SDR | 175 | 0.044 | 0.057 | 0.559 | 0.057 | 0.002 | 0.557 | 0.953 |
-| Binary treatment |  1000 | TMLE | 175 | 0.021 | 0.059 | 0.605 | 0.063 | 0.000 | 0.605 | 0.901 |
-| Binary treatment |  4000 | SDR | 176 | -0.062 | 0.059 | 0.615 | 0.061 | 0.004 | 0.611 | 0.799 |
-| Binary treatment |  4000 | TMLE | 176 | -0.039 | 0.060 | 0.638 | 0.065 | 0.002 | 0.636 | 0.774 |
-| Binary treatment | 10000 | SDR | 176 | -0.060 | 0.052 | 0.485 | 0.052 | 0.004 | 0.481 | 0.991 |
-| Binary treatment | 10000 | TMLE | 176 | -0.057 | 0.053 | 0.487 | 0.052 | 0.003 | 0.484 | 0.990 |
-| Numerical dose |   500 | SDR | 172 | -0.191 | 0.078 | 1.076 | 0.124 | 0.037 | 1.040 | 0.922 |
-| Numerical dose |   500 | TMLE | 172 | -0.224 | 0.081 | 1.166 | 0.140 | 0.050 | 1.116 | 0.849 |
-| Numerical dose |  1000 | SDR | 173 | -0.074 | 0.062 | 0.661 | 0.071 | 0.005 | 0.655 | 1.159 |
-| Numerical dose |  1000 | TMLE | 173 | -0.099 | 0.062 | 0.679 | 0.072 | 0.010 | 0.669 | 1.128 |
-| Numerical dose |  4000 | SDR | 175 | -0.007 | 0.059 | 0.614 | 0.069 | 0.000 | 0.614 | 1.015 |
-| Numerical dose |  4000 | TMLE | 175 | 0.000 | 0.059 | 0.606 | 0.068 | 0.000 | 0.606 | 1.023 |
-| Numerical dose | 10000 | SDR | 176 | 0.067 | 0.055 | 0.527 | 0.058 | 0.005 | 0.522 | 1.148 |
-| Numerical dose | 10000 | TMLE | 176 | 0.061 | 0.055 | 0.527 | 0.058 | 0.004 | 0.523 | 1.142 |
+| Binary treatment |   500 | SDR | 483 | 0.007 | 0.038 | 0.684 | 0.047 | 0.000 | 0.684 | 0.940 |
+| Binary treatment |   500 | TMLE | 483 | -0.026 | 0.038 | 0.714 | 0.052 | 0.001 | 0.713 | 0.912 |
+| Binary treatment |  1000 | SDR | 496 | 0.024 | 0.034 | 0.564 | 0.034 | 0.001 | 0.563 | 0.945 |
+| Binary treatment |  1000 | TMLE | 496 | 0.022 | 0.035 | 0.606 | 0.037 | 0.000 | 0.606 | 0.903 |
+| Binary treatment |  4000 | SDR | 499 | -0.010 | 0.033 | 0.556 | 0.034 | 0.000 | 0.556 | 0.871 |
+| Binary treatment |  4000 | TMLE | 499 | -0.002 | 0.034 | 0.578 | 0.036 | 0.000 | 0.578 | 0.846 |
+| Binary treatment | 10000 | SDR | 500 | 0.028 | 0.032 | 0.503 | 0.033 | 0.001 | 0.502 | 0.945 |
+| Binary treatment | 10000 | TMLE | 500 | 0.026 | 0.032 | 0.509 | 0.033 | 0.001 | 0.508 | 0.938 |
+| Numerical dose |   500 | SDR | 486 | -0.120 | 0.046 | 1.059 | 0.071 | 0.014 | 1.045 | 0.899 |
+| Numerical dose |   500 | TMLE | 486 | -0.161 | 0.048 | 1.136 | 0.076 | 0.026 | 1.110 | 0.838 |
+| Numerical dose |  1000 | SDR | 495 | -0.075 | 0.037 | 0.693 | 0.045 | 0.006 | 0.687 | 1.065 |
+| Numerical dose |  1000 | TMLE | 495 | -0.092 | 0.038 | 0.704 | 0.046 | 0.008 | 0.696 | 1.046 |
+| Numerical dose |  4000 | SDR | 499 | 0.000 | 0.036 | 0.654 | 0.041 | 0.000 | 0.654 | 0.949 |
+| Numerical dose |  4000 | TMLE | 499 | 0.004 | 0.036 | 0.656 | 0.041 | 0.000 | 0.656 | 0.942 |
+| Numerical dose | 10000 | SDR | 500 | 0.020 | 0.035 | 0.620 | 0.043 | 0.000 | 0.619 | 0.973 |
+| Numerical dose | 10000 | TMLE | 500 | 0.018 | 0.035 | 0.622 | 0.044 | 0.000 | 0.622 | 0.965 |
 
 ### Separate calculations for bias and interval width
 
@@ -177,39 +175,39 @@ The CSV also reports 95% bootstrap intervals for changes in coverage, variance r
 
 | Treatment | n | Estimator | Actual | SubtractMeanBias | RescaleOwnSE | UseEmpiricalSD | BiasAndRescaledSE | BothChanges |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Binary treatment |   500 | SDR | 92.4% | 92.4% | 99.4% | 97.6% | 98.2% | 97.6% |
-| Binary treatment |   500 | TMLE | 92.9% | 92.9% | 86.5% | 97.6% | 86.5% | 97.6% |
-| Binary treatment |  1000 | SDR | 95.4% | 94.9% | 95.4% | 93.1% | 94.9% | 93.7% |
-| Binary treatment |  1000 | TMLE | 94.9% | 93.7% | 92.6% | 94.9% | 92.6% | 95.4% |
-| Binary treatment |  4000 | SDR | 93.8% | 93.8% | 96.0% | 95.5% | 96.0% | 95.5% |
-| Binary treatment |  4000 | TMLE | 94.9% | 95.5% | 92.0% | 95.5% | 92.0% | 95.5% |
-| Binary treatment | 10000 | SDR | 95.5% | 94.9% | 95.5% | 96.6% | 94.9% | 96.6% |
-| Binary treatment | 10000 | TMLE | 96.0% | 95.5% | 78.4% | 94.3% | 77.3% | 94.3% |
-| Numerical dose |   500 | SDR | 84.9% | 94.2% | 83.7% | 92.4% | 93.6% | 94.2% |
-| Numerical dose |   500 | TMLE | 86.0% | 96.5% | 86.0% | 93.0% | 95.9% | 94.8% |
-| Numerical dose |  1000 | SDR | 85.0% | 91.9% | 86.1% | 88.4% | 94.8% | 95.4% |
-| Numerical dose |  1000 | TMLE | 85.5% | 93.1% | 87.3% | 87.9% | 94.2% | 94.2% |
-| Numerical dose |  4000 | SDR | 92.0% | 94.9% | 89.7% | 92.6% | 93.1% | 95.4% |
-| Numerical dose |  4000 | TMLE | 92.0% | 96.6% | 89.1% | 92.6% | 93.1% | 95.4% |
-| Numerical dose | 10000 | SDR | 90.3% | 93.2% | 92.6% | 93.8% | 93.8% | 93.2% |
-| Numerical dose | 10000 | TMLE | 90.9% | 92.6% | 92.6% | 93.2% | 93.2% | 92.6% |
+| Binary treatment |   500 | SDR | 92.1% | 89.9% | 97.3% | 97.9% | 96.7% | 98.1% |
+| Binary treatment |   500 | TMLE | 91.7% | 91.1% | 78.3% | 95.7% | 78.7% | 95.7% |
+| Binary treatment |  1000 | SDR | 94.2% | 93.3% | 94.4% | 93.3% | 93.5% | 93.8% |
+| Binary treatment |  1000 | TMLE | 93.8% | 93.5% | 90.7% | 94.0% | 90.1% | 94.4% |
+| Binary treatment |  4000 | SDR | 94.2% | 94.0% | 95.2% | 95.0% | 95.2% | 94.8% |
+| Binary treatment |  4000 | TMLE | 95.0% | 94.8% | 91.8% | 95.0% | 91.8% | 95.2% |
+| Binary treatment | 10000 | SDR | 94.4% | 94.6% | 94.0% | 96.8% | 94.0% | 96.8% |
+| Binary treatment | 10000 | TMLE | 94.8% | 95.0% | 84.4% | 94.4% | 84.4% | 94.4% |
+| Numerical dose |   500 | SDR | 85.2% | 93.8% | 85.4% | 93.0% | 93.8% | 94.9% |
+| Numerical dose |   500 | TMLE | 86.0% | 95.5% | 85.8% | 93.2% | 95.3% | 94.2% |
+| Numerical dose |  1000 | SDR | 81.0% | 93.7% | 83.8% | 85.9% | 95.6% | 96.0% |
+| Numerical dose |  1000 | TMLE | 81.0% | 93.5% | 85.1% | 86.1% | 95.6% | 96.2% |
+| Numerical dose |  4000 | SDR | 88.2% | 94.4% | 89.6% | 92.2% | 95.2% | 95.0% |
+| Numerical dose |  4000 | TMLE | 88.0% | 94.6% | 88.0% | 92.0% | 94.6% | 95.0% |
+| Numerical dose | 10000 | SDR | 90.4% | 93.2% | 93.6% | 93.6% | 94.6% | 94.0% |
+| Numerical dose | 10000 | TMLE | 90.6% | 93.4% | 93.2% | 93.8% | 94.4% | 94.0% |
 
 
 ### Assessment of the current numerical-dose results
 
-- n=500, SDR/TMLE: observed coverage 84.9/86.0%; subtracting mean bias gives 94.2/96.5%; empirical-SD widths give 92.4/93.0%. Estimated/empirical variance ratios are 1.065/1.044. The estimated mean bias contributes 30.0/31.5% of MSE.
-  Subtracting mean bias produces the larger coverage improvement in this snapshot. Reported variances are larger than empirical variance.
-- n=1,000, SDR/TMLE: observed coverage 85.0/85.5%; subtracting mean bias gives 91.9/93.1%; empirical-SD widths give 88.4/87.9%. Estimated/empirical variance ratios are 0.838/0.871. The estimated mean bias contributes 30.5/31.2% of MSE.
+- n=500, SDR/TMLE: observed coverage 85.2/86.0%; subtracting mean bias gives 93.8/95.5%; empirical-SD widths give 93.0/93.2%. Estimated/empirical variance ratios are 0.985/1.015. The estimated mean bias contributes 26.2/27.0% of MSE.
+  Subtracting mean bias produces the larger coverage improvement in this snapshot. Variance-calibration directions differ between the estimators.
+- n=1,000, SDR/TMLE: observed coverage 81.0/81.0%; subtracting mean bias gives 93.7/93.5%; empirical-SD widths give 85.9/86.1%. Estimated/empirical variance ratios are 0.847/0.835. The estimated mean bias contributes 39.4/39.5% of MSE.
   Subtracting mean bias produces the larger coverage improvement in this snapshot. Reported variances are smaller than empirical variance.
-- n=4,000, SDR/TMLE: observed coverage 92.0/92.0%; subtracting mean bias gives 94.9/96.6%; empirical-SD widths give 92.6/92.6%. Estimated/empirical variance ratios are 1.173/1.219. The estimated mean bias contributes 20.1/23.7% of MSE.
-  Subtracting mean bias produces the larger coverage improvement in this snapshot. Reported variances are larger than empirical variance.
-- n=10,000, SDR/TMLE: observed coverage 90.3/90.9%; subtracting mean bias gives 93.2/92.6%; empirical-SD widths give 93.8/93.2%. Estimated/empirical variance ratios are 0.904/0.917. The estimated mean bias contributes 14.9/17.2% of MSE.
+- n=4,000, SDR/TMLE: observed coverage 88.2/88.0%; subtracting mean bias gives 94.4/94.6%; empirical-SD widths give 92.2/92.0%. Estimated/empirical variance ratios are 0.952/1.001. The estimated mean bias contributes 20.3/23.8% of MSE.
+  Subtracting mean bias produces the larger coverage improvement in this snapshot. Variance-calibration directions differ between the estimators.
+- n=10,000, SDR/TMLE: observed coverage 90.4/90.6%; subtracting mean bias gives 93.2/93.4%; empirical-SD widths give 93.6/93.8%. Estimated/empirical variance ratios are 0.867/0.887. The estimated mean bias contributes 13.7/16.3% of MSE.
   Changing interval widths produces the larger coverage improvement in this snapshot. Reported variances are smaller than empirical variance.
 
 The explanation can change with sample size. The mean-bias calculation and the two interval-width calculations assess different features of the error distribution; their changes in coverage need not add up. Subtracting mean bias does not remove dataset-dependent nuisance errors; their variation can increase empirical variance. Nonzero bias, variation in fitted nuisance functions, nonnormal tails, and dependence between errors and reported SEs can all contribute. A variance-calibration discrepancy does not by itself identify a bug in the variance formula.
 
-- n=10,000 SDR: estimated/empirical variance ratio 0.904, with 95% simulation interval [0.740, 1.142]; replacing SEs by the empirical SD changes coverage by 3.4 percentage points, with interval [-1.7, 8.0]. Both intervals include no discrepancy or no improvement, so the point estimates are suggestive rather than conclusive.
-- n=10,000 TMLE: estimated/empirical variance ratio 0.917, with 95% simulation interval [0.747, 1.168]; replacing SEs by the empirical SD changes coverage by 2.3 percentage points, with interval [-1.7, 8.0]. Both intervals include no discrepancy or no improvement, so the point estimates are suggestive rather than conclusive.
+- n=10,000 SDR: estimated/empirical variance ratio 0.867, with 95% simulation interval [0.771, 0.987]; replacing SEs by the empirical SD changes coverage by 3.2 percentage points, with interval [0.8, 6.0]. Assess this result together with the completed replication count and the other coverage calculations.
+- n=10,000 TMLE: estimated/empirical variance ratio 0.887, with 95% simulation interval [0.791, 1.014]; replacing SEs by the empirical SD changes coverage by 3.2 percentage points, with interval [0.6, 5.6]. Assess this result together with the completed replication count and the other coverage calculations.
 
 Binary-treatment MSE can be strongly affected by a few large errors. The table retains them, and the CSV reports their contribution rather than silently trimming them. These partial results do not establish asymptotic convergence: square root n times bias need not be zero at these sample sizes, and n times MSE can fluctuate because of rare large errors.
 

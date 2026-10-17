@@ -28,6 +28,8 @@ jobs:
           invisible(lapply(paths, parse))
       - name: Verify DGP and exact truths
         run: Rscript scripts/check_setup.R
+      - name: Check saved-output multiplier calculations without fitting
+        run: Rscript studies/longitudinal/github-500/test_multiplier.R
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -1,2 +1,2 @@
-Verified 1408 of 4,000 checkpoint hashes, source fingerprints, seed/configuration mappings and returned results. All checkpoints retained, including errors.
-Independent recalculation passes for all 32 summary groups: counts, failures, bias, square root n times bias, n times MSE, variance ratios, coverage diagnostics and EIF component sums. All 3,020 previously published outcome estimates and intervals are unchanged. See table-verification.json.
+Verified 4000 of 4,000 checkpoint hashes, source fingerprints, seed/configuration mappings and returned results. All checkpoints retained, including errors.
+Independent Python recalculations pass for all32 summary groups and the EIF component identities. All500 datasets per setting are included, with42 failed datasets retained. See table-verification.json.

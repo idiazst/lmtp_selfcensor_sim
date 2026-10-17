@@ -1,0 +1,25 @@
+{
+  "checkpoints": 4000,
+  "outcome_estimates": 15832,
+  "postprocessing_failures": 0,
+  "max_estimate_error": 5.229e-07,
+  "max_se_error": 1.9693e-08,
+  "max_estimate_error_over_se": 2.3499e-06,
+  "max_se_relative_error": 2.7658e-07,
+  "gaussian_intervals_identical": true,
+  "fitting_changes": false,
+  "analysis_fingerprint": "a7804918e0ddd980506ad20c190e2fc6f206b3f84f79e43d87e1ac4b2f2aa7fd",
+  "intervals_sha256": "7037ce519ac4dfa4834f7f175f64465f763aea43287401f044d262a1368af553",
+  "independently_checked_groups": 96,
+  "independently_checked_intervals": 47496,
+  "max_gaussian_endpoint_difference_after_csv_roundtrip": 9.992007221626409e-15,
+  "previously_reported_outcome_estimates_unchanged": 14152,
+  "failed_original_datasets": 42,
+  "all_settings_have_500_datasets": true,
+  "exact_rademacher_enumeration_unit_check": true,
+  "truth_independence_unit_check": true,
+  "deterministic_replays": [
+    "discrete_dose-n1000-r001",
+    "discrete_dose-n10000-r001"
+  ]
+}

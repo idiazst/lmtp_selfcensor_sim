@@ -1,13 +1,15 @@
 {
-  "verified_at": "2026-10-14T20:57:08.708515-04:00",
-  "completed_datasets": 1408,
+  "verified_at": "2026-10-17T08:12:11.837523-04:00",
+  "completed_datasets": 4000,
   "planned_datasets": 4000,
-  "completed_replications_per_setting": 176,
-  "completed_shards": 176,
-  "active_runners": 20,
-  "datasets_with_estimator_failures": 15,
-  "successful_datasets": 1393,
-  "mean_completed_shard_hours": 2.6351688762626275,
-  "estimated_remaining_hours_at20_runners": 42.68973579545457,
-  "note": "Snapshot from 176 uploaded, verified checkpoint artifacts. Runs remain active; unfinished runner jobs may contain additional results not uploaded yet. Failed fits are retained; returned-estimator counts range from 170 to 176 per setting."
+  "completed_replications_per_setting": 500,
+  "completed_shards": 500,
+  "active_runners": 0,
+  "datasets_with_estimator_failures": 42,
+  "successful_datasets": 3958,
+  "estimated_remaining_hours": 0,
+  "original_failed_worker": "Replication158 lost runner communication before upload; preserved in run38488063211",
+  "recovery_run": 38903833946,
+  "recovery_verified": true,
+  "note": "All 4,000 immutable dataset checkpoints verified. Original fit failures retained without replacement. No further fitting is pending. Multiplier analysis uses saved predictions and seeds only."
 }
