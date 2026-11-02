@@ -1,0 +1,40 @@
+name: Full-history package and three-time MNAR stress check
+on:
+  push:
+    branches: [full-history-adjustment]
+    paths:
+      - 'studies/full-history-stress/**'
+      - '.github/workflows/full-history-stress.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  R_LIBS_USER: ${{ github.workspace }}/.runtime/full-history-library
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache@v4
+        with:
+          path: .runtime/full-history-library
+          key: full-history-r452-${{ hashFiles('dependencies/full-history/*') }}
+      - run: Rscript studies/full-history/install.R
+      - name: Test source package on Linux
+        run: |
+          Rscript -e 'install.packages(c("testthat","pkgload")); dir.create("work/source",recursive=TRUE); utils::untar("dependencies/full-history/lmtp_1.6.0.9024.tar.gz",exdir="work/source"); testthat::test_local("work/source/lmtp",filter="full-history",reporter="summary")'
+      - name: Check three sequential informative-measurement transitions
+        run: Rscript studies/full-history-stress/run.R
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-history-three-time-stress
+          path: work/full-history-stress
+          retention-days: 90
