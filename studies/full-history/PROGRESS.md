@@ -97,6 +97,16 @@ SEs exceed empirical SD. All pointwise coverage MC intervals include .95.
 Tables are in `results/full-history/ensemble-grid-binary-n4000-v5-cm9030-github/`.
 The n=10000 ensemble cell has only 16 returned replications at this audit.
 
+At the 2026-11-02 18:02 UTC audit, all 400 binary-treatment datasets are complete.
+The n=10000 cell has bias between -.00190 and -.00120, first-horizon coverage
+.93 (SDR) and .92 (TMLE), and second-horizon coverage .95 for both methods.
+First-horizon RMS SEs are about 8% below empirical SD in these 100 replications;
+second-horizon SEs and empirical SD agree closely. All pointwise coverage MC
+intervals include .95. Its tables are in
+`results/full-history/ensemble-grid-binary-n10000-v5-cm9030-github/`.
+Including the partial numerical-dose cells, 424 datasets and 1,696 estimates
+have returned without failures; the variance identity passes within 8.2e-15.
+
 ## Additional coverage precision diagnostic
 
 The shared first-horizon coverage shortfall across several diagnostic and
@@ -110,7 +120,10 @@ was dispatched at n=10000 for both mechanisms, with `library=sieve-diagnostic`,
 different single-sieve diagnostic library. All nuisances remain estimated,
 with positive penalties and the same intervals and convergence criteria.
 Near 95% coverage, 500 replications reduce its per-cell coverage MCSE to about
-one percentage point. This run is ongoing and has no results yet.
+one percentage point. At the 2026-11-02 18:02 UTC audit, 270 binary-treatment
+datasets and 1,080 estimates have returned without failures. Its variance
+identity passes within 9.3e-15. This is still a partial cell; its coverage
+assessment is pending all 500 replications and the numerical-dose mechanism.
 
 The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping
