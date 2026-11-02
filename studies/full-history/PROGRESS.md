@@ -88,6 +88,36 @@ snapshots are under `work/full-history-monitor/41460347711/`; the `cumulative`
 subdirectory contains deduplicated, hash-matched completed checkpoints and is
 explicitly a partial audit, not the final 800-dataset report.
 
+At the 2026-11-02 17:02 UTC audit, 316 datasets and 1,264 estimates returned
+without failures; the variance identity passed within 7.5e-15. The binary
+n=4000 cell is complete. First-horizon coverage is .92 (SDR) and .93 (TMLE),
+second-horizon coverage is .98 for both, and absolute bias is below .0031.
+First-horizon RMS SEs are about 6% below empirical SD, while second-horizon
+SEs exceed empirical SD. All pointwise coverage MC intervals include .95.
+Tables are in `results/full-history/ensemble-grid-binary-n4000-v5-cm9030-github/`.
+The n=10000 ensemble cell has only 16 returned replications at this audit.
+
+## Additional coverage precision diagnostic
+
+The shared first-horizon coverage shortfall across several diagnostic and
+ensemble cells needs a more precise large-sample assessment. A separately
+labeled [500-replication diagnostic](https://github.com/idiazst/lmtp_selfcensor_sim/actions/runs/41488034067)
+was dispatched at n=10000 for both mechanisms, with `library=sieve-diagnostic`,
+`first=1`, `replications=500`, and at most eight parallel runners. It targets
+1,000 datasets and 4,000 method/horizon estimates. It uses frozen source commit
+`bb8a0079f3339f4f73b5656e9ffd9c9cfec40a55`, lmtp 1.6.0.9025 and cmbridge
+0.3.0.9030. Its fitting source hashes match the main study, with the explicitly
+different single-sieve diagnostic library. All nuisances remain estimated,
+with positive penalties and the same intervals and convergence criteria.
+Near 95% coverage, 500 replications reduce its per-cell coverage MCSE to about
+one percentage point. This run is ongoing and has no results yet.
+
+The first 100 seeds overlap with the main ensemble and older diagnostic runs;
+this permits matched comparisons. Do not pool them or count overlapping
+datasets as independent replications across specifications. Keep the new
+diagnostic separate from both the main ensemble and the older source versions.
+Monitor and assess both runs before finishing this task.
+
 After it completes, download its `full-history-report` artifact into a new
 directory, run `diagnose.R`, inspect every failure and all coverage/variance
 diagnostics, and preserve the frozen sources and original failed attempts.
