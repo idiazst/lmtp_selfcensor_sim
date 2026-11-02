@@ -107,6 +107,15 @@ intervals include .95. Its tables are in
 Including the partial numerical-dose cells, 424 datasets and 1,696 estimates
 have returned without failures; the variance identity passes within 8.2e-15.
 
+At the 2026-11-02 19:02 UTC audit, 516 main-study datasets and 2,064 estimates
+have returned without failures. Numerical-dose n=500 is complete: first-horizon
+bias is .01576/.01590 (SDR/TMLE), with .94 coverage for both; second-horizon
+bias is .00339/.00535 with .92 coverage. The positive first-horizon bias is
+about 2.8 MCSEs, so its larger-sample pattern remains to be assessed. All
+coverage MC intervals include .95. Tables are in
+`results/full-history/ensemble-grid-dose-n500-v5-cm9030-github/`.
+The other numerical-dose sample sizes are still partial or pending.
+
 ## Additional coverage precision diagnostic
 
 The shared first-horizon coverage shortfall across several diagnostic and
@@ -124,6 +133,21 @@ one percentage point. At the 2026-11-02 18:02 UTC audit, 270 binary-treatment
 datasets and 1,080 estimates have returned without failures. Its variance
 identity passes within 9.3e-15. This is still a partial cell; its coverage
 assessment is pending all 500 replications and the numerical-dose mechanism.
+
+At the 2026-11-02 19:02 UTC audit, all 500 binary-treatment diagnostic
+replications are complete, with 2,000 returned estimates and no failures.
+Coverage is .940/.938 for the first horizon (SDR/TMLE) and .942/.946 for the
+second. All pointwise 95% coverage MC intervals include .95; bias is below
+.00062 and below its MCSE. This remains mild observed undercoverage, not
+evidence of uniformly nominal calibration. First-horizon diagnostic RMS SE
+is about 2.3% below the independently enumerated population gradient reference;
+the primary ensemble RMS SE is about 0.8% below that reference. Its tables and
+the separate-specification reference comparison are in
+`results/full-history/diagnostic500-binary-n10000-v5-cm9030-github/`.
+The diagnostic's numerical-dose half is still pending. Forty dose datasets
+have returned at this audit; all 540 datasets and 2,160 estimates across the
+separate diagnostic have returned without failures, with variance identity
+error below 9.3e-15.
 
 The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping
