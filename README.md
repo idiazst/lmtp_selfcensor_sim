@@ -15,18 +15,17 @@ The package is named **lmtp**, rather than a separate wrapper package.
 
 ## Studies
 
-The [new GitHub rerun](studies/longitudinal/github-500/PLAN.md) uses 500
-replications at n = 500, 1,000, 4,000 and 10,000 for both longitudinal mechanisms:
-4,000 freshly fitted datasets. It retains the original full-study package builds,
-PSD projection, positive penalty CV, SDR and logistic TMLE. The completed
-200-replication study below remains the historical comparison until the new
-planned counts finish.
+The manuscript's completed longitudinal study uses **500 replications** at
+n = 500, 1,000, 4,000 and 10,000 for binary treatment and numerical dose:
+4,000 datasets, 3,958 returned fits per method, and 42 failed datasets.
+Both follow-up outcomes, SDR and logistic TMLE, the original PSD projection,
+and positive penalty CV are retained. [Code and reproduction instructions](manuscript/longitudinal.md),
+[completed results](results/longitudinal/full500-github-20261013/early-summary/REPORT.md).
 
-`studies/longitudinal/` contains binary treatment and numerical dose 0–3,
-with missingness at both follow-ups. The approved study uses n = 500, 1000,
-4000, with 200 replications per setting, and SDR and logistic TMLE with the
-one-step bridge correction. [Plan](studies/longitudinal/PLAN.md),
-[completed results](results/longitudinal/REPORT.md).
+The earlier 200-replication study at n = 500, 1,000 and 4,000 is preserved
+separately as a historical comparison. Its results are not pooled with the
+500-replication study. [Historical plan](studies/longitudinal/PLAN.md),
+[historical results](results/longitudinal/REPORT.md).
 
 The [selected-seed bridge/adjoint diagnostic](studies/longitudinal/diagnostics/README.md)
 uses the numerical-dose datasets with the largest and smallest absolute
@@ -50,6 +49,14 @@ aggregate contains 1,600 datasets and 6,400 returned method estimates, with
 [Completed results](results/imputation/REPORT.md),
 [validation](results/imputation/VALIDATION.md).
 
+## Code for the manuscript
+
+| Simulation subsection | Code and reproduction guide |
+| --- | --- |
+| Longitudinal treatment effects under informative missingness | [Longitudinal study](manuscript/longitudinal.md) |
+| Comparison with MAR | [Four-scenario MAR comparison](manuscript/mar.md) |
+| Manuscript tables and figure | [Saved-result verification and reporting](manuscript/README.md) |
+
 ## Reproduce
 
 Use R >= 4.1. The [dependency manifest](dependencies/package-pins.json)
@@ -66,8 +73,7 @@ Rscript scripts/check_setup.R
 From this repository's root:
 
 ```sh
-# Recompute a study into a new directory; defaults are the approved full design.
-SIM_OUTPUT=results/new-longitudinal SIM_WORKERS=8 Rscript studies/longitudinal/run.R
+# Recompute the four-scenario MAR comparison into a new directory.
 python3 studies/imputation/run_fresh.py --output results/new-imputation --workers 8
 
 # Rebuild reports from the saved local checkpoints without fitting again.
@@ -75,6 +81,11 @@ Rscript studies/longitudinal/collect.R
 Rscript studies/imputation/validate.R results/imputation
 Rscript studies/imputation/summarize.R results/imputation
 ```
+
+For the 500-replication longitudinal study, use the commands in
+[its reproduction guide](manuscript/longitudinal.md). To regenerate the manuscript
+tables and figure from the public saved results without fitting models, run
+`python3 manuscript/scripts/build_simulation_section.py`.
 
 The extension's validated launcher is documented in
 `studies/imputation/neither/PLAN.md`; its frozen fitting sources are kept
@@ -86,9 +97,9 @@ mean-update simulations are included.
 
 Compact tables, reports, figures and checkpoint hashes are versioned. Large
 individual fitted objects remain in ignored `results/**/jobs/` directories;
-installed packages remain in `.runtime/`. The numerical-dose longitudinal
-study still shows final-outcome undercoverage, and its 23 failed datasets are
-retained. Organization does not resolve that statistical finding.
+installed packages remain in `.runtime/`. The numerical-dose study still shows
+final-outcome undercoverage. All 42 failed datasets across both treatment
+mechanisms in the 500-replication study are retained.
 
 See [result provenance](results/PROVENANCE.md). Published historical fingerprints
 refer to the original runs; new runs receive their own source fingerprints.
