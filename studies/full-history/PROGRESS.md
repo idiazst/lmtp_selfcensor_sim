@@ -6,17 +6,18 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
-Latest assessment (2026-11-02 21:13 UTC): the main ensemble has 740 of 800
-datasets returned without failures. The 1,000-dataset coverage precision
-diagnostic is complete, with all 4,000 estimates returned. Its dose coverage
-is .912-.924 and all upper pointwise 95% MC limits are below .95; dose RMS
-SEs are about 9% below empirical SD. Its final reports, figures and manifest
-are in `results/full-history/diagnostic500-v5-cm9030-github/`, especially
-`ASSESSMENT.md`. The main ensemble and matched ridge sensitivity are still
-running. All 100 binary sensitivity datasets have returned without failures;
-first-horizon SEs rise about 2.6%, but coverage changes by just one replication.
-Thirty numerical-dose sensitivity pairs are available: first-horizon SEs rise
-about 6.1%, second-horizon SEs about 5.3%. Their final coverage remains pending.
+Latest assessment (2026-11-02 21:49 UTC): the main ensemble has 792 of 800
+datasets returned without failures; two numerical-dose n=10000 jobs remain.
+The 1,000-dataset precision diagnostic is complete: dose coverage .912-.924,
+with upper pointwise 95% MC limits below .95 and RMS SE about 9% below
+empirical SD. Its report is `results/full-history/diagnostic500-v5-cm9030-github/`.
+The matched positive-ridge sensitivity is now complete: all 200 datasets and
+800 estimates returned without failures. Lower ridge increases dose RMS SE
+about 6.2%/5.4% at horizons 1/2. On matching seeds, dose coverage stays .92 at
+horizon 1 and rises .91 to .94 at horizon 2 (paired MCSE .0171). This identifies
+a regularization contribution but does not establish resolved calibration.
+Its final assessment, comparisons and plots are in
+`results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/ASSESSMENT.md`.
 
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
@@ -235,6 +236,26 @@ attributing the entire gap to ridge. Final dose coverage requires all 100 pairs.
 The sensitivity has 130 returned datasets and 520 estimates overall. Both
 draft PR descriptions now record the completed precision diagnostic and its
 unresolved calibration limitations. No estimator package sources changed.
+
+At 21:49 UTC, the sensitivity run is complete and successful: 200 datasets,
+800 estimates, no failures. Its final artifact was downloaded into a NEW
+`results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/` directory;
+`diagnose.R`, `compare-ridge.R` and `plot-inference.R` were run. All three
+scientific plots were visually inspected. The score variance identity passes
+within 9.1e-15. Binary coverage is .93/.95 across horizons for both methods.
+Dose coverage is .92/.94, with pointwise MC limits [.850,.959] and [.875,.972].
+Dose bias is below .00062 and below its MCSE; RMS SE remains about 5% below
+empirical SD, with wide calibration MC intervals including 1.
+
+The matching 100 reference dose seeds have coverage .92/.91, so the lower
+ridge gains no first-horizon intervals and three second-horizon intervals,
+with none lost. The .03 second-horizon change has paired MCSE .0171; this
+does not demonstrate restored nominal coverage. Mean dose SE increases are
+.000758 (MCSE .000010) and .000858 (MCSE .000016). Changes in reported gradient
+variance are about .194/.285, mainly larger bridge-correction variance and
+covariance partly offset by smaller sequential variance. No source change,
+interval rescaling or criterion relaxation was used. The main ensemble's last
+eight n=10000 dose datasets are still pending.
 
 The independent exact tangent audit passes 232 comparisons across 58 generative
 law directions (both horizons, steps 1e-5 and 5e-6), with maximum error 3.2e-11.

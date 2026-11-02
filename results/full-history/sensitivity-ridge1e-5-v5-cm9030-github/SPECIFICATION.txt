@@ -1,0 +1,32 @@
+List of 12
+ $ specification: chr "sieve-diagnostic-lambda-1e-05"
+ $ commit       : chr "a24fd2d5fe40171cfd15c4fb9b52dc89b7606912"
+ $ run          : chr "41516749627"
+ $ lmtp         : chr "1.6.0.9025"
+ $ cmbridge     : chr "0.3.0.9030"
+ $ sources      : Named chr [1:2] "c9a349038f6837649f8afe77a2f66ad94d6335796239c9efadfe8feabb5b075e" "d12afb4f174170e99c97420f6cbc789357d643f776a9e3bb4797405bc01d49f6"
+  ..- attr(*, "names")= chr [1:2] "studies/full-history/dgp.R" "studies/full-history/run.R"
+ $ control      :List of 11
+  ..$ .bound                 : num 1e-05
+  ..$ .trim                  : num 1
+  ..$ .learners_outcome_folds: num 3
+  ..$ .learners_trt_folds    : num 3
+  ..$ .return_full_fits      : logi TRUE
+  ..$ .isotonic_constraint   : logi FALSE
+  ..$ .discrete              : logi FALSE
+  ..$ .info                  : logi FALSE
+  ..$ .ratio_history         : logi TRUE
+  ..$ .cm_kernel             : chr "cell"
+  ..$ .cm_project_psd        : logi TRUE
+ $ library      :List of 1
+  ..$ sieve_md:List of 2
+  .. ..$ method : chr "sieve_md"
+  .. ..$ control:List of 4
+  .. .. ..$ target_basis    : chr "cell"
+  .. .. ..$ instrument_basis: chr "cell"
+  .. .. ..$ link            : chr "inverse_logit"
+  .. .. ..$ lambda          : num 1e-05
+ $ sl           : chr "SL.saturated_l1"
+ $ randomizer   : chr "Uniform(0,1)"
+ $ ratio_draws  : int 5
+ $ k            : int 1
