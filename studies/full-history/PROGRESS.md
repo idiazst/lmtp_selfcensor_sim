@@ -6,7 +6,7 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
-Latest assessment (2026-11-02 21:02 UTC): the main ensemble has 716 of 800
+Latest assessment (2026-11-02 21:13 UTC): the main ensemble has 740 of 800
 datasets returned without failures. The 1,000-dataset coverage precision
 diagnostic is complete, with all 4,000 estimates returned. Its dose coverage
 is .912-.924 and all upper pointwise 95% MC limits are below .95; dose RMS
@@ -15,7 +15,8 @@ are in `results/full-history/diagnostic500-v5-cm9030-github/`, especially
 `ASSESSMENT.md`. The main ensemble and matched ridge sensitivity are still
 running. All 100 binary sensitivity datasets have returned without failures;
 first-horizon SEs rise about 2.6%, but coverage changes by just one replication.
-Numerical-dose sensitivity jobs have started and remain pending.
+Thirty numerical-dose sensitivity pairs are available: first-horizon SEs rise
+about 6.1%, second-horizon SEs about 5.3%. Their final coverage remains pending.
 
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
@@ -145,6 +146,10 @@ include .95; RMS SEs are about 5-7% below empirical SD. Tables are in
 Only 12 of 100 numerical-dose n=10000 replications have returned, so its
 coverage assessment remains pending.
 
+By 21:13 UTC, 740 main-study datasets and 2,960 estimates have returned without
+failures. Forty numerical-dose n=10000 replications are available; the remaining
+60 are still running. Partial-cell coverage is not used for final conclusions.
+
 ## Additional coverage precision diagnostic
 
 The shared first-horizon coverage shortfall across several diagnostic and
@@ -220,6 +225,16 @@ score variance increase comes from larger bridge variance and covariance,
 partly offset by smaller sequential variance. Completed tables and assessment
 are in `results/full-history/sensitivity-ridge1e-5-binary-n10000-v5-cm9030-github/`.
 The numerical-dose comparison remains pending.
+
+At 21:13 UTC, 30 numerical-dose sensitivity pairs are available, with no
+failures. Their first-horizon RMS SE rises about 6.1% (mean paired increase
+.000751, MCSE .0000174), and second-horizon RMS SE rises about 5.3% (mean
+paired increase .000834, MCSE .0000252). This supports a regularization
+contribution to the SE shortfall, without establishing restored coverage or
+attributing the entire gap to ridge. Final dose coverage requires all 100 pairs.
+The sensitivity has 130 returned datasets and 520 estimates overall. Both
+draft PR descriptions now record the completed precision diagnostic and its
+unresolved calibration limitations. No estimator package sources changed.
 
 The independent exact tangent audit passes 232 comparisons across 58 generative
 law directions (both horizons, steps 1e-5 and 5e-6), with maximum error 3.2e-11.
