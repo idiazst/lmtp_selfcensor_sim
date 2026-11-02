@@ -57,6 +57,7 @@ Rscript studies/full-history/install.R
 FH_LIBRARY=sieve-diagnostic FH_FIRST=1 FH_LAST=2 FH_N=1000 \
   FH_OUTPUT=work/full-history Rscript studies/full-history/run.R
 Rscript studies/full-history/report.R work/full-history
+Rscript studies/full-history/diagnose.R work/full-history
 ```
 
 The ensemble library can be expensive because each bridge, response ancestor,
@@ -86,3 +87,13 @@ with the original objective, penalties and gradient acceptance checks. This
 addresses flat-link retries without changing the statistical fitting criteria.
 The exact population validation also records reference gradient variances;
 the numerical-dose adjoint is one valid representative, not an efficiency bound.
+
+The separate inference audit reads the saved estimates and score components.
+It reports Monte Carlo standard errors for bias and coverage, pointwise Wilson
+limits for coverage, the root mean squared reported standard error relative to
+empirical variability, and lower/upper tail misses. It also checks that the
+reported variance equals the sequential variance plus the bridge variance and
+twice their covariance. It does not refit models or alter confidence intervals.
+The audit records its source and input hashes, so it can also be run after
+downloading an older frozen run. See [PROGRESS.md](PROGRESS.md) for completed
+validation and the current full-ensemble run.
