@@ -6,14 +6,14 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
-Latest assessment (2026-11-02 20:33 UTC): the main ensemble has 692 of 800
+Latest assessment (2026-11-02 21:00 UTC): the main ensemble has 712 of 800
 datasets returned without failures. The 1,000-dataset coverage precision
 diagnostic is complete, with all 4,000 estimates returned. Its dose coverage
 is .912-.924 and all upper pointwise 95% MC limits are below .95; dose RMS
 SEs are about 9% below empirical SD. Its final reports, figures and manifest
 are in `results/full-history/diagnostic500-v5-cm9030-github/`, especially
 `ASSESSMENT.md`. The main ensemble and matched ridge sensitivity are still
-running. Twenty binary sensitivity datasets have returned without failures.
+running. Eighty binary sensitivity datasets have returned without failures.
 
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
@@ -134,6 +134,15 @@ actual finite-sample calibration concern, without an identified coding defect.
 Its tables are in `results/full-history/ensemble-grid-dose-n1000-v5-cm9030-github/`.
 The n=4000 dose cell is still partial with 40 completed replications.
 
+At the 2026-11-02 21:00 UTC audit, 712 main-study datasets and 2,848 estimates
+have returned without failures. Numerical-dose n=4000 is complete: absolute
+bias is below .003, first-horizon coverage is .93 for both methods and
+second-horizon coverage is .95 for both. All pointwise MC coverage intervals
+include .95; RMS SEs are about 5-7% below empirical SD. Tables are in
+`results/full-history/ensemble-grid-dose-n4000-v5-cm9030-github/`.
+Only 12 of 100 numerical-dose n=10000 replications have returned, so its
+coverage assessment remains pending.
+
 ## Additional coverage precision diagnostic
 
 The shared first-horizon coverage shortfall across several diagnostic and
@@ -192,9 +201,10 @@ from frozen commit `a24fd2d5fe40171cfd15c4fb9b52dc89b7606912`, with 100
 replications per mechanism at n=10000, `sieve_lambda=0.00001`, and four parallel
 runners. It targets 200 datasets and 800 estimates. Monitor this run alongside
 the main ensemble and 500-replication diagnostic, then compare its first 100
-seeds with the matching original diagnostic seeds. The first 20 available binary
-pairs show first-horizon SE increases of about 2.6% and mean estimate changes
-about -.00016. This is evidence that ridge affects SE calibration; it does not
+seeds with the matching original diagnostic seeds. The 80 available binary
+pairs as of 21:00 UTC show first-horizon SE increases of about 2.6% (mean
+increase .000334, paired MCSE .0000056) and mean estimate changes about -.00015.
+This is evidence that ridge affects SE calibration; it does not
 yet explain the dose shortfall or establish improved coverage. Paired tables
 are currently in `work/full-history-monitor/41516749627/cumulative/`.
 
