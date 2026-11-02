@@ -116,6 +116,15 @@ coverage MC intervals include .95. Tables are in
 `results/full-history/ensemble-grid-dose-n500-v5-cm9030-github/`.
 The other numerical-dose sample sizes are still partial or pending.
 
+At the 2026-11-02 20:02 UTC audit, 640 main-study datasets and 2,560 estimates
+have returned without failures. Numerical-dose n=1000 is complete: bias is
+below .0017, first-horizon coverage is .96 for both methods, and second-horizon
+coverage is .91 (SDR) and .90 (TMLE). Second-horizon RMS SEs are about 16% below
+empirical SD; the TMLE pointwise coverage MC interval excludes .95. This is an
+actual finite-sample calibration concern, without an identified coding defect.
+Its tables are in `results/full-history/ensemble-grid-dose-n1000-v5-cm9030-github/`.
+The n=4000 dose cell is still partial with 40 completed replications.
+
 ## Additional coverage precision diagnostic
 
 The shared first-horizon coverage shortfall across several diagnostic and
@@ -148,6 +157,28 @@ The diagnostic's numerical-dose half is still pending. Forty dose datasets
 have returned at this audit; all 540 datasets and 2,160 estimates across the
 separate diagnostic have returned without failures, with variance identity
 error below 9.3e-15.
+
+At the 2026-11-02 20:02 UTC audit, 350 dose diagnostic replications are available,
+with second-horizon coverage about .926 and reported SEs below empirical SD.
+The diagnostic has 850 returned datasets and 3,400 estimates, no failures and
+variance identity error below 1.1e-14. Final dose coverage is still pending.
+
+## Regularization sensitivity protocol
+
+To investigate the observed SE shortfall, a matched single-sieve sensitivity
+check uses positive ridge 1e-5 in place of .001 at n=10000, for 100 replications
+of both mechanisms. All other splits, learners, objectives, links, convergence
+checks and intervals are held fixed. This is a separately labeled diagnostic
+specification, not a change to the primary ensemble or an asserted estimator
+fix. Package source archives remain unchanged. The exact ridge is included in
+the specification label and manifest; the study source hash changes with the
+new explicit configuration input. This check will compare the same seeds with
+the original diagnostic, without pooling or treating them as independent data.
+
+The local n=10000 binary seed-1 smoke check returned all four estimates with
+the requested 1e-5 ridge and the pinned package versions. Frozen earlier runs
+are unaffected. The next step is to dispatch this protocol on GitHub, record
+its run ID here, and assess its matched SE and coverage changes after completion.
 
 The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping

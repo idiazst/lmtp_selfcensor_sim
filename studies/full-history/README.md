@@ -88,6 +88,15 @@ addresses flat-link retries without changing the statistical fitting criteria.
 The exact population validation also records reference gradient variances;
 the numerical-dose adjoint is one valid representative, not an efficiency bound.
 
+For a matched single-sieve regularization sensitivity check, the workflow
+accepts `sieve_lambda` (local environment `FH_SIEVE_LAMBDA`), default .001.
+It must be strictly positive and affects only `sieve-diagnostic`. A nondefault
+value is included in the specification label and the exact library is saved
+in every manifest. These are separate diagnostic specifications; the primary
+ensemble retains its original cross-validated library. Source changes and
+penalty variants are not pooled. All other folds, nuisance learners, links,
+moment losses, convergence checks and confidence intervals stay fixed.
+
 The separate inference audit reads the saved estimates and score components.
 It reports Monte Carlo standard errors for bias and coverage, pointwise Wilson
 limits for coverage, the root mean squared reported standard error relative to

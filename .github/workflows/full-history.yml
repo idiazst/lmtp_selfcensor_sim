@@ -26,6 +26,9 @@ on:
       parallel:
         description: Concurrent runners
         default: '12'
+      sieve_lambda:
+        description: Positive ridge penalty for the single-sieve diagnostic
+        default: '0.001'
 permissions:
   contents: read
 env:
@@ -90,6 +93,7 @@ jobs:
           FH_MECHANISM: ${{ matrix.mechanism }}
           FH_N: ${{ matrix.n }}
           FH_LIBRARY: ${{ inputs.library || 'sieve-diagnostic' }}
+          FH_SIEVE_LAMBDA: ${{ inputs.sieve_lambda || '0.001' }}
           FH_OUTPUT: work/full-history
         run: Rscript studies/full-history/run.R
       - uses: actions/upload-artifact@v4

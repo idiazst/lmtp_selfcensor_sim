@@ -4,6 +4,10 @@ n<-as.integer(if(length(args)>1) args[2] else Sys.getenv('FH_N','1000'))
 first<-as.integer(Sys.getenv('FH_FIRST','1'));last<-as.integer(Sys.getenv('FH_LAST','10'))
 output<-Sys.getenv('FH_OUTPUT','work/full-history')
 mode<-Sys.getenv('FH_LIBRARY','ensemble')
+sieve_lambda<-as.numeric(Sys.getenv('FH_SIEVE_LAMBDA','0.001'))
+if(mode=='sieve-diagnostic'&&
+ (!is.finite(sieve_lambda)||length(sieve_lambda)!=1L||sieve_lambda<=0))
+ stop('FH_SIEVE_LAMBDA must be a finite positive ridge penalty.')
 source('studies/full-history/dgp.R')
 library(lmtp)
 future::plan(future::sequential)
@@ -15,12 +19,14 @@ write.csv(fh_gradient_check(g),file.path(output,paste0('gradient-',mechanism,'.c
 control<-lmtp_control(.trim=1,.learners_outcome_folds=3,.learners_trt_folds=3,
  .discrete=FALSE,.cm_kernel='cell',.return_full_fits=TRUE,.isotonic_constraint=FALSE)
 lib<-if(mode=='sieve-diagnostic') list(sieve_md=list(method='sieve_md',control=list(
- target_basis='cell',instrument_basis='cell',link='inverse_logit',lambda=.001))) else NULL
+ target_basis='cell',instrument_basis='cell',link='inverse_logit',lambda=sieve_lambda))) else NULL
 sl<-switch(mode, 'sieve-diagnostic'='SL.saturated_l1',
  'ensemble-grid'=c('SL.saturated_l1_small','SL.saturated_l1','SL.saturated_l1_large','SL.mean'),
  'ensemble'=c('SL.saturated_l1_cv','SL.mean'),stop('Unknown library specification.'))
 sources<-c('studies/full-history/dgp.R','studies/full-history/run.R')
-manifest<-list(specification=mode,commit=Sys.getenv('GITHUB_SHA'),run=Sys.getenv('GITHUB_RUN_ID'),
+specification<-if(mode=='sieve-diagnostic'&&sieve_lambda!=.001)
+ paste0(mode,'-lambda-',format(sieve_lambda,scientific=TRUE)) else mode
+manifest<-list(specification=specification,commit=Sys.getenv('GITHUB_SHA'),run=Sys.getenv('GITHUB_RUN_ID'),
  lmtp=as.character(packageVersion('lmtp')),cmbridge=as.character(packageVersion('cmbridge')),
  sources=setNames(vapply(sources,function(p) digest::digest(file=p,algo='sha256'),''),sources),
  control=control,library=lib,sl=sl,randomizer='Uniform(0,1)',ratio_draws=5L,k=1L)
