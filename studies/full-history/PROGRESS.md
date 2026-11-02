@@ -177,8 +177,13 @@ the original diagnostic, without pooling or treating them as independent data.
 
 The local n=10000 binary seed-1 smoke check returned all four estimates with
 the requested 1e-5 ridge and the pinned package versions. Frozen earlier runs
-are unaffected. The next step is to dispatch this protocol on GitHub, record
-its run ID here, and assess its matched SE and coverage changes after completion.
+are unaffected. The matched sensitivity protocol was dispatched as
+[GitHub run 41516749627](https://github.com/idiazst/lmtp_selfcensor_sim/actions/runs/41516749627)
+from frozen commit `a24fd2d5fe40171cfd15c4fb9b52dc89b7606912`, with 100
+replications per mechanism at n=10000, `sieve_lambda=0.00001`, and four parallel
+runners. It targets 200 datasets and 800 estimates. Monitor this run alongside
+the main ensemble and 500-replication diagnostic, then compare its first 100
+seeds with the matching original diagnostic seeds. No results are available yet.
 
 The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping
