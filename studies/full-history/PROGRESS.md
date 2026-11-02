@@ -66,6 +66,15 @@ was launched from commit `b609625bb401e4bb6b8c6742eeea98e1ae48e3f5` with:
 
 Its target is 800 datasets and 3,200 method/horizon estimates. As of this update,
 the study is running and no full-ensemble coverage conclusion has been made.
+At the 2026-11-02 16:02 UTC checkpoint audit, 192 datasets and 768 estimates
+had returned without failures, and the variance identity passed within 4e-15.
+The binary n=500 cell is complete: 100 replications, with first-horizon coverage
+.91 (SDR) and .92 (TMLE), and second-horizon coverage .96 and .94. All four
+pointwise 95% Monte Carlo coverage intervals include .95; this does not establish
+nominal coverage. Its complete tables are saved separately in
+`results/full-history/ensemble-grid-binary-n500-v5-cm9030-github/`.
+The n=1000 and n=4000 cells were still partial at this audit, and no partial-cell
+coverage conclusion is drawn.
 After it completes, download its `full-history-report` artifact into a new
 directory, run `diagnose.R`, inspect every failure and all coverage/variance
 diagnostics, and preserve the frozen sources and original failed attempts.
