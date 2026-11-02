@@ -42,17 +42,24 @@ stopifnot(all(is.finite(paired$truth.reference)),
           max(abs(paired$truth.sensitivity - paired$truth.reference)) < 1e-12)
 paired$valid_pair <- with(paired, is.finite(estimate.sensitivity) &
   is.finite(estimate.reference) & is.finite(std.error.sensitivity) &
-  is.finite(std.error.reference))
+  is.finite(std.error.reference) & is.finite(conf.low.sensitivity) &
+  is.finite(conf.high.sensitivity) & is.finite(conf.low.reference) &
+  is.finite(conf.high.reference))
 paired$estimate_change <- paired$estimate.sensitivity - paired$estimate.reference
 paired$se_change <- paired$std.error.sensitivity - paired$std.error.reference
+paired$covered_reference <- with(paired,
+  conf.low.reference <= truth.reference & conf.high.reference >= truth.reference)
+paired$covered_sensitivity <- with(paired,
+  conf.low.sensitivity <= truth.sensitivity & conf.high.sensitivity >= truth.sensitivity)
+paired$coverage_change <- as.integer(paired$covered_sensitivity) -
+  as.integer(paired$covered_reference)
 write.csv(paired, file.path(sensitivity_root, "paired-ridge-comparison.csv"), row.names = FALSE)
 groups <- split(paired, with(paired, interaction(mechanism, n, method, horizon, drop = TRUE)))
 summary <- do.call(rbind, lapply(groups, function(x) {
   z <- x[x$valid_pair, ]
   count <- nrow(z)
-  coverage <- function(suffix) if (count) mean(
-    z[[paste0("conf.low.", suffix)]] <= z$truth.reference &
-    z[[paste0("conf.high.", suffix)]] >= z$truth.reference) else NA_real_
+  coverage <- function(suffix) if (count)
+    mean(z[[paste0("covered_", suffix)]]) else NA_real_
   data.frame(mechanism = x$mechanism[1], n = x$n[1], method = x$method[1],
     horizon = x$horizon[1], attempted_pairs = nrow(x), valid_pairs = count,
     failed_pairs = sum(!x$valid_pair),
@@ -66,7 +73,12 @@ summary <- do.call(rbind, lapply(groups, function(x) {
     sensitivity_empirical_sd = if (count > 1) sd(z$estimate.sensitivity) else NA_real_,
     reference_bias = if (count) mean(z$estimate.reference - z$truth.reference) else NA_real_,
     sensitivity_bias = if (count) mean(z$estimate.sensitivity - z$truth.reference) else NA_real_,
-    reference_coverage = coverage("reference"), sensitivity_coverage = coverage("sensitivity"))
+    reference_coverage = coverage("reference"), sensitivity_coverage = coverage("sensitivity"),
+    coverage_change = if (count) mean(z$coverage_change) else NA_real_,
+    coverage_change_mcse = if (count > 1)
+      sd(z$coverage_change) / sqrt(count) else NA_real_,
+    gained_coverage = sum(z$coverage_change == 1),
+    lost_coverage = sum(z$coverage_change == -1))
 }))
 rownames(summary) <- NULL
 write.csv(summary, file.path(sensitivity_root, "paired-ridge-summary.csv"), row.names = FALSE)
@@ -74,6 +86,7 @@ write.csv(summary, file.path(sensitivity_root, "paired-ridge-summary.csv"), row.
 components <- function(records) do.call(rbind, lapply(records, function(x) {
   do.call(rbind, lapply(names(x$details), function(method) {
     d <- x$details[[method]]
+    if (is.null(d) || !length(d$sequential_variance)) return(NULL)
     data.frame(mechanism = x$mechanism, n = x$n, replicate = x$replicate,
       seed = x$seed, method = method, horizon = seq_along(d$sequential_variance),
       sequential = d$sequential_variance, bridge = d$bridge_variance,
@@ -83,6 +96,30 @@ components <- function(records) do.call(rbind, lapply(records, function(x) {
 component_pairs <- merge(components(sensitivity), components(reference), by = key,
   all.x = TRUE, suffixes = c(".sensitivity", ".reference"))
 write.csv(component_pairs, file.path(sensitivity_root, "paired-score-components.csv"), row.names = FALSE)
+component_groups <- split(component_pairs, with(component_pairs,
+  interaction(mechanism, n, method, horizon, drop = TRUE)))
+component_summary <- do.call(rbind, lapply(component_groups, function(x) {
+  result <- x[1, c("mechanism", "n", "method", "horizon")]
+  reference_total <- x$sequential.reference + x$bridge.reference +
+    x$covariance_twice.reference
+  sensitivity_total <- x$sequential.sensitivity + x$bridge.sensitivity +
+    x$covariance_twice.sensitivity
+  changes <- list(sequential = x$sequential.sensitivity - x$sequential.reference,
+    bridge = x$bridge.sensitivity - x$bridge.reference,
+    covariance_twice = x$covariance_twice.sensitivity - x$covariance_twice.reference,
+    total = sensitivity_total - reference_total)
+  for (name in names(changes)) {
+    valid <- changes[[name]][is.finite(changes[[name]])]
+    result[[paste0(name, "_pairs")]] <- length(valid)
+    result[[paste0(name, "_change")]] <- if (length(valid)) mean(valid) else NA_real_
+    result[[paste0(name, "_change_mcse")]] <- if (length(valid) > 1)
+      sd(valid) / sqrt(length(valid)) else NA_real_
+  }
+  result
+}))
+rownames(component_summary) <- NULL
+write.csv(component_summary, file.path(sensitivity_root,
+  "paired-score-component-summary.csv"), row.names = FALSE)
 lines <- c("# Matched positive-ridge comparison", "",
   sprintf("Reference ridge: %g; sensitivity ridge: %g.", reference_ridge, sensitivity_ridge),
   paste("Reference run:", rm$run, "; sensitivity run:", sm$run),
@@ -93,7 +130,14 @@ lines <- c("# Matched positive-ridge comparison", "",
   "No different specifications or overlapping seeds are pooled as independent data.",
   "Only currently available sensitivity checkpoints are compared. A full cell has 100 pairs.",
   "Use paired SE changes to assess regularization; partial-cell coverage is descriptive only.", "",
+  "Coverage-change MCSE uses paired indicator differences; gained/lost counts retain discordant pairs.",
+  "It does not treat the two specifications as independent simulations.", "",
+  "A zero empirical coverage-change MCSE with no discordant pairs does not establish equivalence.", "",
   paste(capture.output(print(summary, digits = 5, row.names = FALSE)), collapse = "\n"), "",
+  "## Changes in reported gradient variance", "",
+  "Components are sequential variance, bridge variance and twice their covariance.",
+  "Each mean change and MCSE uses the same paired datasets; components can offset each other.", "",
+  paste(capture.output(print(component_summary, digits = 5, row.names = FALSE)), collapse = "\n"), "",
   paste("Comparison source MD5:", unname(tools::md5sum("studies/full-history/compare-ridge.R"))))
 writeLines(lines, file.path(sensitivity_root, "PAIRED_RIDGE.md"))
 cat(paste(lines, collapse = "\n"), "\n")

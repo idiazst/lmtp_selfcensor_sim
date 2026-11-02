@@ -120,6 +120,10 @@ forward causal intervention over cell-specific baseline, treatment, health and
 visit perturbations. It checks both horizons without calling a fitted estimator.
 The paired ridge audit verifies matching packages, DGP hash and recorded control
 settings, then compares the same seeds; it does not pool specifications. The
-plots show coverage and bias with Monte Carlo intervals, plus SE calibration
+paired coverage changes use the within-seed indicator difference and retain
+gained/lost coverage counts. The variance-component summary shows paired
+changes in sequential variance, bridge variance and twice their covariance.
+These comparisons include Monte Carlo uncertainty; zero observed discordance
+does not establish equivalence. The plots show coverage and bias with Monte Carlo intervals, plus SE calibration
 with a bootstrap over simulation replications. These audits never change any
 reported estimator interval.

@@ -6,14 +6,16 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
-Latest assessment (2026-11-02 21:00 UTC): the main ensemble has 712 of 800
+Latest assessment (2026-11-02 21:02 UTC): the main ensemble has 716 of 800
 datasets returned without failures. The 1,000-dataset coverage precision
 diagnostic is complete, with all 4,000 estimates returned. Its dose coverage
 is .912-.924 and all upper pointwise 95% MC limits are below .95; dose RMS
 SEs are about 9% below empirical SD. Its final reports, figures and manifest
 are in `results/full-history/diagnostic500-v5-cm9030-github/`, especially
 `ASSESSMENT.md`. The main ensemble and matched ridge sensitivity are still
-running. Eighty binary sensitivity datasets have returned without failures.
+running. All 100 binary sensitivity datasets have returned without failures;
+first-horizon SEs rise about 2.6%, but coverage changes by just one replication.
+Numerical-dose sensitivity jobs have started and remain pending.
 
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
@@ -207,6 +209,17 @@ increase .000334, paired MCSE .0000056) and mean estimate changes about -.00015.
 This is evidence that ridge affects SE calibration; it does not
 yet explain the dose shortfall or establish improved coverage. Paired tables
 are currently in `work/full-history-monitor/41516749627/cumulative/`.
+
+At 21:02 UTC, all 100 binary sensitivity replications are complete. The mean
+first-horizon SE increase is .000337 (paired MCSE .0000054); mean estimate
+change is -.000153 (paired MCSE .000014). Coverage changes from .92 to .93,
+one gained interval and none lost, a .01 difference with paired MCSE .01.
+Second-horizon SEs rise about .000147 and coverage stays .95. This demonstrates
+a regularization effect on SEs but does not establish a coverage fix. The
+score variance increase comes from larger bridge variance and covariance,
+partly offset by smaller sequential variance. Completed tables and assessment
+are in `results/full-history/sensitivity-ridge1e-5-binary-n10000-v5-cm9030-github/`.
+The numerical-dose comparison remains pending.
 
 The independent exact tangent audit passes 232 comparisons across 58 generative
 law directions (both horizons, steps 1e-5 and 5e-6), with maximum error 3.2e-11.
