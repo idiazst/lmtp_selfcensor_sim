@@ -1,5 +1,5 @@
 name: Full-history adjustment simulation
-run-name: Full-history ${{ inputs.library || 'sieve-diagnostic' }} - ${{ inputs.replications || '20' }} replications
+run-name: Full-history ${{ inputs.library || 'sieve-diagnostic' }} - from ${{ inputs.first || '1' }}, ${{ inputs.replications || '20' }} replications
 on:
   push:
     branches: [full-history-adjustment]
@@ -53,7 +53,7 @@ jobs:
           first = int(os.environ['FIRST'])
           sizes = [int(x) for x in os.environ['SIZES'].split(',')]
           assert 1 <= first <= 500 and 1 <= reps <= 500 and first+reps-1 <= 500 and all(100 <= n <= 100000 for n in sizes)
-          chunk = 10 if os.environ['LIBRARY'] == 'sieve-diagnostic' else 1
+          chunk = 10 if os.environ['LIBRARY'] == 'sieve-diagnostic' else (4 if os.environ['LIBRARY'] == 'ensemble-grid' else 1)
           matrix = {'include': [dict(mechanism=m, n=n, first=r, last=min(first+reps-1,r+chunk-1))
                     for m in ['binary','dose'] for n in sizes for r in range(first,first+reps,chunk)]}
           assert len(matrix['include']) <= 256, 'Split large studies into separate cohorts.'

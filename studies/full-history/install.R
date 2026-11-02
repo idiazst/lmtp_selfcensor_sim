@@ -8,4 +8,4 @@ for(i in seq_len(nrow(pins))) {
  if(!requireNamespace(pins$package[i],quietly=TRUE)||as.character(packageVersion(pins$package[i]))!=pins$version[i])
   remotes::install_local(pins$path[i],lib=target,dependencies=NA,upgrade='never')
 }
-stopifnot(packageVersion('lmtp')=='1.6.0.9025',packageVersion('cmbridge')=='0.3.0.9029')
+stopifnot(packageVersion('lmtp')=='1.6.0.9025',packageVersion('cmbridge')=='0.3.0.9030')

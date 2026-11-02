@@ -152,7 +152,14 @@ fh_gradient_check <- function(g) {
   error1<-sum(w*score(.01))-truth;error2<-sum(w*score(.005))-truth
   stopifnot(abs(error0)<1e-11,adj1$error<1e-11,adj2$error<1e-11,
     abs(error2)<=.26*abs(error1)+1e-12)
+  first_adjoint<-solve_adjoint(1,omega1*p$C2)
+  first_mn<-fh_c(p$C1,p$A1,g);first_md<-fh_c(p$C1,fh_d(p$A1,g),g)
+  first_score<-first_md+omega1*(p$R2*beta1*p$C2-first_mn)-
+    first_adjoint$value*(p$R2*beta1-1)-fh_truth(g)[1]
+  stopifnot(abs(sum(w*first_score))<1e-11,first_adjoint$error<1e-11)
   data.frame(mechanism=g$type,gradient_mean_error=error0,
-    adjoint_error=max(adj1$error,adj2$error),bridge_error_001=error1,
-    bridge_error_0005=error2)
+    gradient_h1_mean_error=sum(w*first_score),
+    adjoint_error=max(adj1$error,adj2$error,first_adjoint$error),bridge_error_001=error1,
+    bridge_error_0005=error2,variance_reference_h1=sum(w*first_score^2),
+    variance_reference_h2=sum(w*(score(0)-truth)^2))
 }

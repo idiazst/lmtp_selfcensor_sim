@@ -44,7 +44,8 @@ components, maximum weights and targeting diagnostics.
 
 For an ensemble run, dispatch `.github/workflows/full-history.yml` on branch
 `full-history-adjustment` with `library=ensemble`, the desired replication count,
-and comma-separated sizes. Each ensemble runner fits one replication. Set `first` to create consecutive
+and comma-separated sizes. Each original ensemble runner fits one replication; ensemble-grid runners fit
+up to four replications with an individual checkpoint after every method. Set `first` to create consecutive
 cohorts without repeating seeds. Split large
 studies into cohorts to stay within GitHub's 256-job matrix limit. Use new output
 directories and immutable source archives after any implementation change.
@@ -77,3 +78,11 @@ wrappers (scales .001, .01 and .1) plus the mean. This avoids a second nested
 penalty-search layer inside each regression candidate. It is a separate,
 explicitly labeled specification; its results are not pooled with the original
 `ensemble` specification using `SL.saturated_l1_cv`.
+
+
+The current full-ensemble sources use cmbridge 0.3.0.9030. Its inverse-link
+solver uses finite coordinate starting values followed by unrestricted BFGS,
+with the original objective, penalties and gradient acceptance checks. This
+addresses flat-link retries without changing the statistical fitting criteria.
+The exact population validation also records reference gradient variances;
+the numerical-dose adjoint is one valid representative, not an efficiency bound.

@@ -38,7 +38,11 @@ summary<-do.call(rbind,lapply(groups,function(z) {
 rownames(summary)<-NULL
 write.csv(summary,file.path(root,'summary.csv'),row.names=FALSE)
 failures<-rows[nzchar(rows$error),];write.csv(failures,file.path(root,'failures.csv'),row.names=FALSE)
-label<-if(length(records)&&!is.null(records[[1]]$manifest$specification)) records[[1]]$manifest$specification else 'saved nuisance specification'
+label<-if(length(records)&&!is.null(records[[1]]$manifest$specification)) records[[1]]$manifest$specification else {
+ sl<-if(length(records)) records[[1]]$manifest$sl else character()
+ if(identical(sl,'SL.saturated_l1')) 'sieve-diagnostic' else
+ if('SL.saturated_l1_cv'%in%sl) 'ensemble' else 'saved nuisance specification'
+}
 lines<-c('# Full-history adjustment simulation','',paste('Specification:',label),'',
  sprintf('%d datasets; %d method/horizon estimates returned; %d failed method/horizon estimates.',
  length(unique(with(rows,paste(mechanism,n,replicate)))),sum(is.finite(rows$estimate)),sum(!is.finite(rows$estimate))),
