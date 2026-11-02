@@ -1,0 +1,119 @@
+name: Full-history adjustment simulation
+run-name: Full-history ${{ inputs.library || 'sieve-diagnostic' }} - ${{ inputs.replications || '20' }} replications
+on:
+  push:
+    branches: [full-history-adjustment]
+    paths:
+      - 'studies/full-history/**'
+      - 'dependencies/full-history/**'
+      - '.github/workflows/full-history.yml'
+  workflow_dispatch:
+    inputs:
+      library:
+        description: Nuisance library
+        type: choice
+        options: [ensemble, sieve-diagnostic]
+        default: ensemble
+      replications:
+        description: Replications per mechanism and sample size
+        default: '100'
+      sizes:
+        description: Comma-separated sample sizes
+        default: '500,1000,4000,10000'
+      parallel:
+        description: Concurrent runners
+        default: '12'
+permissions:
+  contents: read
+env:
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  R_LIBS_USER: ${{ github.workspace }}/.runtime/full-history-library
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.design.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: design
+        env:
+          REPLICATIONS: ${{ inputs.replications || '20' }}
+          SIZES: ${{ inputs.sizes || '500,4000' }}
+          LIBRARY: ${{ inputs.library || 'sieve-diagnostic' }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          reps = int(os.environ['REPLICATIONS'])
+          sizes = [int(x) for x in os.environ['SIZES'].split(',')]
+          assert 1 <= reps <= 500 and all(100 <= n <= 100000 for n in sizes)
+          chunk = 10 if os.environ['LIBRARY'] == 'sieve-diagnostic' else 5
+          matrix = {'include': [dict(mechanism=m, n=n, first=r, last=min(reps,r+chunk-1))
+                    for m in ['binary','dose'] for n in sizes for r in range(1,reps+1,chunk)]}
+          assert len(matrix['include']) <= 256, 'Split large studies into separate cohorts.'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('matrix='+json.dumps(matrix)+'\n')
+          PY
+  fit:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.parallel || '8') }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache@v4
+        with:
+          path: .runtime/full-history-library
+          key: full-history-r452-${{ hashFiles('dependencies/full-history/*') }}
+      - name: Install frozen package sources
+        run: Rscript studies/full-history/install.R
+      - name: Validate package and population equations
+        run: |
+          Rscript -e 'source("studies/full-history/dgp.R"); for(m in c("binary","dose")) {print(fh_validate(fh_mechanism(m)));print(fh_gradient_check(fh_mechanism(m)))}'
+      - name: Run estimated-nuisance simulations and retain failures
+        env:
+          FH_FIRST: ${{ matrix.first }}
+          FH_LAST: ${{ matrix.last }}
+          FH_MECHANISM: ${{ matrix.mechanism }}
+          FH_N: ${{ matrix.n }}
+          FH_LIBRARY: ${{ inputs.library || 'sieve-diagnostic' }}
+          FH_OUTPUT: work/full-history
+        run: Rscript studies/full-history/run.R
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-history-${{ matrix.mechanism }}-n${{ matrix.n }}-r${{ matrix.first }}-${{ matrix.last }}
+          path: work/full-history
+          if-no-files-found: error
+          retention-days: 90
+  report:
+    needs: [prepare,fit]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: full-history-*
+          path: work/full-history
+          merge-multiple: true
+      - run: Rscript studies/full-history/report.R work/full-history
+      - run: cat work/full-history/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: full-history-report
+          path: work/full-history
+          retention-days: 90
