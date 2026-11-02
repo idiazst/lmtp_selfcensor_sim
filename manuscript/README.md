@@ -23,7 +23,8 @@ statistical models or modify any simulation result file.
 Before writing output it checks all 64 reported simulation cells against the
 saved individual estimates: means, bias, MSE, and interval coverage. For the
 longitudinal study it also checks empirical SD, mean SE, variance ratios,
-simultaneous coverage, unique replication IDs, and the reconciliation of
+simultaneous coverage, coverage using Monte Carlo sampling variance before
+and after subtracting mean bias, unique replication IDs, and the reconciliation of
 3,958 successful datasets and 42 failures with the 4,000-dataset design.
 
 Outputs are written to:
@@ -31,6 +32,7 @@ Outputs are written to:
 - `manuscript/simulation_tables/longitudinal.tex`: both longitudinal outcome times.
 - `manuscript/simulation_tables/mar.tex`: all four MAR/shadow scenarios.
 - `manuscript/simulation_tables/variance.tex`: variance and curve-coverage results.
+- `manuscript/simulation_tables/sampling_variance.tex`: coverage using Monte Carlo sampling variance, with and without mean-bias subtraction.
 - `manuscript/simulation_tables/verification.json`: checks and input SHA256 hashes.
 - `manuscript/figures/simulation-longitudinal.pdf` and `.png`: final-outcome plots.
 

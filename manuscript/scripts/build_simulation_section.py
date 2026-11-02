@@ -66,6 +66,14 @@ for summary in long_summary:
     close(key[1] * mean(e * e for e in errors), summary["n_mse"], (key, "scaled MSE"))
     close(stdev(values), summary["empirical_sd"], (key, "SD"))
     close(mean(cover), summary["coverage"], (key, "coverage"))
+    sampling_sd = stdev(values)
+    critical = 1.959963984540054
+    close(mean(abs(e) <= critical * sampling_sd for e in errors),
+          summary["empirical_sd_coverage"], (key, "sampling-variance coverage"))
+    bias = mean(errors)
+    close(mean(abs(e - bias) <= critical * sampling_sd for e in errors),
+          summary["remove_mean_bias_empirical_sd_coverage"],
+          (key, "centered sampling-variance coverage"))
     close(mean(float(r["se"]) for r in rows), summary["mean_se"], (key, "SE"))
     close(mean(float(r["se"]) ** 2 for r in rows) / stdev(values) ** 2,
           summary["variance_ratio"], (key, "variance ratio"))
@@ -158,6 +166,25 @@ for mechanism, label in mechanisms:
 lines += [r"\end{tabular}", r"\end{table}"]
 (TABLES / "variance.tex").write_text("\n".join(lines) + "\n")
 
+lines = [r"\begin{table}[htbp]", r"\centering\small", r"\setlength{\tabcolsep}{6pt}",
+         r"\caption{Final-outcome coverage using the Monte Carlo estimate of sampling variance. Reported SE uses the original estimated standard error; MC SD uses the common standard deviation of estimates across replications; Centered additionally subtracts the across-replication mean bias. All columns give percentages among the $N$ returned fits. Each setting contains 500 generated datasets.}",
+         r"\label{tab:sim-mc-variance}", r"\begin{tabular}{lrlrrrr}", r"\toprule",
+         r"& & & & \multicolumn{3}{c}{Coverage (\%)}\\",
+         r"Treatment & $n$ & Method & $N$ & Reported SE & MC SD & Centered\\", r"\midrule"]
+for mechanism, label in mechanisms:
+    for index, n in enumerate(sizes):
+        for method_index, method in enumerate(["sdr", "tmle"]):
+            row = long_map[mechanism, n, 2, method]
+            cells = [label if index == method_index == 0 else "",
+                     number(n) if method_index == 0 else "", method.upper(), row["successful"],
+                     pct(f(row, "coverage")), pct(f(row, "empirical_sd_coverage")),
+                     pct(f(row, "remove_mean_bias_empirical_sd_coverage"))]
+            lines.append(" & ".join(cells) + r"\\")
+        lines.append(r"\addlinespace[2pt]")
+    lines.append(r"\midrule" if mechanism == "binary_longitudinal" else r"\bottomrule")
+lines += [r"\end{tabular}", r"\end{table}"]
+(TABLES / "sampling_variance.tex").write_text("\n".join(lines) + "\n")
+
 subprocess.run(["Rscript", str(HERE / "scripts/plot_simulations.R"),
                 str(LONG / "summary.csv"),
                 str(HERE / "figures/simulation-longitudinal")], check=True)
@@ -167,7 +194,9 @@ inputs += [MI / name for name in ["replicates.csv", "summary.csv"]]
 audit = {"longitudinal_datasets": 4000, "longitudinal_successful_datasets": 3958,
          "longitudinal_failed_datasets": 42, "longitudinal_estimate_rows": len(long_rows),
          "imputation_datasets": 1600, "imputation_estimate_rows": len(mi_rows),
-         "summary_cells_verified": 64, "all_checks_passed": True,
+         "summary_cells_verified": 64,
+         "sampling_variance_coverage_cells_verified": len(long_summary),
+         "all_checks_passed": True,
          "inputs": {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                     for path in inputs}}
 (TABLES / "verification.json").write_text(json.dumps(audit, indent=2) + "\n")
