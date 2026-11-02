@@ -16,7 +16,10 @@ on:
         default: ensemble
       replications:
         description: Replications per mechanism and sample size
-        default: '100'
+        default: '20'
+      first:
+        description: First replication in this cohort
+        default: '1'
       sizes:
         description: Comma-separated sample sizes
         default: '500,1000,4000,10000'
@@ -41,16 +44,18 @@ jobs:
         env:
           REPLICATIONS: ${{ inputs.replications || '20' }}
           SIZES: ${{ inputs.sizes || '500,4000' }}
+          FIRST: ${{ inputs.first || '1' }}
           LIBRARY: ${{ inputs.library || 'sieve-diagnostic' }}
         run: |
           python3 - <<'PY'
           import json, os
           reps = int(os.environ['REPLICATIONS'])
+          first = int(os.environ['FIRST'])
           sizes = [int(x) for x in os.environ['SIZES'].split(',')]
-          assert 1 <= reps <= 500 and all(100 <= n <= 100000 for n in sizes)
-          chunk = 10 if os.environ['LIBRARY'] == 'sieve-diagnostic' else 5
-          matrix = {'include': [dict(mechanism=m, n=n, first=r, last=min(reps,r+chunk-1))
-                    for m in ['binary','dose'] for n in sizes for r in range(1,reps+1,chunk)]}
+          assert 1 <= first <= 500 and 1 <= reps <= 500 and first+reps-1 <= 500 and all(100 <= n <= 100000 for n in sizes)
+          chunk = 10 if os.environ['LIBRARY'] == 'sieve-diagnostic' else 1
+          matrix = {'include': [dict(mechanism=m, n=n, first=r, last=min(first+reps-1,r+chunk-1))
+                    for m in ['binary','dose'] for n in sizes for r in range(first,first+reps,chunk)]}
           assert len(matrix['include']) <= 256, 'Split large studies into separate cohorts.'
           with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write('matrix='+json.dumps(matrix)+'\n')

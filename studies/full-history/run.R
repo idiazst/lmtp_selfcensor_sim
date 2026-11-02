@@ -40,17 +40,18 @@ for(rep in first:last) {
  generated<-fh_generate(n,seed,g);data<-generated$observed
  set.seed(seed+1L)
  folds<-lmtp:::make_folds(data,V=3,strata_ids=paste(data$R2,data$R3),cluster_ids=seq_len(n))
- results<-list();details<-list();warnings<-character()
+ results<-list();details<-list();warnings<-character();errors<-list();nuisance_cache<-new.env(parent=emptyenv())
  for(method in c('sdr','tmle')) {
   started<-Sys.time();cat(format(started),job,method,'START\n');flush.console()
   set.seed(seed+2L)
   fit<-tryCatch(withCallingHandlers(do.call(lmtp_full_history,c(list(data=data),fh_arguments(g),
     list(estimator=method,folds=folds,learners_outcome=sl,learners_trt=sl,
-    bridge_library=lib,control=control))),warning=function(w) {
+    bridge_library=lib,control=control,nuisance_cache=nuisance_cache))),warning=function(w) {
       warnings<<-c(warnings,conditionMessage(w));invokeRestart('muffleWarning')
     }),error=function(e)e)
   elapsed<-as.numeric(difftime(Sys.time(),started,units='secs'))
   if(inherits(fit,'error')) {
+   errors[[method]]<-fit
    results[[method]]<-data.frame(mechanism=mechanism,n=n,replicate=rep,seed=seed,
     method=method,horizon=1:2,truth=truth,estimate=NA_real_,std.error=NA_real_,
     conf.low=NA_real_,conf.high=NA_real_,seconds=elapsed,error=conditionMessage(fit))
@@ -69,7 +70,7 @@ for(rep in first:last) {
      adjoint_weights=lapply(fit$bridge_fits,function(f) lapply(f$adjoints,function(h) lapply(h,function(m) m$weights))))
   }
   cat(format(Sys.time()),job,method,'SAVED',elapsed,'seconds\n');flush.console()
-  checkpoint<-list(fingerprint=fingerprint,manifest=manifest,results=results,details=details,warnings=unique(warnings),
+  checkpoint<-list(fingerprint=fingerprint,manifest=manifest,results=results,details=details,errors=errors,warnings=unique(warnings),
     n=n,seed=seed,replicate=rep,mechanism=mechanism,session=capture.output(sessionInfo()))
   saveRDS(checkpoint,paste0(path,'.tmp'));stopifnot(file.rename(paste0(path,'.tmp'),path))
  }

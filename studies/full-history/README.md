@@ -44,7 +44,8 @@ components, maximum weights and targeting diagnostics.
 
 For an ensemble run, dispatch `.github/workflows/full-history.yml` on branch
 `full-history-adjustment` with `library=ensemble`, the desired replication count,
-and comma-separated sizes. Each runner fits up to five replications. Split large
+and comma-separated sizes. Each ensemble runner fits one replication. Set `first` to create consecutive
+cohorts without repeating seeds. Split large
 studies into cohorts to stay within GitHub's 256-job matrix limit. Use new output
 directories and immutable source archives after any implementation change.
 
@@ -59,6 +60,11 @@ Rscript studies/full-history/report.R work/full-history
 
 The ensemble library can be expensive because each bridge, response ancestor,
 SuperLearner weight and adjoint loading is rebuilt inside its training split.
+Identical training fits are reused between SDR and TMLE through a validated
+training-data signature. Descendant CV retains three groups when at most 32
+complete measured transitions remain, preventing the original 17-observation
+bridge failure without weakening its convergence checks.
+
 All randomizer classification samples are fresh independent draws; regression
 integration uses the known-law midpoint nodes. For a continuous continuation
 law use a matching continuous `randomizer` and check quadrature accuracy.
