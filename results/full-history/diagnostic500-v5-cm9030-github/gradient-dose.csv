@@ -1,0 +1,2 @@
+"mechanism","gradient_mean_error","gradient_h1_mean_error","adjoint_error","bridge_error_001","bridge_error_0005","variance_reference_h1","variance_reference_h2"
+"dose",1.11022302462516e-16,-7.01004467147659e-17,6.66133814775094e-16,2.43355243964016e-05,6.08388109912816e-06,1.74270730350067,2.81850030280636

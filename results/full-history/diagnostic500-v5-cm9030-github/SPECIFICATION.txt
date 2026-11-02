@@ -1,0 +1,12 @@
+list(specification = "sieve-diagnostic", commit = "bb8a0079f3339f4f73b5656e9ffd9c9cfec40a55", 
+    run = "41488034067", lmtp = "1.6.0.9025", cmbridge = "0.3.0.9030", 
+    sources = c(`studies/full-history/dgp.R` = "c9a349038f6837649f8afe77a2f66ad94d6335796239c9efadfe8feabb5b075e", 
+    `studies/full-history/run.R` = "907fa8e85494ff24a16be6e1f69400e3490cbd9bdbf34504533703e30c9ff904"
+    ), control = list(.bound = 1e-05, .trim = 1, .learners_outcome_folds = 3, 
+        .learners_trt_folds = 3, .return_full_fits = TRUE, .isotonic_constraint = FALSE, 
+        .discrete = FALSE, .info = FALSE, .ratio_history = TRUE, 
+        .cm_kernel = "cell", .cm_project_psd = TRUE), library = list(
+        sieve_md = list(method = "sieve_md", control = list(target_basis = "cell", 
+            instrument_basis = "cell", link = "inverse_logit", 
+            lambda = 0.001))), sl = "SL.saturated_l1", randomizer = "Uniform(0,1)", 
+    ratio_draws = 5L, k = 1L)

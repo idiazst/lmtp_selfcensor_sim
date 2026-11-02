@@ -106,3 +106,20 @@ twice their covariance. It does not refit models or alter confidence intervals.
 The audit records its source and input hashes, so it can also be run after
 downloading an older frozen run. See [PROGRESS.md](PROGRESS.md) for completed
 validation and the current full-ensemble run.
+
+Additional read-only audits and figures can be regenerated with:
+
+```sh
+Rscript studies/full-history/validate-gradient.R path/to/completed/report
+Rscript studies/full-history/plot-inference.R path/to/completed/report
+Rscript studies/full-history/compare-ridge.R path/to/reference path/to/sensitivity
+```
+
+The gradient audit independently differentiates the observed law and the
+forward causal intervention over cell-specific baseline, treatment, health and
+visit perturbations. It checks both horizons without calling a fitted estimator.
+The paired ridge audit verifies matching packages, DGP hash and recorded control
+settings, then compares the same seeds; it does not pool specifications. The
+plots show coverage and bias with Monte Carlo intervals, plus SE calibration
+with a bootstrap over simulation replications. These audits never change any
+reported estimator interval.

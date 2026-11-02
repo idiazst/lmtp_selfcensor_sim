@@ -6,6 +6,15 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
+Latest assessment (2026-11-02 20:33 UTC): the main ensemble has 692 of 800
+datasets returned without failures. The 1,000-dataset coverage precision
+diagnostic is complete, with all 4,000 estimates returned. Its dose coverage
+is .912-.924 and all upper pointwise 95% MC limits are below .95; dose RMS
+SEs are about 9% below empirical SD. Its final reports, figures and manifest
+are in `results/full-history/diagnostic500-v5-cm9030-github/`, especially
+`ASSESSMENT.md`. The main ensemble and matched ridge sensitivity are still
+running. Twenty binary sensitivity datasets have returned without failures.
+
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
 by classification, and fits target-specific bridge adjoints. Both SDR and
@@ -183,7 +192,17 @@ from frozen commit `a24fd2d5fe40171cfd15c4fb9b52dc89b7606912`, with 100
 replications per mechanism at n=10000, `sieve_lambda=0.00001`, and four parallel
 runners. It targets 200 datasets and 800 estimates. Monitor this run alongside
 the main ensemble and 500-replication diagnostic, then compare its first 100
-seeds with the matching original diagnostic seeds. No results are available yet.
+seeds with the matching original diagnostic seeds. The first 20 available binary
+pairs show first-horizon SE increases of about 2.6% and mean estimate changes
+about -.00016. This is evidence that ridge affects SE calibration; it does not
+yet explain the dose shortfall or establish improved coverage. Paired tables
+are currently in `work/full-history-monitor/41516749627/cumulative/`.
+
+The independent exact tangent audit passes 232 comparisons across 58 generative
+law directions (both horizons, steps 1e-5 and 5e-6), with maximum error 3.2e-11.
+The reference gradient is observable, mean-zero and agrees with the separate
+population variance calculation. This supports the formulas on the tested
+family; investigation of fitted nuisance regularization and calibration continues.
 
 The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping
