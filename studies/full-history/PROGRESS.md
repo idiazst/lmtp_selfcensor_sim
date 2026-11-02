@@ -75,6 +75,19 @@ nominal coverage. Its complete tables are saved separately in
 `results/full-history/ensemble-grid-binary-n500-v5-cm9030-github/`.
 The n=1000 and n=4000 cells were still partial at this audit, and no partial-cell
 coverage conclusion is drawn.
+
+At the 2026-11-02 16:32 UTC audit, 268 datasets and 1,072 estimates had returned
+without failures. The binary n=1000 cell is now complete: coverage is .96 for
+the first horizon and .95 for the second, for both SDR and TMLE; absolute bias
+is below .0026 in all four cells. The reported and empirical standard errors
+are close. Its tables are in
+`results/full-history/ensemble-grid-binary-n1000-v5-cm9030-github/`.
+The n=4000 cell has 68 of 100 replications returned and is still partial.
+The variance identity across all 268 datasets passes within 5e-15. Monitoring
+snapshots are under `work/full-history-monitor/41460347711/`; the `cumulative`
+subdirectory contains deduplicated, hash-matched completed checkpoints and is
+explicitly a partial audit, not the final 800-dataset report.
+
 After it completes, download its `full-history-report` artifact into a new
 directory, run `diagnose.R`, inspect every failure and all coverage/variance
 diagnostics, and preserve the frozen sources and original failed attempts.
