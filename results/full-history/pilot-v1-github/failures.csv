@@ -1,0 +1,5 @@
+"mechanism","n","replicate","method","horizon","seed","truth","estimate","std.error","conf.low","conf.high","seconds","error"
+"binary",500,5,"sdr",1,6205005,0.725,NA,NA,NA,NA,6.39327454566956,"Every conditional-moment ensemble candidate failed."
+"binary",500,5,"sdr",2,6205005,0.67765625,NA,NA,NA,NA,6.39327454566956,"Every conditional-moment ensemble candidate failed."
+"binary",500,5,"tmle",1,6205005,0.725,NA,NA,NA,NA,6.39194536209106,"Every conditional-moment ensemble candidate failed."
+"binary",500,5,"tmle",2,6205005,0.67765625,NA,NA,NA,NA,6.39194536209106,"Every conditional-moment ensemble candidate failed."

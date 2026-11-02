@@ -16,9 +16,11 @@ control<-lmtp_control(.trim=1,.learners_outcome_folds=3,.learners_trt_folds=3,
  .discrete=FALSE,.cm_kernel='cell',.return_full_fits=TRUE,.isotonic_constraint=FALSE)
 lib<-if(mode=='sieve-diagnostic') list(sieve_md=list(method='sieve_md',control=list(
  target_basis='cell',instrument_basis='cell',link='inverse_logit',lambda=.001))) else NULL
-sl<-if(mode=='sieve-diagnostic') 'SL.saturated_l1' else c('SL.saturated_l1_cv','SL.mean')
+sl<-switch(mode, 'sieve-diagnostic'='SL.saturated_l1',
+ 'ensemble-grid'=c('SL.saturated_l1_small','SL.saturated_l1','SL.saturated_l1_large','SL.mean'),
+ 'ensemble'=c('SL.saturated_l1_cv','SL.mean'),stop('Unknown library specification.'))
 sources<-c('studies/full-history/dgp.R','studies/full-history/run.R')
-manifest<-list(commit=Sys.getenv('GITHUB_SHA'),run=Sys.getenv('GITHUB_RUN_ID'),
+manifest<-list(specification=mode,commit=Sys.getenv('GITHUB_SHA'),run=Sys.getenv('GITHUB_RUN_ID'),
  lmtp=as.character(packageVersion('lmtp')),cmbridge=as.character(packageVersion('cmbridge')),
  sources=setNames(vapply(sources,function(p) digest::digest(file=p,algo='sha256'),''),sources),
  control=control,library=lib,sl=sl,randomizer='Uniform(0,1)',ratio_draws=5L,k=1L)

@@ -2,6 +2,11 @@ args<-commandArgs(TRUE);root<-if(length(args))args[1] else 'work/full-history'
 paths<-list.files(root,'[.]rds$',recursive=TRUE,full.names=TRUE)
 paths<-paths[grepl('/jobs/',paths)]
 records<-lapply(paths,readRDS)
+if(length(records)) {
+ specifications<-lapply(records,function(z) z$manifest[setdiff(names(z$manifest),c('run','commit'))])
+ if(any(!vapply(specifications,function(x) identical(x,specifications[[1]]),TRUE)))
+  stop('Refusing to pool different source versions or nuisance specifications.')
+}
 rows<-do.call(rbind,lapply(records,function(z) do.call(rbind,z$results)))
 design_paths<-list.files(root,'^design-.*[.]csv$',recursive=TRUE,full.names=TRUE)
 if(length(design_paths)) {
@@ -33,7 +38,8 @@ summary<-do.call(rbind,lapply(groups,function(z) {
 rownames(summary)<-NULL
 write.csv(summary,file.path(root,'summary.csv'),row.names=FALSE)
 failures<-rows[nzchar(rows$error),];write.csv(failures,file.path(root,'failures.csv'),row.names=FALSE)
-lines<-c('# Full-history adjustment simulation','',
+label<-if(length(records)&&!is.null(records[[1]]$manifest$specification)) records[[1]]$manifest$specification else 'saved nuisance specification'
+lines<-c('# Full-history adjustment simulation','',paste('Specification:',label),'',
  sprintf('%d datasets; %d method/horizon estimates returned; %d failed method/horizon estimates.',
  length(unique(with(rows,paste(mechanism,n,replicate)))),sum(is.finite(rows$estimate)),sum(!is.finite(rows$estimate))),
  '', 'All failures remain in estimates.csv and failures.csv. No replacement seeds are generated.',

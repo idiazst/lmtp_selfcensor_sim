@@ -68,3 +68,12 @@ bridge failure without weakening its convergence checks.
 All randomizer classification samples are fresh independent draws; regression
 integration uses the known-law midpoint nodes. For a continuous continuation
 law use a matching continuous `randomizer` and check quadrature accuracy.
+
+
+`ensemble-grid` retains all three conditional-moment candidates and their
+original moment-loss and positive-penalty tuning. For regression and
+classification it cross-validates a library of three existing positive-L1
+wrappers (scales .001, .01 and .1) plus the mean. This avoids a second nested
+penalty-search layer inside each regression candidate. It is a separate,
+explicitly labeled specification; its results are not pooled with the original
+`ensemble` specification using `SL.saturated_l1_cv`.

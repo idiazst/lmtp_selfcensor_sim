@@ -29,7 +29,7 @@ jobs:
       - run: Rscript studies/full-history/install.R
       - name: Test source package on Linux
         run: |
-          Rscript -e 'install.packages(c("testthat","pkgload")); dir.create("work/source",recursive=TRUE); utils::untar("dependencies/full-history/lmtp_1.6.0.9024.tar.gz",exdir="work/source"); testthat::test_local("work/source/lmtp",filter="full-history",reporter="summary")'
+          Rscript -e 'install.packages(c("testthat","pkgload")); dir.create("work/source",recursive=TRUE); utils::untar("dependencies/full-history/lmtp_1.6.0.9025.tar.gz",exdir="work/source"); testthat::test_local("work/source/lmtp",filter="full-history",reporter="summary")'
       - name: Check three sequential informative-measurement transitions
         run: Rscript studies/full-history-stress/run.R
       - uses: actions/upload-artifact@v4

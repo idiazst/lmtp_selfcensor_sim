@@ -12,7 +12,7 @@ on:
       library:
         description: Nuisance library
         type: choice
-        options: [ensemble, sieve-diagnostic]
+        options: [ensemble, ensemble-grid, sieve-diagnostic]
         default: ensemble
       replications:
         description: Replications per mechanism and sample size
