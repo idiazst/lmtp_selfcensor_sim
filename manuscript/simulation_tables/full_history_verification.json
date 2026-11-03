@@ -1,0 +1,44 @@
+{
+  "all_checks_passed": true,
+  "cells_verified": 48,
+  "mc_variance_definition": "Sample variance with denominator M-1; not variance of the Monte Carlo mean.",
+  "specifications_not_pooled": true,
+  "studies": {
+    "ensemble-grid": {
+      "datasets": 800,
+      "estimate_rows": 3200,
+      "cells": 32,
+      "replications_per_cell": 100,
+      "failed": 0,
+      "inputs": {
+        "results/full-history/ensemble-grid-v5-cm9030-github/estimates.csv": "c9e81562d43321936da12d64803d295bcfef836ebc0908b52d9c11af8713131f",
+        "results/full-history/ensemble-grid-v5-cm9030-github/summary.csv": "df6231d5aff00e0862149d98f83c35d5555a79634843a1323b3854da336a24ea",
+        "results/full-history/ensemble-grid-v5-cm9030-github/failures.csv": "e5ff5b4e9b36f55b7b7f3bb3b891aaa1dc647f9e674479c2078ac0fdb941351a"
+      }
+    },
+    "sieve-ridge-0.001": {
+      "datasets": 1000,
+      "estimate_rows": 4000,
+      "cells": 8,
+      "replications_per_cell": 500,
+      "failed": 0,
+      "inputs": {
+        "results/full-history/diagnostic500-v5-cm9030-github/estimates.csv": "949ae823b5e263b0ad39de92b66e7ad6643595f7bf67837fae0e85c9926a7ef7",
+        "results/full-history/diagnostic500-v5-cm9030-github/summary.csv": "3ffa9822300147366ef855e64222af36011bf0e0083366dfdd6d6f38d36da072",
+        "results/full-history/diagnostic500-v5-cm9030-github/failures.csv": "e5ff5b4e9b36f55b7b7f3bb3b891aaa1dc647f9e674479c2078ac0fdb941351a"
+      }
+    },
+    "sieve-ridge-0.00001": {
+      "datasets": 200,
+      "estimate_rows": 800,
+      "cells": 8,
+      "replications_per_cell": 100,
+      "failed": 0,
+      "inputs": {
+        "results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/estimates.csv": "5d1c3188ac0b95e4b5ff9185ccabdf36252bf057ee79467802f6e912e03ad552",
+        "results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/summary.csv": "a401af269ae918b2d3055a14016fb1c39e6dd51f8e134934d8a8ec55bf32547c",
+        "results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/failures.csv": "e5ff5b4e9b36f55b7b7f3bb3b891aaa1dc647f9e674479c2078ac0fdb941351a"
+      }
+    }
+  }
+}

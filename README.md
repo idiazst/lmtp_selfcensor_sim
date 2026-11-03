@@ -1,6 +1,7 @@
 # lmtp_selfcensor_sim
 
-The latest longitudinal self-censoring study and multiple-imputation comparison.
+Longitudinal self-censoring studies under observed-history and full-history
+adjustment, and a multiple-imputation comparison.
 Earlier simulation implementations and results are excluded.
 
 The repositories have separate responsibilities:
@@ -14,6 +15,15 @@ The repositories have separate responsibilities:
 The package is named **lmtp**, rather than a separate wrapper package.
 
 ## Studies
+
+The full-history study completed **800 datasets and 3,200 estimates** at
+n = 500, 1,000, 4,000 and 10,000, with no fitting failures. It evaluates SDR
+and logistic TMLE under visit-specific treatment changes and stochastic
+continuation at missed visits. Separate 500-replication precision and matched
+ridge diagnostics retain their own fitting specifications. The studies show
+small large-sample bias and remaining interval-calibration limitations.
+[Full-history code and paper-table reproduction](manuscript/full-history.md),
+[completed assessment](results/full-history/ensemble-grid-v5-cm9030-github/ASSESSMENT.md).
 
 The manuscript's completed longitudinal study uses **500 replications** at
 n = 500, 1,000, 4,000 and 10,000 for binary treatment and numerical dose:
@@ -54,16 +64,19 @@ aggregate contains 1,600 datasets and 6,400 returned method estimates, with
 | Simulation subsection | Code and reproduction guide |
 | --- | --- |
 | Longitudinal treatment effects under informative missingness | [Longitudinal study](manuscript/longitudinal.md) |
+| Treatment effects under full-history adjustment | [Full-history study and MC variance diagnostics](manuscript/full-history.md) |
 | Comparison with MAR | [Four-scenario MAR comparison](manuscript/mar.md) |
 | Manuscript tables and figure | [Saved-result verification and reporting](manuscript/README.md) |
 
 ## Reproduce
 
-Use R >= 4.1. The [dependency manifest](dependencies/package-pins.json)
-pins the exact cmbridge and lmtp archives used for the saved studies, together
-with their SHA256 hashes. Study code does not substitute the newest package
-version for those builds. Install the frozen dependencies into an isolated
-library:
+For the observed-history and MAR studies, use R >= 4.1 and the
+[dependency manifest](dependencies/package-pins.json), which pins their exact
+cmbridge and lmtp archives and SHA256 hashes. The full-history study uses
+separate [frozen archives and checksums](dependencies/full-history/manifest.csv)
+and the installation commands in its [reproduction guide](manuscript/full-history.md).
+Study code does not substitute the newest package versions for those builds.
+Install the observed-history/MAR dependencies into an isolated library:
 
 ```sh
 Rscript scripts/install_dependencies.R
@@ -86,6 +99,9 @@ For the 500-replication longitudinal study, use the commands in
 [its reproduction guide](manuscript/longitudinal.md). To regenerate the manuscript
 tables and figure from the public saved results without fitting models, run
 `python3 manuscript/scripts/build_simulation_section.py`.
+The full-history manuscript tables and variance diagnostics are reproduced by
+`python3 manuscript/scripts/build_full_history_section.py`. These reporting
+commands verify the saved estimates without fitting any models.
 
 The extension's validated launcher is documented in
 `studies/imputation/neither/PLAN.md`; its frozen fitting sources are kept

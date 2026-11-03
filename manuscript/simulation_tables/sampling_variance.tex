@@ -1,0 +1,38 @@
+\begin{table}[htbp]
+\centering\small
+\setlength{\tabcolsep}{6pt}
+\caption{Final-outcome coverage using the Monte Carlo estimate of sampling variance. Reported SE uses the original estimated standard error; MC SD uses the common standard deviation of estimates across replications; Centered additionally subtracts the across-replication mean bias. All columns give percentages among the $N$ returned fits. Each setting contains 500 generated datasets.}
+\label{tab:sim-mc-variance}
+\begin{tabular}{lrlrrrr}
+\toprule
+& & & & \multicolumn{3}{c}{Coverage (\%)}\\
+Treatment & $n$ & Method & $N$ & Reported SE & MC SD & Centered\\
+\midrule
+Binary treatment & 500 & SDR & 483 & 92.1 & 97.9 & 98.1\\
+ &  & TMLE & 483 & 91.7 & 95.7 & 95.7\\
+\addlinespace[2pt]
+ & 1,000 & SDR & 496 & 94.2 & 93.3 & 93.8\\
+ &  & TMLE & 496 & 93.8 & 94.0 & 94.4\\
+\addlinespace[2pt]
+ & 4,000 & SDR & 499 & 94.2 & 95.0 & 94.8\\
+ &  & TMLE & 499 & 95.0 & 95.0 & 95.2\\
+\addlinespace[2pt]
+ & 10,000 & SDR & 500 & 94.4 & 96.8 & 96.8\\
+ &  & TMLE & 500 & 94.8 & 94.4 & 94.4\\
+\addlinespace[2pt]
+\midrule
+Numerical dose & 500 & SDR & 486 & 85.2 & 93.0 & 94.9\\
+ &  & TMLE & 486 & 86.0 & 93.2 & 94.2\\
+\addlinespace[2pt]
+ & 1,000 & SDR & 495 & 81.0 & 85.9 & 96.0\\
+ &  & TMLE & 495 & 81.0 & 86.1 & 96.2\\
+\addlinespace[2pt]
+ & 4,000 & SDR & 499 & 88.2 & 92.2 & 95.0\\
+ &  & TMLE & 499 & 88.0 & 92.0 & 95.0\\
+\addlinespace[2pt]
+ & 10,000 & SDR & 500 & 90.4 & 93.6 & 94.0\\
+ &  & TMLE & 500 & 90.6 & 93.8 & 94.0\\
+\addlinespace[2pt]
+\bottomrule
+\end{tabular}
+\end{table}

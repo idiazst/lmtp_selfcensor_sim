@@ -1,0 +1,192 @@
+"""Verify frozen full-history estimates and reproduce the manuscript tables.
+
+Python standard library only. No estimator fits or saved results are changed.
+Run from any directory; --output selects the manuscript output directory.
+"""
+import argparse
+import csv
+import hashlib
+import json
+import math
+from collections import defaultdict
+from pathlib import Path
+from statistics import mean, stdev
+
+ROOT = Path(__file__).resolve().parents[2]
+RESULTS = ROOT / "results/full-history"
+STUDIES = {
+    "ensemble-grid": ("ensemble-grid-v5-cm9030-github", 100, [500, 1000, 4000, 10000]),
+    "sieve-ridge-0.001": ("diagnostic500-v5-cm9030-github", 500, [10000]),
+    "sieve-ridge-0.00001": ("sensitivity-ridge1e-5-v5-cm9030-github", 100, [10000]),
+}
+METHODS = ["sdr", "tmle"]
+MECHANISMS = [("binary", "Binary treatment"), ("dose", "Numerical dose")]
+Z = 1.959963984540054
+
+
+def read(path):
+    with path.open(newline="") as stream:
+        return list(csv.DictReader(stream))
+
+
+def close(actual, expected, label):
+    assert math.isclose(actual, float(expected), rel_tol=1e-9, abs_tol=1e-11), (label, actual, expected)
+
+
+def verify_study(label, folder, count, sizes):
+    base = RESULTS / folder
+    paths = [base / name for name in ("estimates.csv", "summary.csv", "failures.csv")]
+    rows, summaries, failures = [read(path) for path in paths]
+    assert not failures, (label, "recorded failures")
+    expected = {(m, n, h, method) for m, _ in MECHANISMS for n in sizes
+                for h in (1, 2) for method in METHODS}
+    groups = defaultdict(list)
+    for row in rows:
+        assert not row["error"], (label, row)
+        for name in ("truth", "estimate", "std.error", "conf.low", "conf.high"):
+            assert math.isfinite(float(row[name])), (label, name, row)
+        assert float(row["std.error"]) > 0
+        key = (row["mechanism"], int(row["n"]), int(row["horizon"]), row["method"])
+        groups[key].append(row)
+    assert set(groups) == expected and len(rows) == count * len(expected)
+    summary = {(r["mechanism"], int(r["n"]), int(r["horizon"]), r["method"]): r for r in summaries}
+    assert set(summary) == expected and len(summaries) == len(expected)
+    output = {}
+    for key, group in groups.items():
+        m, n, h, method = key
+        assert len(group) == count
+        assert {int(r["replicate"]) for r in group} == set(range(1, count + 1))
+        mechanism_index = 1 if m == "binary" else 2
+        assert all(int(r["seed"]) == 6100000 + mechanism_index * 100000 + n * 10 + int(r["replicate"])
+                   for r in group)
+        truths = {float(r["truth"]) for r in group}
+        assert len(truths) == 1
+        truth = truths.pop()
+        values = [float(r["estimate"]) for r in group]
+        errors = [value - truth for value in values]
+        bias, sd = mean(errors), stdev(values)
+        mse = mean(e * e for e in errors)
+        ses = [float(r["std.error"]) for r in group]
+        covered = [float(r["conf.low"]) <= truth <= float(r["conf.high"]) for r in group]
+        for r in group:
+            close(float(r["conf.low"]), float(r["estimate"]) - Z * float(r["std.error"]), (key, "lower"))
+            close(float(r["conf.high"]), float(r["estimate"]) + Z * float(r["std.error"]), (key, "upper"))
+        s = summary[key]
+        assert int(s["attempted"]) == int(s["returned"]) == count and int(s["failed"]) == 0
+        for name, value in {"truth": truth, "bias": bias, "empirical_sd": sd,
+                            "mean_se": mean(ses), "rmse": math.sqrt(mse), "coverage": mean(covered)}.items():
+            close(value, s[name], (key, name))
+        # Two equivalent calculations independently check the MC interval indicators.
+        mc = [abs(e) <= Z * sd for e in errors]
+        centered = [abs(e - bias) <= Z * sd for e in errors]
+        assert mc == [x - Z * sd <= truth <= x + Z * sd for x in values]
+        assert centered == [x - bias - Z * sd <= truth <= x - bias + Z * sd for x in values]
+        output[key] = dict(specification=label, mechanism=m, n=n, horizon=h, method=method,
+                           replications=count, truth=truth, bias=bias, bias_mcse=sd / math.sqrt(count),
+                           root_n_bias=math.sqrt(n) * bias, mse=mse, n_mse=n * mse,
+                           empirical_sd=sd, mc_variance=sd * sd, rms_se=math.sqrt(mean(se * se for se in ses)),
+                           variance_ratio=mean(se * se for se in ses) / (sd * sd),
+                           reported_coverage=mean(covered), mc_sd_coverage=mean(mc),
+                           centered_mc_sd_coverage=mean(centered))
+    audit = dict(datasets=2 * len(sizes) * count, estimate_rows=len(rows), cells=len(groups),
+                 replications_per_cell=count, failed=0,
+                 inputs={str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths})
+    return output, audit
+
+
+def table_start(caption, label, columns, header):
+    return [r"% Generated by manuscript/scripts/build_full_history_section.py.",
+            r"\begin{table}[!htbp]", r"\centering\small", r"\setlength{\tabcolsep}{4pt}",
+            r"\caption{" + caption + "}", r"\label{" + label + "}",
+            r"\begin{tabular}{" + columns + "}", r"\toprule", *header, r"\midrule"]
+
+
+def write_table(path, lines):
+    path.write_text("\n".join(lines + [r"\bottomrule", r"\end{tabular}", r"\end{table}"]) + "\n")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path, default=ROOT / "manuscript")
+    args = parser.parse_args()
+    studies, audits = {}, {}
+    for label, (folder, count, sizes) in STUDIES.items():
+        studies[label], audits[label] = verify_study(label, folder, count, sizes)
+    tables = args.output / "simulation_tables"
+    tables.mkdir(parents=True, exist_ok=True)
+    ensemble = studies["ensemble-grid"]
+    lines = table_start(
+        r"Full-history adjustment with 100 datasets per treatment and sample-size setting. Bias is multiplied by $\sqrt n$ and MSE by $n$. Coverage is the percentage of nominal pointwise 95\% intervals containing the truth. All 800 datasets returned both methods at both outcome times, with no failed or replaced datasets.",
+        "tab:sim-full-history", "lr*{6}{r}",
+        [r"& & \multicolumn{2}{c}{$\sqrt n\times$ Bias} & \multicolumn{2}{c}{$n\times$ MSE} & \multicolumn{2}{c}{Coverage (\%)}\\",
+         r"Treatment & $n$ & SDR & TMLE & SDR & TMLE & SDR & TMLE\\"])
+    for h in (1, 2):
+        lines.append(r"\multicolumn{8}{l}{\textit{Outcome at time " + str(h + 1) + r"}}\\")
+        for m, title in MECHANISMS:
+            for i, n in enumerate(STUDIES["ensemble-grid"][2]):
+                s, t = [ensemble[m, n, h, method] for method in METHODS]
+                cells = [title if i == 0 else "", f"{n:,}"]
+                cells += [f"{r[field]:.3f}" for field in ("root_n_bias", "n_mse") for r in (s, t)]
+                cells += [f"{100 * r['reported_coverage']:.1f}" for r in (s, t)]
+                lines.append(" & ".join(cells) + r"\\")
+            lines.append(r"\addlinespace")
+        if h == 1:
+            lines.append(r"\midrule")
+    write_table(tables / "full_history.tex", lines)
+    for h in (1, 2):
+        lines = table_start(
+            "Full-history ensemble variance diagnostics for the outcome at time " + str(h + 1) +
+            r". Each row uses all 100 replications. SD is the Monte Carlo sampling SD; VR is the mean squared reported SE divided by the Monte Carlo variance. Coverage uses the reported interval, a common MC SD, or the MC SD after subtracting mean bias (Centered). All coverage entries are percentages.",
+            f"tab:sim-fh-mc-{h}", "lrl*{5}{r}",
+            [r"& & & & & \multicolumn{3}{c}{Coverage (\%)}\\",
+             r"Treatment & $n$ & Method & SD & VR & Reported SE & MC SD & Centered\\"])
+        for m, title in MECHANISMS:
+            for i, n in enumerate(STUDIES["ensemble-grid"][2]):
+                for j, method in enumerate(METHODS):
+                    r = ensemble[m, n, h, method]
+                    cells = [title if i == j == 0 else "", f"{n:,}" if j == 0 else "", method.upper(),
+                             f"{r['empirical_sd']:.4f}", f"{r['variance_ratio']:.3f}"]
+                    cells += [f"{100 * r[field]:.1f}" for field in
+                              ("reported_coverage", "mc_sd_coverage", "centered_mc_sd_coverage")]
+                    lines.append(" & ".join(cells) + r"\\")
+                lines.append(r"\addlinespace[2pt]")
+            if m == "binary":
+                lines.append(r"\midrule")
+        write_table(tables / f"full_history_sampling_variance_{h}.tex", lines)
+    lines = table_start(
+        r"Separate single-sieve full-history diagnostics at $n=10000$. The ridge $10^{-3}$ study uses 500 replications per mechanism; the ridge $10^{-5}$ study uses the matching first 100. Times 2 and 3 are the first and final outcomes. Columns have the definitions in Tables~\ref{tab:sim-fh-mc-1}--\ref{tab:sim-fh-mc-2}. Overlapping seeds are not pooled across specifications.",
+        "tab:sim-fh-diagnostic-mc", "lrl*{5}{r}",
+        [r"& & & & & \multicolumn{3}{c}{Coverage (\%)}\\",
+         r"Treatment & Time & Method & SD & VR & Reported SE & MC SD & Centered\\"])
+    for label, heading in [("sieve-ridge-0.001", r"Ridge $10^{-3}$; 500 replications"),
+                           ("sieve-ridge-0.00001", r"Ridge $10^{-5}$; 100 replications")]:
+        lines.append(r"\multicolumn{8}{l}{\textit{" + heading + r"}}\\")
+        for m, title in MECHANISMS:
+            for h in (1, 2):
+                for j, method in enumerate(METHODS):
+                    r = studies[label][m, 10000, h, method]
+                    cells = [title if h == 1 and j == 0 else "", str(h + 1) if j == 0 else "", method.upper(),
+                             f"{r['empirical_sd']:.4f}", f"{r['variance_ratio']:.3f}"]
+                    cells += [f"{100 * r[field]:.1f}" for field in
+                              ("reported_coverage", "mc_sd_coverage", "centered_mc_sd_coverage")]
+                    lines.append(" & ".join(cells) + r"\\")
+                lines.append(r"\addlinespace[2pt]")
+        if label == "sieve-ridge-0.001":
+            lines.append(r"\midrule")
+    write_table(tables / "full_history_diagnostic_variance.tex", lines)
+    rows = [r for study in studies.values() for _, r in sorted(study.items())]
+    with (tables / "full_history_diagnostics.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    audit = dict(all_checks_passed=True, cells_verified=len(rows),
+                 mc_variance_definition="Sample variance with denominator M-1; not variance of the Monte Carlo mean.",
+                 specifications_not_pooled=True, studies=audits)
+    (tables / "full_history_verification.json").write_text(json.dumps(audit, indent=2) + "\n")
+    print(json.dumps({"all_checks_passed": True, "cells_verified": len(rows),
+                      "estimate_rows_verified": sum(a["estimate_rows"] for a in audits.values()),
+                      "output": str(tables)}, indent=2))
+
+
+if __name__ == "__main__":
+    main()
