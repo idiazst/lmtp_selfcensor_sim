@@ -127,3 +127,34 @@ These comparisons include Monte Carlo uncertainty; zero observed discordance
 does not establish equivalence. The plots show coverage and bias with Monte Carlo intervals, plus SE calibration
 with a bootstrap over simulation replications. These audits never change any
 reported estimator interval.
+
+
+## Completed validation and remaining limitation
+
+The main 800-dataset ensemble study, 1,000-dataset precision diagnostic and
+200-dataset matched positive-ridge diagnostic are complete. All estimates in
+these three protocols returned without failures. Seeds overlap across their
+nuisance specifications, so their counts are not independent datasets to pool.
+The [final ensemble assessment](../../results/full-history/ensemble-grid-v5-cm9030-github/ASSESSMENT.md)
+records bias, empirical variability, standard errors, coverage and Monte Carlo
+uncertainty, with checked PDF/PNG figures and matched comparisons.
+
+Large-sample bias is small, but nominal confidence-interval coverage has not
+been established. The precision diagnostic confirms dose undercoverage; lower
+positive ridge raises SEs without establishing a coverage fix. Both package PRs
+remain drafts. No convergence criterion or interval was changed to improve the
+reported coverage. See [PROGRESS.md](PROGRESS.md) for the retained validation
+record and exact per-study specifications.
+
+Regenerate the final matched comparisons across separately labeled libraries:
+
+```sh
+Rscript studies/full-history/compare-specifications.R \
+  results/full-history/ensemble-grid-v5-cm9030-github \
+  results/full-history/diagnostic500-v5-cm9030-github \
+  results/full-history/sensitivity-ridge1e-5-v5-cm9030-github
+```
+
+This compares only matching n=10000 seeds. All differences are main ensemble
+minus the named comparison; the full 500-replication diagnostic is not treated
+as 500 independent comparators for the main 100-replication cells.

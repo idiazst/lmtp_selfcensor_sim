@@ -6,18 +6,30 @@ Updated 2026-11-02. Implementation is available in draft
 [cmbridge PR #1](https://github.com/idiazst/cmbridge/pull/1), branch
 `full-history-performance`. Neither PR has been merged.
 
-Latest assessment (2026-11-02 21:49 UTC): the main ensemble has 792 of 800
-datasets returned without failures; two numerical-dose n=10000 jobs remain.
-The 1,000-dataset precision diagnostic is complete: dose coverage .912-.924,
-with upper pointwise 95% MC limits below .95 and RMS SE about 9% below
-empirical SD. Its report is `results/full-history/diagnostic500-v5-cm9030-github/`.
-The matched positive-ridge sensitivity is now complete: all 200 datasets and
-800 estimates returned without failures. Lower ridge increases dose RMS SE
-about 6.2%/5.4% at horizons 1/2. On matching seeds, dose coverage stays .92 at
-horizon 1 and rises .91 to .94 at horizon 2 (paired MCSE .0171). This identifies
-a regularization contribution but does not establish resolved calibration.
-Its final assessment, comparisons and plots are in
-`results/full-history/sensitivity-ridge1e-5-v5-cm9030-github/ASSESSMENT.md`.
+Final assessment (2026-11-02, New York): all three specified GitHub study
+protocols are complete and assessed. The main ensemble returned all 800 datasets
+and 3,200 estimates, with zero failures; each of its 32 cells has all 100 planned
+replications. Its final artifact, MC diagnostics, paired comparisons and checked
+plots are in `results/full-history/ensemble-grid-v5-cm9030-github/ASSESSMENT.md`.
+At n=10000, dose bias is below .000433, first-horizon coverage is .92 for both
+methods, and second-horizon coverage is .95 SDR/.94 TMLE. Dose RMS SE is about
+6-7% below empirical SD. Nominal coverage is not established by these 100 draws.
+
+The 1,000-dataset precision diagnostic and 200-dataset matched positive-ridge
+sensitivity are also complete, without failures. Precision-study dose coverage
+.912-.924 has upper MC limits below .95. Lower ridge raises dose RMS SE about
+6.2%/5.4%, but matching coverage remains .92 at horizon 1 and improves .91 to
+.94 at horizon 2 (paired change MCSE .0171). This identifies a regularization
+contribution without resolving calibration. Their separate final assessments
+remain in `diagnostic500-v5-cm9030-github/` and
+`sensitivity-ridge1e-5-v5-cm9030-github/` under `results/full-history/`.
+
+No new formula or optimizer defect was isolated by these studies. Both package
+PRs remain drafts, and the coverage limitation is explicit. No fitter source,
+convergence criterion or interval was changed to manufacture nominal coverage.
+The final study comparison uses matching seeds and never pools specifications.
+The study monitoring follow-up is being removed because the specified runs and
+diagnosis have finished; this does not declare the inference limitation solved.
 
 The new API accepts separate alpha, visit d and stochastic continuation t
 callbacks. It builds the pseudo-outcome at every time, estimates both ratios
@@ -77,8 +89,9 @@ was launched from commit `b609625bb401e4bb6b8c6742eeea98e1ae48e3f5` with:
 - lmtp 1.6.0.9025 and cmbridge 0.3.0.9030;
 - 200 fitting jobs, four datasets per job, at most 20 concurrent runners.
 
-Its target is 800 datasets and 3,200 method/horizon estimates. As of this update,
-the study is running and no full-ensemble coverage conclusion has been made.
+The study completed all 800 datasets and 3,200 method/horizon estimates without
+failures. The following entries preserve historical checkpoint audits; the final
+assessment is linked above.
 At the 2026-11-02 16:02 UTC checkpoint audit, 192 datasets and 768 estimates
 had returned without failures, and the variance identity passed within 4e-15.
 The binary n=500 cell is complete: 100 replications, with first-horizon coverage
@@ -267,10 +280,23 @@ The first 100 seeds overlap with the main ensemble and older diagnostic runs;
 this permits matched comparisons. Do not pool them or count overlapping
 datasets as independent replications across specifications. Keep the new
 diagnostic separate from both the main ensemble and the older source versions.
-Monitor and assess both runs before finishing this task.
+All three protocols have now been downloaded and assessed in separate final
+result directories. The completed main report verifies all 800 unique datasets,
+3,200 finite estimates, zero failures, and all planned 32 cells. Its score
+variance identity passes within 8.2e-15. At n>=4000, maximum absolute bias is
+.003016; dose n=500 horizon 1 has bias about .016. Dose n=1000 horizon 2 remains
+a calibration concern, while binary n=4000 horizon 2 has conservative SEs.
 
-After it completes, download its `full-history-report` artifact into a new
-directory, run `diagnose.R`, inspect every failure and all coverage/variance
-diagnostics, and preserve the frozen sources and original failed attempts.
-Do not pool fitting source versions or nuisance specifications. Any adjustment
-to the estimator requires a new source archive and a separately labeled run.
+`compare-specifications.R` adds the final requested n=10000 matched comparisons
+against both completed diagnostics. All 1,600 paired rows and 16 summary cells
+are verified complete, with 100 pairs each. The comparisons keep all fitting
+specifications separate and retain paired MCSE and discordant coverage counts.
+`diagnose.R` and `plot-inference.R` completed, and all three main scientific
+figures were visually inspected. The archive completeness check verifies both
+finite estimates and the explicit recorded error fields; no fitting error exists.
+
+The requested implementation and specified validation/diagnosis are documented.
+Uniform nominal coverage remains unestablished; the PRs remain drafts. Any
+future estimator change requires new frozen archives and separate validation.
+Historical failures, original seeds, unrelated observed-history work, paper
+LaTeX and pre-existing user edits are preserved.
