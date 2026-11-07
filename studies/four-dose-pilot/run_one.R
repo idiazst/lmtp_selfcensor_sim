@@ -52,6 +52,7 @@ for (method in c("sdr", "tmle")) {
   elapsed <- proc.time()[["elapsed"]] - started
   warning_counts <- unlist(as.list(warnings))
   checkpoint <- list(design = design, n = n, rep = replicate, seed = seed, variant = variant,
+    profile = spec$profile,
     crossfit = crossfit, outer_folds = outer_folds,
     method = method, data_hash = data_hash, fold_hash = fold_hash, fingerprint = fingerprint,
     elapsed = elapsed, warnings = names(warning_counts), warning_counts = warning_counts,

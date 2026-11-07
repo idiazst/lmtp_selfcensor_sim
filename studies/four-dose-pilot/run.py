@@ -111,7 +111,7 @@ def main():
                           if args.study_replicates is not None else args.replicates)
     config = dict(crossfit=args.crossfit, outer_folds=args.outer_folds,
                   sizes=args.sizes, replicates=planned_replicates, designs=args.designs,
-                  variants=args.variants)
+                  variants=args.variants, profile=os.environ.get("FOUR_DOSE_PROFILE", "baseline"))
     fingerprint = hashlib.sha256(json.dumps(dict(sources=manifest, config=config),
                                            sort_keys=True).encode()).hexdigest()
     marker = out / "source-fingerprint.txt"

@@ -1,5 +1,5 @@
 name: Four-dose observed and full-history simulation
-run-name: Four-dose ${{ inputs.study_id || 'four-dose-20261106-v1' }} - replications ${{ inputs.first || '1' }}-${{ inputs.last || '250' }}
+run-name: Four-dose ${{ inputs.study_id || 'four-dose-20261106-v1' }} (${{ inputs.profile || 'baseline' }}) - replications ${{ inputs.first || '1' }}-${{ inputs.last || '250' }}
 on:
   push:
     branches: [four-dose-20261106-v1]
@@ -28,6 +28,23 @@ on:
         description: Concurrent runners; each fits two datasets at a time
         required: true
         default: '10'
+      profile:
+        description: Estimation profile; use a distinct study label for each profile
+        type: choice
+        options: [baseline, support, rich_adjoint, support_rich]
+        default: baseline
+      designs:
+        description: Comma-separated designs (observed,full)
+        required: true
+        default: observed,full
+      sizes:
+        description: Comma-separated sample sizes (1000,4000,10000)
+        required: true
+        default: '1000,4000,10000'
+      replications:
+        description: Total planned replications per setting across all cohorts
+        required: true
+        default: '500'
 permissions:
   contents: read
   actions: read
@@ -36,6 +53,10 @@ env:
   FIRST: ${{ inputs.first || '1' }}
   LAST: ${{ inputs.last || '250' }}
   PARALLEL: ${{ inputs.parallel || '10' }}
+  FOUR_DOSE_PROFILE: ${{ inputs.profile || 'baseline' }}
+  DESIGNS: ${{ inputs.designs || 'observed,full' }}
+  SIZES: ${{ inputs.sizes || '1000,4000,10000' }}
+  REPLICATIONS: ${{ inputs.replications || '500' }}
   OMP_NUM_THREADS: '1'
   OPENBLAS_NUM_THREADS: '1'
   MKL_NUM_THREADS: '1'
@@ -49,6 +70,26 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.matrix }}
     steps:
+      - name: Validate the study configuration and build the cohort matrix
+        id: matrix
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          first, last, parallel, total = (int(os.environ[x]) for x in ('FIRST', 'LAST', 'PARALLEL', 'REPLICATIONS'))
+          assert 1 <= total <= 500
+          assert 1 <= first <= last <= total and last-first+1 <= 250
+          assert 1 <= parallel <= 20
+          assert re.fullmatch(r'[a-zA-Z0-9_-]{1,60}', os.environ['STUDY_ID'])
+          assert os.environ['FOUR_DOSE_PROFILE'] in ('baseline', 'support', 'rich_adjoint', 'support_rich')
+          designs = [x.strip() for x in os.environ['DESIGNS'].split(',')]
+          sizes = [int(x.strip()) for x in os.environ['SIZES'].split(',')]
+          assert designs and len(designs) == len(set(designs)) and set(designs) <= {'observed', 'full'}
+          assert sizes and len(sizes) == len(set(sizes)) and set(sizes) <= {1000, 4000, 10000}
+          if os.environ['FOUR_DOSE_PROFILE'] in ('support', 'support_rich'):
+              assert designs == ['full'], 'Treatment-support profiles currently require designs=full.'
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write('matrix='+json.dumps({'replicate': list(range(first,last+1))})+'\n')
+          PY
       - uses: actions/checkout@v4
         with:
           sparse-checkout: |
@@ -68,25 +109,21 @@ jobs:
           key: four-dose-linux-r452-${{ hashFiles('dependencies/four-dose/**', 'studies/four-dose-pilot/install.R') }}
       - name: Install and verify the frozen package sources
         run: Rscript --vanilla studies/four-dose-pilot/install.R
-      - name: Verify the generator and freeze the 3,000-dataset study
+      - name: Verify the generator and freeze the complete selected study
         run: |
           python3 -m py_compile studies/four-dose-pilot/*.py
           python3 studies/four-dose-pilot/test_artifacts.py
           Rscript --vanilla studies/four-dose-pilot/test_coverage.R
           python3 studies/full-history/verify_four_dose_design.py
           Rscript --vanilla studies/four-dose-pilot/check_data.R
-          python3 studies/four-dose-pilot/run.py --prepare-only --study-replicates 500 --sizes 1000 4000 10000 --output work/metadata
-      - name: Build the cohort matrix
-        id: matrix
-        run: |
           python3 - <<'PY'
-          import json, os, re
-          first, last, parallel = (int(os.environ[x]) for x in ('FIRST', 'LAST', 'PARALLEL'))
-          assert 1 <= first <= last <= 500 and last-first+1 <= 250
-          assert 1 <= parallel <= 20
-          assert re.fullmatch(r'[a-zA-Z0-9_-]{1,60}', os.environ['STUDY_ID'])
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
-              out.write('matrix='+json.dumps({'replicate': list(range(first,last+1))})+'\n')
+          import os, subprocess, sys
+          subprocess.run([sys.executable, 'studies/four-dose-pilot/run.py',
+              '--prepare-only', '--study-replicates', os.environ['REPLICATIONS'],
+              '--sizes', *[x.strip() for x in os.environ['SIZES'].split(',')],
+              '--designs', *[x.strip() for x in os.environ['DESIGNS'].split(',')],
+              '--variants', 'optimized', '--crossfit', 'outer', '--outer-folds', '4',
+              '--output', 'work/metadata'], check=True)
           PY
       - uses: actions/upload-artifact@v4
         with:
@@ -128,12 +165,20 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPLICATE: ${{ matrix.replicate }}
         run: python3 studies/four-dose-pilot/artifacts.py --study "$STUDY_ID" --replicate "$REPLICATE" --target work/shard
-      - name: Fit six datasets and retain every method result or failure
+      - name: Fit selected datasets and retain every method result or failure
         timeout-minutes: 310
         env:
           REPLICATE: ${{ matrix.replicate }}
         run: |
-          python3 studies/four-dose-pilot/run.py --output work/shard --workers 2 --sizes 1000 4000 10000 --replicates "$REPLICATE" --study-replicates 500 --designs observed full --variants optimized --crossfit outer --outer-folds 4
+          python3 - <<'PY'
+          import os, subprocess, sys
+          subprocess.run([sys.executable, 'studies/four-dose-pilot/run.py',
+              '--output', 'work/shard', '--workers', '2',
+              '--sizes', *[x.strip() for x in os.environ['SIZES'].split(',')],
+              '--replicates', os.environ['REPLICATE'], '--study-replicates', os.environ['REPLICATIONS'],
+              '--designs', *[x.strip() for x in os.environ['DESIGNS'].split(',')],
+              '--variants', 'optimized', '--crossfit', 'outer', '--outer-folds', '4'], check=True)
+          PY
       - uses: actions/upload-artifact@v4
         if: always()
         with:

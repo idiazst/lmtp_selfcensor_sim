@@ -50,8 +50,8 @@
         "R/eif.R": "0236d46919ee11dd0ffdca6996262e735648aeee89e8967e208dab425752529b",
         "R/estimators.R": "55e1de918ef41078136b0523f13f6d42a235ddf9b48913603baa0945c579991b",
         "R/event_locf.R": "9835a2b03647fd7e85adf0f8d9fb4508cfd404056dcf2410b0d38022ea04d4d6",
-        "R/full_history.R": "609fb3ff62181393a3a731f987f11775ed7bc4dd36ab2d7cc180ff7a3488636b",
-        "R/full_history_engine.R": "267e248d7f4d4efa3c3be56fa8988ca9d6d6b424ab08ec160af0f61037854ac3",
+        "R/full_history.R": "c48143ea2a75d69d79ba9f75df143cbaaf219bb7ca8ed1a438ae70580fa98d71",
+        "R/full_history_engine.R": "e6c3d97665ff521536d3a41c8dc2c598d35681151b2cf1b8569644207b82de2b",
         "R/isotonic_constraint.R": "c7f43d48ed570b8573faf19ac14b958b614881cdf0d7763dd1b5b72554106c59",
         "R/lmtp-package.R": "2552b4818ee346dd709ab2c1925add66769e5f63389fc19587361e6b0c8a3eb3",
         "R/lmtp_control.R": "163ec53fd5bc3a0bc6e1617d7ed1bc690708c36719230b5346bd15cbe566e67a",
@@ -115,7 +115,7 @@
         "man/tidy.lmtp.Rd": "9e46b18e8048f6ed5a1b861b2cd11a978bc66f7e8b35cd1eda007b86657d1316",
         "man/tidy.lmtp_survival.Rd": "c8e81d1ee58192aba4ad8d41e140ae6756683638e1e4fc0c4a3733c4e2c189bc"
       },
-      "sha256": "1cec9f2b9695b7e76f3da6ed26428e633993294851145f1a28ad683f82b5a630"
+      "sha256": "4934196ffae2b9dc8b0a05ef299df514ccecd7b6d729876faa1ccf4c2608d15e"
     }
   }
 }

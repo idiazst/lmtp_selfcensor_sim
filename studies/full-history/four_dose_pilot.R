@@ -4,6 +4,8 @@ four_dose_full_adapter <- function(data, folds, specification, seed, variant) {
   variant <- match.arg(variant, c("baseline", "optimized"))
   optimized <- identical(variant, "optimized")
   control <- specification$control
+  if (isTRUE(specification$policy_support))
+    control$.fh_ratio_support <- list(d = four_dose_support_d, t = four_dose_support_t)
   control$.fh_cache_predictions <- optimized
   control$.fh_ratio_seed <- seed
   outer_only <- identical(specification$crossfit, "outer")

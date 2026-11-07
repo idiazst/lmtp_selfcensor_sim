@@ -2,6 +2,8 @@
 # adapter belongs to one dataset and fold assignment; call it for SDR and TMLE
 # to reuse exactly the nuisance models that have the same training information.
 four_dose_observed_adapter <- function(data, folds, specification, seed, variant) {
+  if (isTRUE(specification$policy_support))
+    stop("The policy-support diagnostic is currently defined for full history only.")
   stopifnot(variant %in% c("baseline", "optimized"), is.list(folds))
   trt <- list(c("D1", "B1"), c("D2", "B2"))
   outcome <- c("Y2", "Y3")

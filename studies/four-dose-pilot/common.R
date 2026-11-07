@@ -99,6 +99,8 @@ SL.pilot_spline <- function(Y, X, newX, family, obsWeights, ...)
   pilot_regression(Y, X, newX, family, obsWeights, TRUE)
 
 four_dose_specification <- function(crossfit = "outer") {
+  profile <- match.arg(Sys.getenv("FOUR_DOSE_PROFILE", "baseline"),
+    c("baseline", "support", "rich_adjoint", "support_rich"))
   library <- function(link) list(
     sieve_md = list(method = "sieve_md", control = list(link = link,
       target_basis = "poly", target_degree = 2L, instrument_basis = "poly",
@@ -111,6 +113,20 @@ four_dose_specification <- function(crossfit = "outer") {
   control <- lmtp::lmtp_control(.learners_outcome_folds = 3L, .learners_trt_folds = 3L,
     .trim = 1, .discrete = FALSE, .return_full_fits = TRUE, .isotonic_constraint = FALSE,
     .cm_kernel = "rbf", .cm_project_psd = TRUE)
-  list(crossfit = crossfit, learners = c("SL.pilot_linear","SL.pilot_spline","SL.mean"),
-       bridge = library("inverse_logit"), adjoint = library("identity"), control = control)
+  adjoint <- library("identity")
+  if (profile %in% c("rich_adjoint", "support_rich")) {
+    for (candidate in c("sieve_md", "landweber")) {
+      adjoint[[candidate]]$control$target_basis <- "quadratic"
+      adjoint[[candidate]]$control$instrument_basis <- "quadratic"
+    }
+  }
+  list(crossfit = crossfit, profile = profile,
+       policy_support = profile %in% c("support", "support_rich"),
+       learners = c("SL.pilot_linear","SL.pilot_spline","SL.mean"),
+       bridge = library("inverse_logit"), adjoint = adjoint, control = control)
 }
+
+# Known support of the two full-history policies, independent of the natural
+# treatment law. Defined outside the adapter so callbacks have stable environments.
+four_dose_support_d <- function(data, trt) data[[trt[1L]]] > 0
+four_dose_support_t <- function(data, trt) data[[trt[2L]]] == 0

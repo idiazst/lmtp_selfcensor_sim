@@ -6,13 +6,24 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
   outer_only <- identical(control$.fh_nested_responses, FALSE)
   if (outer_only && (is.null(root_labels) || length(unique(root_labels)) < 3L))
     stop("Outer-only full-history fitting needs at least three supplied inner person groups.")
+  ratio_support <- control$.fh_ratio_support
+  if (!is.null(ratio_support) && (!is.list(ratio_support) ||
+      (length(ratio_support) && (is.null(names(ratio_support)) ||
+        anyDuplicated(names(ratio_support)) || any(!names(ratio_support) %in% c("d", "t")))) ||
+      !all(vapply(ratio_support, is.function, TRUE))))
+    stop(".fh_ratio_support must be NULL or a named list of d/t functions.")
   if (is.null(nuisance_cache)) nuisance_cache <- new.env(parent = emptyenv())
+  signature_control <- control
+  # A support callback can be created in the adapter's frame alongside its
+  # mutable nuisance cache. Hash its referenced bindings, not that whole frame.
+  if (!is.null(ratio_support)) signature_control$.fh_ratio_support <-
+    lapply(ratio_support, fh_function_key)
   signature <- digest::digest(list(implementation = "1.6.0.9025", data = z$data[root, , drop = FALSE], id = z$id[root],
     rows = root, labels = root_labels, rules = lapply(z$rules, function(rules) lapply(rules, fh_function_key)), nodes = z$epsilon,
     randomizer = fh_function_key(z$randomizer), ratio_draws = z$ratio_draws, mtp = z$mtp,
     trt = z$trt, health = z$health, baseline = z$baseline, k = z$k,
     libraries = libraries, learners_y = learners_y, learners_a = learners_a,
-    bounds = bounds, control = control))
+    bounds = bounds, control = signature_control))
   if (!exists(signature, nuisance_cache, inherits = FALSE))
     assign(signature, new.env(parent = emptyenv()), nuisance_cache)
   cache <- get(signature, nuisance_cache, inherits = FALSE)
@@ -119,6 +130,25 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
       stop("Full-history bridges must be finite and >=1; use inverse_logit parameterizations.")
     out
   }
+  apply_ratio_support <- function(value, rows, s, branch) {
+    supported <- rep(TRUE, length(rows))
+    if (branch == "d" && !z$mtp) supported <- rowSums(as.matrix(
+      z$data[rows, z$trt[[s]], drop = FALSE]) == fh_policy(z, rows, s, "d")) ==
+      length(z$trt[[s]])
+    rule <- ratio_support[[branch]]
+    if (!is.null(rule)) {
+      first <- if (is.infinite(z$k)) 1L else max(1L, s - z$k + 1L)
+      columns <- unique(c(z$baseline, unlist(z$health[first:s]),
+        unlist(z$trt[first:s]), z$measurement[first:s]))
+      allowed <- rule(z$data[rows, columns, drop = FALSE], z$trt[[s]])
+      if (!is.logical(allowed) || !is.null(dim(allowed)) ||
+          length(allowed) != length(rows) || anyNA(allowed))
+        stop(".fh_ratio_support$", branch, " must return one nonmissing logical value per row.")
+      supported <- supported & allowed
+    }
+    value[!supported] <- 0
+    value
+  }
   ratio_fit <- function(train, s, branch) remember(train, paste0("ratio", s, branch), function() {
     eligible <- train[z$J[train, s]]
     natural <- fh_design(z, eligible, s)
@@ -161,9 +191,7 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
     fit <- run_ensemble(stacked, "..fh_y", learners_a, "binomial", "..fh_id",
       list(fold_id = labels), control$.discrete, control$.info, penalty_folds = sl_splits)
     p <- predict(fit, natural)
-    ratio <- p / (1 - p) / multiplier
-    if (branch == "d" && !z$mtp) ratio[rowSums(as.matrix(z$data[eligible, z$trt[[s]], drop = FALSE]) ==
-      fh_policy(z, eligible, s, "d")) != length(z$trt[[s]])] <- 0
+    ratio <- apply_ratio_support(p / (1 - p) / multiplier, eligible, s, branch)
     cap <- if (control$.trim < 1) as.numeric(quantile(ratio, control$.trim)) else Inf
     list(fit = fit, multiplier = multiplier, cap = cap)
   })
@@ -182,9 +210,7 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
           fit <- ratio_fit(train, s, branch)
           p <- predict(fit$fit, natural)
           value <- pmin(p / (1 - p) / fit$multiplier, fit$cap)
-          if (branch == "d" && !z$mtp) value[rowSums(as.matrix(
-            z$data[rows[eligible], z$trt[[s]], drop = FALSE]) ==
-            fh_policy(z, rows[eligible], s, "d")) != length(z$trt[[s]])] <- 0
+          value <- apply_ratio_support(value, rows[eligible], s, branch)
           if (branch == "d") rd[eligible, s] <- value else rt[eligible, s] <- value
         }
       }
@@ -245,9 +271,7 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
         p <- bound(as.numeric(classifier$fit$Z[seq_along(eligible), used, drop = FALSE] %*%
           classifier$fit$coef[used]), .Machine$double.eps)
         ratio <- pmin(p / (1 - p) / classifier$multiplier, classifier$cap)
-        if (branch == "d" && !z$mtp) ratio[rowSums(as.matrix(
-          z$data[eligible, z$trt[[s]], drop = FALSE]) ==
-          fh_policy(z, eligible, s, "d")) != length(z$trt[[s]])] <- 0
+        ratio <- apply_ratio_support(ratio, eligible, s, branch)
         out[[branch]][at, s] <- ratio
       }
     }

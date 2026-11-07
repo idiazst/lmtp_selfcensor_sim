@@ -49,6 +49,13 @@
 #'   including zero. Values outside it cause an error, never silent clipping.
 #' @param control Controls from [lmtp_control()]. Density-ratio trimming is
 #'   calibrated on training predictions only; use .trim=1 to disable it.
+#'   Optionally set `control$.fh_ratio_support` to a named list of `d` and/or
+#'   `t` functions of `(data, trt)`, each returning one nonmissing logical value
+#'   per row indicating whether the natural treatment is in that branch's known
+#'   policy support. Callbacks receive retained history through the current
+#'   treatment, in the original column names. Ratios outside support are zero
+#'   in training, out-of-fold and validation predictions. These restrictions
+#'   supplement the existing static-policy zeros and are absent by default.
 #' @param id Optional cluster ID column.
 #' @param nuisance_cache Optional environment shared by SDR/TMLE calls with the
 #'   same data, policies and splits. Only identical training problems are reused;
