@@ -13,10 +13,19 @@
 }
 \description{Fits h in E[Y-D h(X) given Z]=0 using a common interface.}
 \details{For \code{sieve_md} and \code{landweber}, \code{target_basis} and
-\code{instrument_basis} may be \code{"bs"}, \code{"poly"}, \code{"quadratic"}, \code{"cell"}, or \code{"cell_linear"}.
+\code{instrument_basis} may be \code{"bs"}, \code{"poly"}, \code{"quadratic"}, \code{"cell"}, \code{"cell_linear"}, or \code{"tensor_poly"}.
 The \code{"quadratic"} basis includes an intercept, every main effect, every
 square, and every pairwise interaction. These terms are fixed independently
 of training-sample combinations, with no category fallback.
+The \code{"tensor_poly"} basis includes every interaction of marginal
+polynomials through \code{target_degree} or \code{instrument_degree}. Each
+marginal degree is reduced to the number of distinct training values minus
+one when necessary; constant inputs contribute only degree zero. Marginals
+use orthogonal polynomials scaled to unit empirical root mean square in the
+training data. Their coefficients, degrees and scaling are retained unchanged
+at prediction. Thus a degree-three tensor with one continuous, one four-level
+and two binary inputs has 64 columns. Designs exceeding 4096 columns raise
+an error requesting a lower degree, fewer inputs or an additive basis.
 The \code{"cell"} basis includes an intercept and indicators for joint input
 categories observed in training, representing all their interactions; unseen
 categories receive the intercept. When both sieve bases are \code{"cell"},

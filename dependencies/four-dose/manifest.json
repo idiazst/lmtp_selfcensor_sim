@@ -5,10 +5,10 @@
         "DESCRIPTION": "4569d09f893b99b3903a889c3586793a0b6bb895270a05578e6386e5f8af9853",
         "LICENSE": "a12edbdfe38dacbf1c04ceba8ae41a56d862e30925f6c7faadf1fd2f9382e11a",
         "NAMESPACE": "26888965fc2b128209e6be0a52f3f29a5df259b015ca22a033f32112a8c10401",
-        "R/basis.R": "b35a067691e72672aa3c3d3820b03df687d3a73500d92de94938dbf33694bc2d",
+        "R/basis.R": "6ebff491699f1536d7dd322fa815b6d47169f9148e3c4670e570d1c4b4a433c1",
         "R/cmbridge-package.R": "00e985ef26566ed14a88635c8eead375210bd26fb7d6f2d413a105b634e6e82f",
         "R/ensemble.R": "275641fdb5d45a2bb6eecea8c28f64f12c986c0884d946b6c347638d86520006",
-        "R/fit.R": "c47a0ae0008cccf35d2f087cb496bea970f5e5e52af7f813c299c28feade9696",
+        "R/fit.R": "b54614d31d47e1cc563563378ca22d03789b0a2422ea3abecec57aed9fd56d33",
         "R/landweber.R": "571f512d95b584ce3f7f7187bbbd7477af7ca7489cf2be2af65e5fecbc51384f",
         "R/linked_moment.R": "6dbda5713be7d6090eb18d73e4f07cf3b2ed545f7171ee141416fdd9da7e2eda",
         "R/pmmr.R": "7702ea5760f0a9bdb6e563fc928b6dd409bb4bcd0bfca5553ad7b32eb1ce0939",
@@ -23,14 +23,14 @@
         "man/fit_adjoint_ensemble.Rd": "1fe5466bec9b4d709c5f56152795e8b0024516703022403fa36aa1fa64355cf0",
         "man/fit_bridge.Rd": "0dcc50cd51a8f035b48a740fe43205a20b6b85fec02e3165b4450fe80ea2fa2e",
         "man/fit_bridge_ensemble.Rd": "b7935c38a3a2e2b63bf1c8d7b3faf0d58b08f26dc84f27f3558299e6a913bd06",
-        "man/fit_cm.Rd": "6f53ec10f7770d8674f9b053099fadb04d7dfe2416a8659078cdad943e93aadc",
+        "man/fit_cm.Rd": "932093bd59c49977e81140abe2f4452e4b3b74b2402a626c122e166f9f5062a5",
         "man/moment_loss.Rd": "c7e95c5650417ad7c0dc0a862f481a88cc9b8742dfd4b193b94ec2ac95480f2c",
         "man/poly_basis.Rd": "c6e628fdf573375a5fc60eed14bbfa55e9f8cfd1f81f2499a89e334f7eac65a0",
         "man/predict.cmbridge_fit.Rd": "d937d8d21293f6fe9b30e8749e0fa50dac001bc41dbb21b61602ce116f63df3a",
         "man/rbf_kernel.Rd": "51541a40e4730dfa8d392894c7fd3cae9cda7398b13c4155d82871d22e954348",
         "man/select_penalty_grid.Rd": "6da2911fc2cddf295e51c0582375572db4ceca549138a86bbe18f47e74d57895"
       },
-      "sha256": "3bd56069c983087e0c468f57e8b9364811663428a2d59dae4549585bfa2adaba"
+      "sha256": "d4dd016bf778fbd5de550a1ad8874d5fc19056e60a3f37ef1a0ecdeca80fe917"
     },
     "lmtp": {
       "files": {

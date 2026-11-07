@@ -12,6 +12,11 @@
 #' @param control Method-specific control list. The cell sieve, Landweber and PMMR support
 #'   positive links with unrestricted real coefficients. Optional lower and upper
 #'   bounds must be infinite; post-fit clipping is not supported.
+#'   Sieve and Landweber bases may use `"tensor_poly"` for all interactions of
+#'   marginal polynomials. Each degree is limited by the number of distinct
+#'   training values minus one. Training-fitted orthogonal coordinates and
+#'   their unit empirical RMS scaling are retained for prediction. The tensor
+#'   is limited to 4096 columns; existing basis defaults are unchanged.
 #' @return An object of class cmbridge_fit.
 #' @export
 fit_cm <- function(response, diagonal = NULL, target, instrument,

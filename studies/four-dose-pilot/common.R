@@ -100,7 +100,7 @@ SL.pilot_spline <- function(Y, X, newX, family, obsWeights, ...)
 
 four_dose_specification <- function(crossfit = "outer") {
   profile <- match.arg(Sys.getenv("FOUR_DOSE_PROFILE", "baseline"),
-    c("baseline", "support", "rich_adjoint", "support_rich"))
+    c("baseline", "support", "rich_adjoint", "support_rich", "tensor_adjoint", "support_tensor"))
   library <- function(link) list(
     sieve_md = list(method = "sieve_md", control = list(link = link,
       target_basis = "poly", target_degree = 2L, instrument_basis = "poly",
@@ -120,8 +120,16 @@ four_dose_specification <- function(crossfit = "outer") {
       adjoint[[candidate]]$control$instrument_basis <- "quadratic"
     }
   }
+  if (profile %in% c("tensor_adjoint", "support_tensor")) {
+    for (candidate in c("sieve_md", "landweber")) {
+      adjoint[[candidate]]$control$target_basis <- "tensor_poly"
+      adjoint[[candidate]]$control$instrument_basis <- "tensor_poly"
+      adjoint[[candidate]]$control$target_degree <- 3L
+      adjoint[[candidate]]$control$instrument_degree <- 3L
+    }
+  }
   list(crossfit = crossfit, profile = profile,
-       policy_support = profile %in% c("support", "support_rich"),
+       policy_support = profile %in% c("support", "support_rich", "support_tensor"),
        learners = c("SL.pilot_linear","SL.pilot_spline","SL.mean"),
        bridge = library("inverse_logit"), adjoint = adjoint, control = control)
 }

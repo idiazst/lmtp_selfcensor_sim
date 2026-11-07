@@ -17,7 +17,7 @@ poly_basis <- function(x, degree = 3L, intercept = TRUE) {
   out
 }
 
-.fit_basis_spec <- function(x, type = c("bs", "poly", "cell", "quadratic", "cell_linear"), degree = 3L, df = 6L) {
+.fit_basis_spec <- function(x, type = c("bs", "poly", "cell", "quadratic", "cell_linear", "tensor_poly"), degree = 3L, df = 6L) {
   type <- match.arg(type)
   x <- .as_matrix(x)
   if (anyNA(x)) stop("basis fitting data cannot contain missing values.", call. = FALSE)
@@ -26,6 +26,28 @@ poly_basis <- function(x, degree = 3L, intercept = TRUE) {
   }
   if (type == "poly") {
     return(list(type = type, degree = as.integer(degree), p = ncol(x)))
+  }
+  if (type == "tensor_poly") {
+    if (length(degree) != 1L || !is.numeric(degree) || !is.finite(degree) ||
+        degree < 1 || degree != floor(degree) || degree > .Machine$integer.max)
+      stop("tensor_poly degree must be a positive integer.", call. = FALSE)
+    if (!nrow(x) || any(!is.finite(x)))
+      stop("tensor_poly fitting requires nonempty finite data.", call. = FALSE)
+    degrees <- vapply(seq_len(ncol(x)), function(j)
+      as.integer(min(degree, length(unique(x[, j])) - 1L)), integer(1))
+    width <- prod(as.double(degrees) + 1)
+    if (!is.finite(width) || width > 4096)
+      stop("tensor_poly would exceed 4096 columns; reduce the degree or number of inputs, or use an additive basis.",
+           call. = FALSE)
+    # The tensor spans marginal powers through the learned degrees. Orthogonal
+    # coordinates avoid a badly conditioned raw Vandermonde product; scaling
+    # each marginal to unit empirical RMS keeps ridge scales independent of n.
+    coefs <- lapply(seq_len(ncol(x)), function(j) {
+      if (!degrees[j]) return(NULL)
+      attr(stats::poly(x[, j], degree = degrees[j]), "coefs")
+    })
+    return(list(type = type, degree = as.integer(degree), degrees = degrees,
+      coefs = coefs, normalization = sqrt(nrow(x)), width = as.integer(width), p = ncol(x)))
   }
   if (type == "quadratic") return(list(type = type, degree = 2L, p = ncol(x)))
   specs <- vector("list", ncol(x))
@@ -70,6 +92,21 @@ poly_basis <- function(x, degree = 3L, intercept = TRUE) {
     return(out)
   }
   if (spec$type == "poly") return(poly_basis(x, degree = spec$degree, intercept = TRUE))
+  if (spec$type == "tensor_poly") {
+    if (!nrow(x)) return(matrix(numeric(), nrow = 0L, ncol = spec$width))
+    out <- matrix(1, nrow(x), 1L)
+    for (j in seq_len(spec$p)) {
+      if (!spec$degrees[j]) next
+      marginal <- cbind(1, stats::poly(x[, j], degree = spec$degrees[j],
+        coefs = spec$coefs[[j]]) * spec$normalization)
+      # Earlier input exponents vary fastest. Keep this training-defined
+      # column order even if prediction data contain fewer or new values.
+      out <- out[, rep(seq_len(ncol(out)), times = ncol(marginal)), drop = FALSE] *
+        marginal[, rep(seq_len(ncol(marginal)), each = ncol(out)), drop = FALSE]
+    }
+    dimnames(out) <- NULL
+    return(out)
+  }
   if (spec$type == "quadratic") {
     # A fixed polynomial basis: intercept, every main effect, every square,
     # and every pairwise interaction. No levels or terms are learned from x.
