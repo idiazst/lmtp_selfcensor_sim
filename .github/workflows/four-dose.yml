@@ -1,0 +1,185 @@
+name: Four-dose observed and full-history simulation
+run-name: Four-dose ${{ inputs.study_id || 'four-dose-20261106-v1' }} - replications ${{ inputs.first || '1' }}-${{ inputs.last || '250' }}
+on:
+  push:
+    branches: [four-dose-20261106-v1]
+    paths:
+      - '.github/workflows/four-dose.yml'
+      - 'dependencies/four-dose/**'
+      - 'studies/four-dose-pilot/**'
+      - 'studies/longitudinal/four_dose_pilot.R'
+      - 'studies/full-history/four_dose_pilot.R'
+      - 'studies/full-history/verify_four_dose_design.py'
+  workflow_dispatch:
+    inputs:
+      study_id:
+        description: Immutable study label, shared by both cohorts
+        required: true
+        default: four-dose-20261106-v1
+      first:
+        description: First replication in this cohort
+        required: true
+        default: '251'
+      last:
+        description: Last replication (at most 250 per workflow)
+        required: true
+        default: '500'
+      parallel:
+        description: Concurrent runners; each fits two datasets at a time
+        required: true
+        default: '10'
+permissions:
+  contents: read
+  actions: read
+env:
+  STUDY_ID: ${{ inputs.study_id || 'four-dose-20261106-v1' }}
+  FIRST: ${{ inputs.first || '1' }}
+  LAST: ${{ inputs.last || '250' }}
+  PARALLEL: ${{ inputs.parallel || '10' }}
+  OMP_NUM_THREADS: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  VECLIB_MAXIMUM_THREADS: '1'
+  FOUR_DOSE_SOURCE_ROOT: dependencies/four-dose
+  R_LIBS_USER: ${{ github.workspace }}/.runtime/four-dose-outer-library
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    outputs:
+      matrix: ${{ steps.matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies/four-dose
+            studies/four-dose-pilot
+            studies/longitudinal/four_dose_pilot.R
+            studies/full-history/four_dose_pilot.R
+            studies/full-history/verify_four_dose_design.py
+          sparse-checkout-cone-mode: false
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache@v4
+        with:
+          path: .runtime/four-dose-outer-library
+          key: four-dose-linux-r452-${{ hashFiles('dependencies/four-dose/**', 'studies/four-dose-pilot/install.R') }}
+      - name: Install and verify the frozen package sources
+        run: Rscript --vanilla studies/four-dose-pilot/install.R
+      - name: Verify the generator and freeze the 3,000-dataset study
+        run: |
+          python3 -m py_compile studies/four-dose-pilot/*.py
+          python3 studies/four-dose-pilot/test_artifacts.py
+          Rscript --vanilla studies/four-dose-pilot/test_coverage.R
+          python3 studies/full-history/verify_four_dose_design.py
+          Rscript --vanilla studies/four-dose-pilot/check_data.R
+          python3 studies/four-dose-pilot/run.py --prepare-only --study-replicates 500 --sizes 1000 4000 10000 --output work/metadata
+      - name: Build the cohort matrix
+        id: matrix
+        run: |
+          python3 - <<'PY'
+          import json, os, re
+          first, last, parallel = (int(os.environ[x]) for x in ('FIRST', 'LAST', 'PARALLEL'))
+          assert 1 <= first <= last <= 500 and last-first+1 <= 250
+          assert 1 <= parallel <= 20
+          assert re.fullmatch(r'[a-zA-Z0-9_-]{1,60}', os.environ['STUDY_ID'])
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+              out.write('matrix='+json.dumps({'replicate': list(range(first,last+1))})+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.STUDY_ID }}-design-${{ env.FIRST }}-${{ env.LAST }}
+          path: work/metadata/
+          retention-days: 90
+          if-no-files-found: error
+  fit:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.parallel || '10') }}
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies/four-dose
+            studies/four-dose-pilot
+            studies/longitudinal/four_dose_pilot.R
+            studies/full-history/four_dose_pilot.R
+            studies/full-history/verify_four_dose_design.py
+          sparse-checkout-cone-mode: false
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .runtime/four-dose-outer-library
+          key: four-dose-linux-r452-${{ hashFiles('dependencies/four-dose/**', 'studies/four-dose-pilot/install.R') }}
+      - name: Verify the frozen package installation
+        run: Rscript --vanilla studies/four-dose-pilot/install.R
+      - name: Recover saved methods before retrying an interrupted shard
+        if: github.run_attempt > 1
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPLICATE: ${{ matrix.replicate }}
+        run: python3 studies/four-dose-pilot/artifacts.py --study "$STUDY_ID" --replicate "$REPLICATE" --target work/shard
+      - name: Fit six datasets and retain every method result or failure
+        timeout-minutes: 310
+        env:
+          REPLICATE: ${{ matrix.replicate }}
+        run: |
+          python3 studies/four-dose-pilot/run.py --output work/shard --workers 2 --sizes 1000 4000 10000 --replicates "$REPLICATE" --study-replicates 500 --designs observed full --variants optimized --crossfit outer --outer-folds 4
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ env.STUDY_ID }}-r${{ matrix.replicate }}-attempt${{ github.run_attempt }}
+          path: work/shard/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 6
+  report:
+    needs: [prepare, fit]
+    if: always() && needs.prepare.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            dependencies/four-dose
+            studies/four-dose-pilot
+          sparse-checkout-cone-mode: false
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.5.2'
+          use-public-rspm: true
+      - uses: actions/cache/restore@v4
+        with:
+          path: .runtime/four-dose-outer-library
+          key: four-dose-linux-r452-${{ hashFiles('dependencies/four-dose/**', 'studies/four-dose-pilot/install.R') }}
+      - name: Verify the frozen package installation
+        run: Rscript --vanilla studies/four-dose-pilot/install.R
+      - name: Read immutable results from both cohorts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 studies/four-dose-pilot/artifacts.py --study "$STUDY_ID" --target work/report
+      - name: Summarize coverage, Monte Carlo uncertainty and failures
+        run: Rscript --vanilla studies/four-dose-pilot/coverage.R work/report work/report
+      - name: Publish the current coverage summary
+        run: cat work/report/COVERAGE.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ env.STUDY_ID }}-report-${{ env.FIRST }}-${{ env.LAST }}-attempt${{ github.run_attempt }}
+          path: |
+            work/report/*.md
+            work/report/*.csv
+            work/report/*.json
+            work/report/*.txt
+          if-no-files-found: error
+          retention-days: 90
