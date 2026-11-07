@@ -63,6 +63,8 @@ The true final-outcome mean is 0.536243. Replication 145's dominant fold falls f
 
 The remaining issues concern nuisance approximation, regularization and fit stability. The completed audits have not identified an EIF sign, SE scaling, person-fold or randomizer class-proportion implementation error. Negative U scores are mathematically possible; the evidence here is that unstable fitted candidates can win that criterion. Further work should assess bridge stability and uncertainty calibration using fixed numerical specifications and separate confirmation seeds. Repeatedly selecting profiles solely for favorable coverage would not validate inference.
 
+An additional reproducibility audit found that some recomputed bridge fits differ across GitHub runs despite identical data, person folds, bridge configuration and recorded R/package/BLAS versions. The comparisons hold the bridge algorithm fixed; they do not reuse saved fitted bridge objects. Very small selected-loss differences can accompany substantial changes in U-based stacking weights when penalties are near machine precision. The audit found no RNG leak or source/provenance mismatch. Hardware-level floating-point differences are a possible explanation, but CPU details were not recorded and that explanation is unverified. Consequently, these are comparisons of fitting configurations, with numerical sensitivity in some otherwise unchanged nuisances. The two selected stress replays above did reproduce their bridge diagnostics exactly.
+
 ## Run provenance and saved reports
 
 | Run | GitHub Actions |
