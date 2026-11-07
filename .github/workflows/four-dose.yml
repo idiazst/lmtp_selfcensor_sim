@@ -31,7 +31,7 @@ on:
       profile:
         description: Estimation profile; use a distinct study label for each profile
         type: choice
-        options: [baseline, support, rich_adjoint, support_rich, tensor_adjoint, support_tensor]
+        options: [baseline, support, rich_adjoint, support_rich, tensor_adjoint, support_tensor, tensor_v]
         default: baseline
       designs:
         description: Comma-separated designs (observed,full)
@@ -80,12 +80,12 @@ jobs:
           assert 1 <= first <= last <= total and last-first+1 <= 250
           assert 1 <= parallel <= 20
           assert re.fullmatch(r'[a-zA-Z0-9_-]{1,60}', os.environ['STUDY_ID'])
-          assert os.environ['FOUR_DOSE_PROFILE'] in ('baseline', 'support', 'rich_adjoint', 'support_rich', 'tensor_adjoint', 'support_tensor')
+          assert os.environ['FOUR_DOSE_PROFILE'] in ('baseline', 'support', 'rich_adjoint', 'support_rich', 'tensor_adjoint', 'support_tensor', 'tensor_v')
           designs = [x.strip() for x in os.environ['DESIGNS'].split(',')]
           sizes = [int(x.strip()) for x in os.environ['SIZES'].split(',')]
           assert designs and len(designs) == len(set(designs)) and set(designs) <= {'observed', 'full'}
           assert sizes and len(sizes) == len(set(sizes)) and set(sizes) <= {1000, 4000, 10000}
-          if os.environ['FOUR_DOSE_PROFILE'] in ('support', 'support_rich', 'tensor_adjoint', 'support_tensor'):
+          if os.environ['FOUR_DOSE_PROFILE'] in ('support', 'support_rich', 'tensor_adjoint', 'support_tensor', 'tensor_v'):
               assert designs == ['full'], 'Support and tensor diagnostics currently require designs=full.'
           with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
               out.write('matrix='+json.dumps({'replicate': list(range(first,last+1))})+'\n')

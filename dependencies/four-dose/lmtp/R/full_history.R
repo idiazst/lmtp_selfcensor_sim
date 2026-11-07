@@ -56,6 +56,9 @@
 #'   treatment, in the original column names. Ratios outside support are zero
 #'   in training, out-of-fold and validation predictions. These restrictions
 #'   supplement the existing static-policy zeros and are absent by default.
+#'   `control$.fh_adjoint_statistic` selects `"u"` (default) or `"v"` for
+#'   adjoint ensemble and penalty validation. The V statistic retains the
+#'   kernel self-products. This option does not change bridge validation.
 #' @param id Optional cluster ID column.
 #' @param nuisance_cache Optional environment shared by SDR/TMLE calls with the
 #'   same data, policies and splits. Only identical training problems are reused;

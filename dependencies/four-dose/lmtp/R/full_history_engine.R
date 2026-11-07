@@ -6,6 +6,11 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
   outer_only <- identical(control$.fh_nested_responses, FALSE)
   if (outer_only && (is.null(root_labels) || length(unique(root_labels)) < 3L))
     stop("Outer-only full-history fitting needs at least three supplied inner person groups.")
+  adjoint_statistic <- control$.fh_adjoint_statistic
+  if (is.null(adjoint_statistic)) adjoint_statistic <- "u"
+  if (length(adjoint_statistic) != 1L || !is.character(adjoint_statistic) ||
+      is.na(adjoint_statistic) || !adjoint_statistic %in% c("u", "v"))
+    stop(".fh_adjoint_statistic must be either 'u' or 'v'.")
   ratio_support <- control$.fh_ratio_support
   if (!is.null(ratio_support) && (!is.list(ratio_support) ||
       (length(ratio_support) && (is.null(names(ratio_support)) ||
@@ -414,7 +419,7 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
           as.matrix(fh_design(z, eligible, s, bridge = TRUE)), M, frozen,
           library = cm_library(libraries$adjoint, eligible),
           fold_id = split_rows(train)[match(eligible, train)], kernel = control$.cm_kernel,
-          project_psd = control$.cm_project_psd))
+          statistic = adjoint_statistic, project_psd = control$.cm_project_psd))
       }
       # A conditional-moment subset is smaller than the underlying nuisance
       # training sample. Keep a map from its splits to the full person splits;
@@ -454,7 +459,8 @@ fh_engine <- function(z, root, root_labels, learners_y, learners_a, libraries,
       cmbridge::fit_adjoint_ensemble(as.matrix(fh_design(z, eligible, s)),
         as.matrix(fh_design(z, eligible, s, bridge = TRUE)), M, phi,
         library = cm_library(libraries$adjoint, eligible, penalty_split),
-        fold_id = labels, kernel = control$.cm_kernel, project_psd = control$.cm_project_psd)
+        fold_id = labels, kernel = control$.cm_kernel, statistic = adjoint_statistic,
+        project_psd = control$.cm_project_psd)
     })
     out <- numeric(length(rows)); ii <- which(z$J[rows, s])
     if (!isTRUE(fit$known) && length(ii)) out[ii] <- predict(fit, as.matrix(fh_design(z, rows[ii], s)))
